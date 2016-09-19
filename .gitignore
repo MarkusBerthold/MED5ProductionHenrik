@@ -1,82 +1,161 @@
+## Core latex/pdflatex auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+
+## Intermediate documents:
+*.dvi
+*-converted-to.*
+# these rules might exclude image files for figures etc.
+# *.ps
+# *.eps
+# *.pdf
+
+## Bibliography auxiliary files (bibtex/biblatex/biber):
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.brf
+*.run.xml
+
+## Build tool auxiliary files:
+*.fdb_latexmk
+*.synctex
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+## Auxiliary and intermediate files from other packages:
+
+# algorithms
+*.alg
+*.loa
+
+# achemso
+acs-*.bib
+
+# amsthm
+*.thm
+
+# beamer
+*.nav
+*.snm
+*.vrb
+
+#(e)ledmac/(e)ledpar
+*.end
+*.[1-9]
+*.[1-9][0-9]
+*.[1-9][0-9][0-9]
+*.[1-9]R
+*.[1-9][0-9]R
+*.[1-9][0-9][0-9]R
+*.eledsec[1-9]
+*.eledsec[1-9]R
+*.eledsec[1-9][0-9]
+*.eledsec[1-9][0-9]R
+*.eledsec[1-9][0-9][0-9]
+*.eledsec[1-9][0-9][0-9]R
+
+# glossaries
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+
+# gnuplottex
+*-gnuplottex-*
+
+# hyperref
+*.brf
+
+# knitr
+*-concordance.tex
+*.tikz
+*-tikzDictionary
+
+# listings
+*.lol
+
+# makeidx
+*.idx
+*.ilg
+*.ind
+*.ist
+
+# minitoc
+*.maf
+*.mtc
+*.mtc0
+
+# minted
+_minted*
+*.pyg
+
+# morewrites
+*.mw
+
+# nomencl
+*.nlo
+
+# sagetex
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# sympy
+*.sout
+*.sympy
+sympy-plots-for-*.tex/
+
+# todonotes
+*.tdo
+
+# xindy
+*.xdy
+
+# WinEdt
+*.bak
+*.sav
+
+
+# unity ignores
+
 # =============== #
 # Unity generated #
 # =============== #
-[Tt]emp/
-[Oo]bj/
-[Bb]uild
-/[Ll]ibrary/
-sysinfo.txt
-*.stackdump
- 
-# ============================================= #
-# Visual Studio / MonoDevelop / Rider generated #
-# ============================================= #
-[Ee]xported[Oo]bj/
-.vs/
-/*.userprefs
+Temp/
+Library/
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+obj/
+*.svd
+*.userprefs
 /*.csproj
-/*.pidb
-/*.suo
-/*.sln*
-/*.user
-/*.unityproj
-/*.booproj
-/.idea*/
- 
+*.pidb
+*.suo
+/*.sln
+*.user
+*.unityproj
+*.booproj
+
 # ============ #
 # OS generated #
 # ============ #
-.DS_Store*
+.DS_Store
+.DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
 ehthumbs.db
-[Tt]humbs.db
-[Dd]esktop.ini
-
- #For Mac developers
- # Unity generated #
- # =============== #
- Temp/
- obj/
- Build
- Library/
-  
- 
-     # ===================================== #
-     # Visual Studio / MonoDevelop generated #
-     # ===================================== #
-     ExportedObj/
-     *.svd
-     *.userprefs
-     *.csproj
-     *.pidb
-     *.suo
-     *.sln
-     *.user
-     *.unityproj
-     *.booproj
-     *.orig
-     *.app
-     *.exe
-     *.*_data
-     
-     Build/iOS
-     Build/android
-     
-     *.[od]
-     
-     # ============ #
-     # OS generated #
-     # ============ #
-     .DS_Store
-     .DS_Store?
-     ._*
-     .Spotlight-V100
-     .Trashes
-     Icon?
-     ehthumbs.db
-     Thumbs.db
-
-SmartButler\Library\*
-SmartButler\Library\metadata\*
+Thumbs.db
