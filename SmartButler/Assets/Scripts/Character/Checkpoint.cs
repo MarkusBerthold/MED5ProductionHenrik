@@ -21,6 +21,7 @@ namespace Assets.Scripts.Character {
         void OnTriggerEnter(Collider other) {
             if (other.gameObject.tag == "Player") {
                 FPScontroller.SetCurrentCheckpoint(this.transform.position);
+                this.GetComponent<BoxCollider>().enabled = false;
             }
         }
     }
