@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: 9d6203a65379b3249a65b777fc62307d
+timeCreated: 1476780051
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: AllPlants
+    100002: persp1
+    100004: plantBox
+    100006: plantBox10
+    100008: plantBox11
+    100010: plantBox2
+    100012: plantBox3
+    100014: plantBox5
+    100016: plantBox6
+    100018: plantBox9
+    100020: plantbox_10
+    100022: plantbox_11
+    100024: plantbox_13
+    100026: plantbox_14
+    100028: plantbox_9
+    100030: vineLeafyThick1Main1
+    100032: //RootNode
+    400000: AllPlants
+    400002: persp1
+    400004: plantBox
+    400006: plantBox10
+    400008: plantBox11
+    400010: plantBox2
+    400012: plantBox3
+    400014: plantBox5
+    400016: plantBox6
+    400018: plantBox9
+    400020: plantbox_10
+    400022: plantbox_11
+    400024: plantbox_13
+    400026: plantbox_14
+    400028: plantbox_9
+    400030: vineLeafyThick1Main1
+    400032: //RootNode
+    2300000: plantBox
+    2300002: plantBox10
+    2300004: plantBox11
+    2300006: plantBox2
+    2300008: plantBox3
+    2300010: plantBox5
+    2300012: plantBox6
+    2300014: plantBox9
+    2300016: plantbox_10
+    2300018: plantbox_11
+    2300020: plantbox_13
+    2300022: plantbox_14
+    2300024: plantbox_9
+    2300026: vineLeafyThick1Main1
+    3300000: plantBox
+    3300002: plantBox10
+    3300004: plantBox11
+    3300006: plantBox2
+    3300008: plantBox3
+    3300010: plantBox5
+    3300012: plantBox6
+    3300014: plantBox9
+    3300016: plantbox_10
+    3300018: plantbox_11
+    3300020: plantbox_13
+    3300022: plantbox_14
+    3300024: plantbox_9
+    3300026: vineLeafyThick1Main1
+    4300000: plantBox9
+    4300002: plantBox
+    4300004: plantBox2
+    4300006: plantBox3
+    4300008: plantbox_9
+    4300010: plantbox_14
+    4300012: vineLeafyThick1Main1
+    4300014: plantbox_13
+    4300016: plantBox6
+    4300018: plantBox10
+    4300020: plantbox_10
+    4300022: plantBox5
+    4300024: plantBox11
+    4300026: plantbox_11
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 32
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

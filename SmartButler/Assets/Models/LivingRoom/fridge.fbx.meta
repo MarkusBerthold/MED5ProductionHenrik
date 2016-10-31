@@ -1,0 +1,346 @@
+fileFormatVersion: 2
+guid: bf1c259160c6c8d4b908e41c75dda377
+timeCreated: 1476360257
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: freezer_door
+    100002: freezer_door 1
+    100004: freezer_door_1
+    100006: freezer_door_2
+    100008: freezer_door_2_freezer_handle_pCylinder8
+    100010: Freezer_drawer2
+    100012: Freezer_drawer3
+    100014: freezer_handle
+    100016: freezer_handle 1
+    100018: freezer_shelves
+    100020: //RootNode
+    100022: fridgeshelf1
+    100024: fridgeshelf2
+    100026: fridgeshelf3
+    100028: Ice_tray_lever
+    100030: left1
+    100032: Left_door
+    100034: Left_door 1
+    100036: Left_door_handle
+    100038: main_fridge_body
+    100040: pCylinder1
+    100042: pCylinder2
+    100044: pCylinder3
+    100046: pCylinder4
+    100048: pCylinder5
+    100050: pCylinder6
+    100052: pCylinder7
+    100054: pCylinder7 1
+    100056: pCylinder8
+    100058: pCylinder8 1
+    100060: pCylinder9
+    100062: pCylinder9 1
+    100064: polySurface1
+    100066: polySurface10
+    100068: polySurface11
+    100070: polySurface12
+    100072: polySurface13
+    100074: polySurface14
+    100076: polySurface15
+    100078: polySurface16
+    100080: polySurface17
+    100082: polySurface18
+    100084: polySurface19
+    100086: polySurface2
+    100088: polySurface20
+    100090: polySurface21
+    100092: polySurface22
+    100094: polySurface23
+    100096: polySurface24
+    100098: polySurface25
+    100100: polySurface26
+    100102: polySurface27
+    100104: polySurface3
+    100106: polySurface4
+    100108: polySurface5
+    100110: polySurface6
+    100112: polySurface7
+    100114: polySurface8
+    100116: polySurface9
+    100118: right1
+    100120: Right_door
+    100122: Right_door 1
+    100124: Right_door_handle
+    100126: shelfwithbottom1
+    100128: shelfwithbottom2
+    100130: shelfwithbottom3
+    100132: shelfwithbottom4
+    100134: top1
+    100136: transform1
+    100138: transform10
+    100140: transform11
+    100142: transform12
+    100144: transform13
+    100146: transform14
+    100148: transform15
+    100150: transform16
+    100152: transform17
+    100154: transform18
+    100156: transform19
+    100158: transform2
+    100160: transform20
+    100162: transform21
+    100164: transform22
+    100166: transform23
+    100168: transform24
+    100170: transform25
+    100172: transform26
+    100174: transform27
+    100176: transform28
+    100178: transform3
+    100180: transform4
+    100182: transform5
+    100184: transform6
+    100186: transform7
+    100188: transform8
+    100190: transform9
+    400000: freezer_door
+    400002: freezer_door 1
+    400004: freezer_door_1
+    400006: freezer_door_2
+    400008: freezer_door_2_freezer_handle_pCylinder8
+    400010: Freezer_drawer2
+    400012: Freezer_drawer3
+    400014: freezer_handle
+    400016: freezer_handle 1
+    400018: freezer_shelves
+    400020: //RootNode
+    400022: fridgeshelf1
+    400024: fridgeshelf2
+    400026: fridgeshelf3
+    400028: Ice_tray_lever
+    400030: left1
+    400032: Left_door
+    400034: Left_door 1
+    400036: Left_door_handle
+    400038: main_fridge_body
+    400040: pCylinder1
+    400042: pCylinder2
+    400044: pCylinder3
+    400046: pCylinder4
+    400048: pCylinder5
+    400050: pCylinder6
+    400052: pCylinder7
+    400054: pCylinder7 1
+    400056: pCylinder8
+    400058: pCylinder8 1
+    400060: pCylinder9
+    400062: pCylinder9 1
+    400064: polySurface1
+    400066: polySurface10
+    400068: polySurface11
+    400070: polySurface12
+    400072: polySurface13
+    400074: polySurface14
+    400076: polySurface15
+    400078: polySurface16
+    400080: polySurface17
+    400082: polySurface18
+    400084: polySurface19
+    400086: polySurface2
+    400088: polySurface20
+    400090: polySurface21
+    400092: polySurface22
+    400094: polySurface23
+    400096: polySurface24
+    400098: polySurface25
+    400100: polySurface26
+    400102: polySurface27
+    400104: polySurface3
+    400106: polySurface4
+    400108: polySurface5
+    400110: polySurface6
+    400112: polySurface7
+    400114: polySurface8
+    400116: polySurface9
+    400118: right1
+    400120: Right_door
+    400122: Right_door 1
+    400124: Right_door_handle
+    400126: shelfwithbottom1
+    400128: shelfwithbottom2
+    400130: shelfwithbottom3
+    400132: shelfwithbottom4
+    400134: top1
+    400136: transform1
+    400138: transform10
+    400140: transform11
+    400142: transform12
+    400144: transform13
+    400146: transform14
+    400148: transform15
+    400150: transform16
+    400152: transform17
+    400154: transform18
+    400156: transform19
+    400158: transform2
+    400160: transform20
+    400162: transform21
+    400164: transform22
+    400166: transform23
+    400168: transform24
+    400170: transform25
+    400172: transform26
+    400174: transform27
+    400176: transform28
+    400178: transform3
+    400180: transform4
+    400182: transform5
+    400184: transform6
+    400186: transform7
+    400188: transform8
+    400190: transform9
+    2300000: polySurface1
+    2300002: polySurface10
+    2300004: polySurface11
+    2300006: polySurface12
+    2300008: polySurface13
+    2300010: polySurface14
+    2300012: polySurface15
+    2300014: polySurface16
+    2300016: polySurface17
+    2300018: polySurface18
+    2300020: polySurface19
+    2300022: polySurface2
+    2300024: polySurface20
+    2300026: polySurface21
+    2300028: polySurface22
+    2300030: polySurface23
+    2300032: polySurface24
+    2300034: polySurface25
+    2300036: polySurface26
+    2300038: polySurface27
+    2300040: polySurface3
+    2300042: polySurface4
+    2300044: polySurface5
+    2300046: polySurface6
+    2300048: polySurface7
+    2300050: polySurface8
+    2300052: polySurface9
+    3300000: polySurface1
+    3300002: polySurface10
+    3300004: polySurface11
+    3300006: polySurface12
+    3300008: polySurface13
+    3300010: polySurface14
+    3300012: polySurface15
+    3300014: polySurface16
+    3300016: polySurface17
+    3300018: polySurface18
+    3300020: polySurface19
+    3300022: polySurface2
+    3300024: polySurface20
+    3300026: polySurface21
+    3300028: polySurface22
+    3300030: polySurface23
+    3300032: polySurface24
+    3300034: polySurface25
+    3300036: polySurface26
+    3300038: polySurface27
+    3300040: polySurface3
+    3300042: polySurface4
+    3300044: polySurface5
+    3300046: polySurface6
+    3300048: polySurface7
+    3300050: polySurface8
+    3300052: polySurface9
+    4300000: polySurface1
+    4300002: polySurface2
+    4300004: polySurface3
+    4300006: polySurface4
+    4300008: polySurface5
+    4300010: polySurface6
+    4300012: polySurface7
+    4300014: polySurface8
+    4300016: polySurface9
+    4300018: polySurface10
+    4300020: polySurface11
+    4300022: polySurface12
+    4300024: polySurface13
+    4300026: polySurface14
+    4300028: polySurface15
+    4300030: polySurface16
+    4300032: polySurface17
+    4300034: polySurface18
+    4300036: polySurface19
+    4300038: polySurface20
+    4300040: polySurface21
+    4300042: polySurface22
+    4300044: polySurface23
+    4300046: polySurface24
+    4300048: polySurface25
+    4300050: polySurface26
+    4300052: polySurface27
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 130
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
