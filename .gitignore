@@ -169,3 +169,4 @@ SmartButler/Assembly-CSharp-firstpass.csproj
 SmartButler/Assembly-CSharp.csproj
 
 SmartButler/SmartButler.sln
+*.csproj
