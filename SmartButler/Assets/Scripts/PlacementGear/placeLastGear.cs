@@ -1,8 +1,8 @@
 ﻿using Assets.Scripts.PickUp;
 using UnityEngine;
 
-namespace Assets.Scripts.PlacementGear{
-    public class PlaceLastGear : MonoBehaviour{
+namespace Assets.Scripts.PlacementGear {
+    public class placeLastGear : MonoBehaviour {
         private bool _connected;
         private float _dist;
 
@@ -11,18 +11,18 @@ namespace Assets.Scripts.PlacementGear{
         public GameObject Placeable;
 
         // Use this for initialization
-        private void Start(){
+        private void Start() {
             _connected = false;
         }
 
         // Update is called once per frame
-        private void Update(){
-            transform.Rotate(Vector3.up*Time.deltaTime*-40, Space.World);
+        private void Update() {
+            transform.Rotate(Vector3.up * Time.deltaTime * -40, Space.World);
             _dist = Vector3.Distance(Placeable.transform.position, gameObject.transform.position);
 
 
             if (Placeable.GetComponent<Pickupable>() != null)
-                if ((_dist < 4) && Placeable.GetComponent<Pickupable>().GetDropped()){
+                if ((_dist < 4) && Placeable.GetComponent<Pickupable>().GetDropped()) {
                     Placeable.gameObject.transform.SetParent(gameObject.transform);
 
                     _connected = true;
@@ -42,7 +42,7 @@ namespace Assets.Scripts.PlacementGear{
         /// Returns _connected variable
         /// </summary>
         /// <returns></returns>
-        public bool GetConnected(){
+        public bool GetConnected() {
             return _connected;
         }
     }
