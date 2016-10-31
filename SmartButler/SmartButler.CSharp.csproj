@@ -73,7 +73,7 @@
     <Compile Include="Assets\Scripts\Character\Despawner.cs" />
     <Compile Include="Assets\Scripts\Character\HoldCharacter.cs" />
     <Compile Include="Assets\Scripts\Character\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\ClockItem\ClockHandRotation.cs" />
+    <Compile Include="Assets\Scripts\ClockItem\clockHandRotation.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationFollower.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationXAxis.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationYAxis.cs" />
