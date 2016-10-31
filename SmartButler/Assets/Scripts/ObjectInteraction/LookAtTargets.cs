@@ -40,6 +40,9 @@ namespace Assets.Scripts.ObjectInteraction{
             _button0.GetComponent<Highlighter>().DistanceThreshold = 0;
             _button1.GetComponent<Highlighter>().DistanceThreshold = 0;
             _button2.GetComponent<Highlighter>().DistanceThreshold = 0;
+
+            Cam = Camera.main.gameObject;
+            Player = GameObject.FindGameObjectWithTag("Player");
         }
 
         // Update is called once per frame
