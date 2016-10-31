@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Assets.Scripts.PlacementGear{
-    public class PlaceLastGear : MonoBehaviour{
+    public class placeLastGear : MonoBehaviour{
         private bool _connected;
         private float _dist;
 
