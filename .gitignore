@@ -159,3 +159,14 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+SmartButler/SmartButler.CSharp.csproj
+SmartButler/SmartButler.sln
+
+SmartButler/Assembly-CSharp-Editor.csproj
+
+SmartButler/Assembly-CSharp-firstpass.csproj
+
+SmartButler/Assembly-CSharp.csproj
+
+SmartButler/SmartButler.sln
+*.csproj
