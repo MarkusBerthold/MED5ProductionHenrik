@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Assets.Scripts.ClockItem{
-    public class ClockHandRotation : MonoBehaviour{
+    public class clockHandRotation : MonoBehaviour{
         private float _largeHandBrokenRotSpeed;
 
         private float _largeHandRotSpeed;
