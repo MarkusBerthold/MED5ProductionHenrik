@@ -77,9 +77,9 @@
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationFollower.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationXAxis.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationYAxis.cs" />
-    <Compile Include="Assets\Scripts\ClockLevel\GearRotationZaxis.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\KillBlade.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\TransparentCog.cs" />
+    <Compile Include="Assets\Scripts\ClockLevel\gearRotationZaxis.cs" />
     <Compile Include="Assets\Scripts\Controllers\DButton.cs" />
     <Compile Include="Assets\Scripts\Controllers\GlobalControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\LightController.cs" />

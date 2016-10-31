@@ -34737,7 +34737,7 @@ GameObject:
   - 114: {fileID: 846859979}
   m_Layer: 0
   m_Name: coffeeMachine_knob
-  m_TagString: Untagged
+  m_TagString: CoffeeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68099,7 +68099,7 @@ GameObject:
   - 114: {fileID: 1759921430}
   m_Layer: 0
   m_Name: coffeeMachine_button
-  m_TagString: Untagged
+  m_TagString: CoffeeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70719,7 +70719,7 @@ GameObject:
   - 114: {fileID: 1920763287}
   m_Layer: 0
   m_Name: coffeeMachine_slider
-  m_TagString: Untagged
+  m_TagString: CoffeeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

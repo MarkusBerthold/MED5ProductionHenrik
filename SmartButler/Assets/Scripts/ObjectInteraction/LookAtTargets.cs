@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Highlighting;
+﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.Highlighting;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
@@ -41,6 +42,10 @@ namespace Assets.Scripts.ObjectInteraction{
             _button1.GetComponent<Highlighter>().DistanceThreshold = 0;
             _button2.GetComponent<Highlighter>().DistanceThreshold = 0;
 
+            _button0.GetComponent<MeshCollider>().enabled = false;
+            _button1.GetComponent<MeshCollider>().enabled = false;
+            _button2.GetComponent<MeshCollider>().enabled = false;
+
             Cam = Camera.main.gameObject;
             Player = GameObject.FindGameObjectWithTag("Player");
         }
@@ -73,6 +78,10 @@ namespace Assets.Scripts.ObjectInteraction{
                         _button0.GetComponent<Highlighter>().DistanceThreshold = 0;
                         _button1.GetComponent<Highlighter>().DistanceThreshold = 0;
                         _button2.GetComponent<Highlighter>().DistanceThreshold = 0;
+
+                        _button0.GetComponent<MeshCollider>().enabled = false;
+                        _button1.GetComponent<MeshCollider>().enabled = false;
+                        _button2.GetComponent<MeshCollider>().enabled = false;
                     }
                 }
                 Cam.transform.LookAt(transform.position + Offset);
@@ -113,6 +122,10 @@ namespace Assets.Scripts.ObjectInteraction{
                     _button0.GetComponent<Highlighter>().DistanceThreshold = 3;
                     _button1.GetComponent<Highlighter>().DistanceThreshold = 3;
                     _button2.GetComponent<Highlighter>().DistanceThreshold = 3;
+
+                    _button0.GetComponent<MeshCollider>().enabled = true;
+                    _button1.GetComponent<MeshCollider>().enabled = true;
+                    _button2.GetComponent<MeshCollider>().enabled = true;
                 }
             }
         }
