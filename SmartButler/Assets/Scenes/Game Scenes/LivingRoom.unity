@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692582, g: 0.49678797, b: 0.57508683, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692576, g: 0.49678826, b: 0.57508695, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -6213,7 +6213,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400102, guid: 9265058339e81834bbe32a2ce216197f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 9265058339e81834bbe32a2ce216197f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12185,7 +12185,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400020, guid: bf1c259160c6c8d4b908e41c75dda377, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400020, guid: bf1c259160c6c8d4b908e41c75dda377, type: 3}
       propertyPath: m_LocalScale.y
@@ -23117,8 +23117,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1340299815}
-  LoadingText: {fileID: 222147739}
   IsEnterable: 0
+  LoadingText: {fileID: 222147739}
   TargetScene: 2
   CurrentScene: 0
 --- !u!114 &532488184
@@ -23134,8 +23134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceThreshold: 2
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 00000000
-  pivot: {fileID: 532488182}
+  Indexes: 00000000
+  Pivot: {fileID: 532488182}
 --- !u!1 &534263115
 GameObject:
   m_ObjectHideFlags: 0
@@ -23628,9 +23628,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 063fab0e059606b48856bd6f76c07193, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sun: {fileID: 1165606771}
-  currentTimeOfDay: 0
-  timeMultiplier: 1
+  CurrentTimeOfDay: 0
+  Sun: {fileID: 0}
+  TimeMultiplier: 1
 --- !u!4 &545672513
 Transform:
   m_ObjectHideFlags: 0
@@ -31448,7 +31448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f26b10080cb4469ebc2bbf7b1854a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  AudioSource: {fileID: 0}
 --- !u!1 &712623592
 GameObject:
   m_ObjectHideFlags: 0
@@ -34293,10 +34293,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2013710593}
   m_RootOrder: 1
---- !u!1 &788862752 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-  m_PrefabInternal: {fileID: 1340160732}
 --- !u!1 &791327108
 GameObject:
   m_ObjectHideFlags: 0
@@ -34770,7 +34766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac59983b55da04bbece7427dd56c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentAngle: 0
+  CurrentAngle: 0
   RotationalAxis: 2
   LightSwitcher: {fileID: 2064969262}
   StereoController: {fileID: 2064969265}
@@ -34788,8 +34784,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceThreshold: 3
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 00000000
-  pivot: {fileID: 0}
+  Indexes: 00000000
+  Pivot: {fileID: 0}
 --- !u!64 &846859980
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41610,11 +41606,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574dd429e2bdcc942a562c72aea791eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedDistance: 1.5
-  cam: {fileID: 788862752}
-  player: {fileID: 2007938469}
+  FixedDistance: 1.5
+  Cam: {fileID: 0}
+  Player: {fileID: 0}
   RemoteClicked: 0
-  offset: {x: 0, y: 0, z: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!114 &910839041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41628,8 +41624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceThreshold: 2
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 00000000
-  pivot: {fileID: 0}
+  Indexes: 00000000
+  Pivot: {fileID: 0}
 --- !u!64 &910839042
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42961,7 +42957,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 9d810d31eb62d6e43bde7e7731b3a736, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d810d31eb62d6e43bde7e7731b3a736, type: 3}
@@ -52401,8 +52397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1340299815}
-  LoadingText: {fileID: 222147739}
   IsEnterable: 0
+  LoadingText: {fileID: 222147739}
   TargetScene: 3
   CurrentScene: 0
 --- !u!4 &1266335233 stripped
@@ -52432,10 +52428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DistanceThreshold: 1
+  DistanceThreshold: 2
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 00000000
-  pivot: {fileID: 0}
+  Indexes: 00000000
+  Pivot: {fileID: 0}
 --- !u!114 &1266335236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52447,11 +52443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 574dd429e2bdcc942a562c72aea791eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixedDistance: 1
-  cam: {fileID: 788862752}
-  player: {fileID: 2007938469}
+  FixedDistance: 1
+  Cam: {fileID: 0}
+  Player: {fileID: 0}
   RemoteClicked: 0
-  offset: {x: 0, y: 0, z: 0}
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1268689188
 GameObject:
   m_ObjectHideFlags: 0
@@ -52874,7 +52870,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1284648404}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37713763352b09943be7c24109a31f80, type: 3}
   m_Name: 
@@ -54955,7 +54951,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: b97b0f162ec7c1148b9cc7639cdf6c1f, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b97b0f162ec7c1148b9cc7639cdf6c1f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -55607,7 +55603,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 29f2ef8200ad0e34ebb5dde90dc9714e, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 29f2ef8200ad0e34ebb5dde90dc9714e, type: 3}
@@ -65458,7 +65454,7 @@ Transform:
   - {fileID: 102168211}
   - {fileID: 302445529}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1691367881
 GameObject:
   m_ObjectHideFlags: 0
@@ -68185,8 +68181,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceThreshold: 2
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 00000000
-  pivot: {fileID: 1759921426}
+  Indexes: 00000000
+  Pivot: {fileID: 1759921426}
 --- !u!114 &1759921431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69592,7 +69588,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400170, guid: d43b5489a8de2b04bbc6a704630b6138, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 100170, guid: d43b5489a8de2b04bbc6a704630b6138, type: 3}
       propertyPath: m_IsActive
@@ -70269,7 +70265,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400102, guid: 9265058339e81834bbe32a2ce216197f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 9265058339e81834bbe32a2ce216197f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -70656,7 +70652,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 530b9a3eb3082e445a562039b2ff4077, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 530b9a3eb3082e445a562039b2ff4077, type: 3}
       propertyPath: m_LocalScale.x
@@ -70752,12 +70748,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a1b2a4c6c2d439eb3b807a203e00a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LightSwitcher: {fileID: 0}
-  LowerBound: 0
-  OpperBound: 0
+  LightSwitcher: {fileID: 2064969262}
+  LowerBound: 1.564
+  OpperBound: 1.904
   Pivot: {fileID: 1920763286}
   SlideAxis: 89
-  SliderLength: 1.42
+  SliderLength: 0.17
 --- !u!114 &1920763288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70771,8 +70767,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceThreshold: 3
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 00000000
-  pivot: {fileID: 0}
+  Indexes: 00000000
+  Pivot: {fileID: 0}
 --- !u!64 &1920763289
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -71635,8 +71631,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1340299815}
-  LoadingText: {fileID: 222147739}
   IsEnterable: 0
+  LoadingText: {fileID: 222147739}
   TargetScene: 1
   CurrentScene: 0
 --- !u!64 &1975497742
@@ -71664,8 +71660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceThreshold: 2
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 0000000001000000
-  pivot: {fileID: 427433975}
+  Indexes: 0000000001000000
+  Pivot: {fileID: 427433975}
 --- !u!1 &1984904172
 GameObject:
   m_ObjectHideFlags: 0
@@ -71859,10 +71855,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1994406905}
   m_Mesh: {fileID: 4300054, guid: 94574edfa5a436347b4bb8e0846ea4a6, type: 3}
---- !u!1 &2007938469 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-  m_PrefabInternal: {fileID: 1340160732}
 --- !u!1 &2010745412
 GameObject:
   m_ObjectHideFlags: 0
@@ -76507,8 +76499,10 @@ MonoBehaviour:
   AllLights: []
   Degrees: 0
   IsActive: 1
-  MaxIntensity: 0
-  Rotaters: []
+  MaxIntensity: 3
+  Rotaters:
+  - {fileID: 2064969263}
+  - {fileID: 846859978}
 --- !u!114 &2064969263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76520,7 +76514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aac59983b55da04bbece7427dd56c34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentAngle: 0
+  CurrentAngle: 0
   RotationalAxis: 1
   LightSwitcher: {fileID: 2064969262}
   StereoController: {fileID: 2064969265}
@@ -76538,8 +76532,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DistanceThreshold: 2
   OutlineShader: {fileID: 4800000, guid: dacd200c879488a47b9d2126aa270cb0, type: 3}
-  indexes: 00000000
-  pivot: {fileID: 0}
+  Indexes: 00000000
+  Pivot: {fileID: 0}
 --- !u!114 &2064969265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76552,13 +76546,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Degrees: 0
-  rotaters:
-  - {fileID: 2064969263}
-  source: {fileID: 0}
-  note: {fileID: 0}
+  GameStateManager: {fileID: 1284648405}
+  Note: {fileID: 0}
   Once: 0
   Pitch: 0
-  gameStateManager: {fileID: 1284648405}
+  Rotaters:
+  - {fileID: 2064969263}
+  Source: {fileID: 0}
   StereoStarted: 0
 --- !u!1 &2068638244
 GameObject:
