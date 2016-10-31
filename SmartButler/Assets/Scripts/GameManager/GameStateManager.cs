@@ -38,7 +38,7 @@ namespace Assets.Scripts.GameManager{
             Debug.Log(_lightLoader == null);
 
             ChangeCurrentState(State.Start);
-            DayNightController = FindObjectOfType<DayNightController>();
+            //DayNightController = FindObjectOfType<DayNightController>();
         }
 
 
