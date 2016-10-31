@@ -74,7 +74,7 @@ namespace Assets.Scripts.GameManager{
 
         //If player collides with this object, load a scene
         private void OnTriggerEnter(Collider coll){
-            if (coll.gameObject.tag == "Player")
+            if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "ThirdPerson")
                 LoadScene();
         }
     }
