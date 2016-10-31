@@ -10,31 +10,39 @@ namespace Assets.Scripts.Sound_System{
         public enum StatesEnum{
             Start,
             Coffee,
-            RemoteControl
+            RemoteControl,
+			BackFromClock
         }
 
         private bool _introsHasBeenPlayed;
         private int _returnState;
 
         private UnityAction _someListener;
-        private int _state;
+        public int _state;
         public State[] Arrayofstates;
         public AudioSource AudioSource;
 
+		private IEnumerator[] coroutines;
+		private bool doOncePerState;
+
         private void Awake(){
             _someListener = Coffee;
+			DontDestroyOnLoad (this);
         }
 
         // Use this for initialization
         private void Start(){
+			
             AudioSource = GameObject.FindGameObjectWithTag("Thoughts").GetComponent<AudioSource>();
             var nrOfStates = Enum.GetValues(typeof(StatesEnum)).Length;
             Arrayofstates = new State[nrOfStates];
 
+			coroutines = new IEnumerator[nrOfStates];
+
             for (var i = 0; i < Arrayofstates.Length; i++)
                 Arrayofstates[i] = new State((StatesEnum) i);
-            for (var i = 0; i < Arrayofstates.Length; i++)
-                StartCoroutine(Arrayofstates[i].ResetCues());
+			for (var i = 0; i < Arrayofstates.Length; i++)
+				coroutines [i] = Arrayofstates [i].ResetCues();
         }
 
         // Update is called once per frame
@@ -54,7 +62,17 @@ namespace Assets.Scripts.Sound_System{
                     AudioSource.clip = Arrayofstates[_state].StateCues[j];
                     AudioSource.Play();
                     Arrayofstates[_state].StateCuesBeenPlayed[j] = true;
+					if (!doOncePerState) {
+						StartCoroutine (coroutines [_state]);
+						doOncePerState = true;
+						print("starting coroutine for reseting cues");
+					}
+
                 }
+
+
+
+			//print (_state);
         }
 
         /// <summary>
@@ -63,6 +81,7 @@ namespace Assets.Scripts.Sound_System{
         private void Coffee(){
             Debug.Log("coffeebutton was pressed");
             _state = 1;
+			doOncePerState = false;
         }
 
         /// <summary>
@@ -70,19 +89,29 @@ namespace Assets.Scripts.Sound_System{
         /// </summary>
         private void RemoteControl(){
             Debug.Log("Remote Control was pressed");
-            _state = 2;
+			if (_state == 1) {
+				_state = 2;
+				EventManager.StopListening ("coffeebutton", _someListener);
+				doOncePerState = false;
+			}
+			
         }
+		public void BackFromClock(){
+			_state = 3;
+		}
 
         //Starts event listening
         private void OnEnable(){
             EventManager.StartListening("coffeebutton", _someListener);
             EventManager.StartListening("remotecontrol", RemoteControl);
+			EventManager.StartListening("backfromclock", BackFromClock);
         }
 
         //Stops event listening
         private void OnDisable(){
             EventManager.StopListening("coffeebutton", _someListener);
             EventManager.StopListening("remotecontrol", RemoteControl);
+			EventManager.StopListening("backfromclock", BackFromClock);
         }
 
         public class State{
@@ -115,8 +144,8 @@ namespace Assets.Scripts.Sound_System{
                 if (StateCuesBeenPlayed.Length > 0)
                     while (true)
                         for (var i = 0; i < StateCuesBeenPlayed.Length; i++){
+							yield return new WaitForSeconds(20);
                             StateCuesBeenPlayed[i] = false;
-                            yield return new WaitForSeconds(20);
                         }
             }
         }

@@ -2,6 +2,7 @@
 using Assets.Scripts.Highlighting;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.ObjectInteraction{
     public class LookAtTargets : MonoBehaviour {
@@ -70,6 +71,7 @@ namespace Assets.Scripts.ObjectInteraction{
 
                     if (this.tag == "RemoteController")
                     {
+						EventManager.TriggerEvent ("remotecontrol");
                         print("Tried to reset pos remote");
                         this.transform.position = _remoteControllerStartPosition;
                         this.transform.localRotation = _remoteControllerStartRotation;
