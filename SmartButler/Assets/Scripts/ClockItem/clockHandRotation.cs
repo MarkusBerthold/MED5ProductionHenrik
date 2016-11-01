@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace Assets.Scripts.ClockItem{
-    public class ClockHandRotation : MonoBehaviour{
+    public class clockHandRotation : MonoBehaviour{
         private float _largeHandBrokenRotSpeed;
 
         private float _largeHandRotSpeed;
@@ -16,7 +16,7 @@ namespace Assets.Scripts.ClockItem{
 
         // Use this for initialization
         private void Start(){
-            IsBroken = true;
+            IsBroken = false;
 
             _largeHandRotSpeed = 1;
             _smallHandRotSpeed = _largeHandRotSpeed*60;
@@ -33,16 +33,16 @@ namespace Assets.Scripts.ClockItem{
 
             if (IsBroken)
                 gameObject.transform.GetChild(0).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _largeHandBrokenRotSpeed;
+                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _largeHandBrokenRotSpeed;
             else
                 gameObject.transform.GetChild(0).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _largeHandRotSpeed;
+                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _largeHandRotSpeed;
             if (IsBroken)
                 gameObject.transform.GetChild(3).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _smallHandBrokenRotSpeed;
+                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _smallHandBrokenRotSpeed;
             else
                 gameObject.transform.GetChild(3).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _smallHandRotSpeed;
+                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _smallHandRotSpeed;
         }
     }
 }

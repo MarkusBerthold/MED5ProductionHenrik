@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace Assets.Scripts.ClockLevel{
-    public class GearRotationZaxis : MonoBehaviour{
+    public class gearRotationZaxis : MonoBehaviour{
         public float Rotspeed;
 
         private void Start(){
