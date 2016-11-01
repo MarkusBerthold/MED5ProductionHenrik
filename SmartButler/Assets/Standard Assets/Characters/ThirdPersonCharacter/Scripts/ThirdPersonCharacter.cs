@@ -64,7 +64,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			// control and velocity handling is different when grounded and airborne:
 
-			PreventStandingInLowHeadroom();
+			//PreventStandingInLowHeadroom();
 
 			// send input and other state parameters to the animator
 			UpdateAnimator(move);
@@ -95,6 +95,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 		}
 
+        /*
 		void PreventStandingInLowHeadroom()
 		{
 			// prevent standing up in crouch-only zones
@@ -108,7 +109,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				}
 			}
 		}
-
+        */
 
 		void UpdateAnimator(Vector3 move)
 		{

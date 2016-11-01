@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace Assets.Scripts.Controllers {
     public class LightRotation : MonoBehaviour {
@@ -16,6 +17,7 @@ namespace Assets.Scripts.Controllers {
 
         public float RotSpeed = 10f;
 
+        private bool isGrounded = true;
 
         //private bool isLerping;
 
@@ -32,7 +34,7 @@ namespace Assets.Scripts.Controllers {
             var horizontalInput = Input.GetAxis("Horizontal");
 
             if ((horizontalInput != 0) && !_isRotating &&
-                Input.GetButtonDown("Horizontal")) {
+                Input.GetButtonDown("Horizontal") && isGrounded) {
                 if (horizontalInput < 0)
                     horizontalInput = -1;
                 else if (horizontalInput > 0)
@@ -67,6 +69,14 @@ namespace Assets.Scripts.Controllers {
             }
             Rotator.transform.rotation = _target;
             _isRotating = false;
+        }
+
+        void OnCollisionEnter(Collision collision){
+            isGrounded = true;
+        }
+
+        void OnCollisionExit(Collision collisionInfo){
+            isGrounded = false;
         }
     }
 }
