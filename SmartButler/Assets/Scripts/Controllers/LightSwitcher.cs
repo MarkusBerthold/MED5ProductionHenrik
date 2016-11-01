@@ -27,9 +27,7 @@ namespace Assets.Scripts.Controllers{
                         for (var i = 0; i < AllLights.Length; i++)
                             AllLights[i].color = Color.HSVToRGB(Degrees/360, 1, 1);
 
-                //change intensity for all lights
-                foreach (var light in AllLights)
-                    light.intensity = _targetedIntensity;
+                
             }
         }
 
@@ -40,6 +38,9 @@ namespace Assets.Scripts.Controllers{
         /// <param name="intensity"></param>
         public void SetIntensity(float intensity){
             _targetedIntensity = intensity*MaxIntensity;
+            //change intensity for all lights
+            foreach (var light in AllLights)
+                light.intensity = _targetedIntensity;
         }
 
         /// <summary>

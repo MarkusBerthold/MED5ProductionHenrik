@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.GameManager;
+using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 namespace Assets.Scripts.Character {
     public class Despawner : MonoBehaviour {
@@ -7,10 +9,12 @@ namespace Assets.Scripts.Character {
         ///public Transform CurrentCheckpoint;
         public Vector3 Offset = Vector3.up;
         private FirstPersonController _player;
+        private ThirdPersonCharacter _thirdPersonCharacter;
 
         //Initialise
-        private void Start() {
-            _player = FindObjectOfType<FirstPersonController>();
+        private void Start(){
+                _player = FindObjectOfType<FirstPersonController>();
+                _thirdPersonCharacter = FindObjectOfType<ThirdPersonCharacter>();
             //CurrentCheckpoint = GameObject.Find("RespawnPoint").transform;
             //_allFallingPlatforms = FindObjectsOfType<fallingPlatform>();
         }
@@ -36,13 +40,19 @@ namespace Assets.Scripts.Character {
         */
         //If the provided Collider 'coll' hits the player, reset the falling platforms
         //and move the player back to the last checpoint
-        private void OnTriggerEnter(Collider coll) {
-            if (coll.gameObject.tag == "Player") {
-                _player.RespawnChar();
-                //_player.transform.rotation = Quaternion.Euler(0, 90, 0);
+        private void OnTriggerEnter(Collider coll){
+            switch (coll.gameObject.tag){
+                case "Player":
+                    _player.RespawnChar();
+                    break;
+                case "ThirdPerson":
+                    _thirdPersonCharacter.RespawnChar();
+                    break;
+            }
+
+            //_player.transform.rotation = Quaternion.Euler(0, 90, 0);
                 //_player.transform.position = CurrentCheckpoint.transform.position + Offset;
                 //ResetFallingPlatforms();
-            }
+        }
         }
     }
-}

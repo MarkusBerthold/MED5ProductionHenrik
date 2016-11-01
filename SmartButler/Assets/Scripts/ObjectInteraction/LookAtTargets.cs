@@ -2,6 +2,7 @@
 using Assets.Scripts.Highlighting;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.ObjectInteraction{
     public class LookAtTargets : MonoBehaviour {
@@ -25,6 +26,7 @@ namespace Assets.Scripts.ObjectInteraction{
         private GameObject _button0;
         private GameObject _button1;
         private GameObject _button2;
+        private GameObject _remote;
 
         // Use this for initialization
         void Start()
@@ -37,6 +39,7 @@ namespace Assets.Scripts.ObjectInteraction{
             _button0 = GameObject.Find("coffeeMachine_button");
             _button1 = GameObject.Find("coffeeMachine_knob");
             _button2 = GameObject.Find("coffeeMachine_slider");
+            _remote = GameObject.Find("Cylinder");
 
             _button0.GetComponent<Highlighter>().DistanceThreshold = 0;
             _button1.GetComponent<Highlighter>().DistanceThreshold = 0;
@@ -45,6 +48,7 @@ namespace Assets.Scripts.ObjectInteraction{
             _button0.GetComponent<MeshCollider>().enabled = false;
             _button1.GetComponent<MeshCollider>().enabled = false;
             _button2.GetComponent<MeshCollider>().enabled = false;
+            _remote.GetComponent<CapsuleCollider>().enabled = false;
 
             Cam = Camera.main.gameObject;
             Player = GameObject.FindGameObjectWithTag("Player");
@@ -67,9 +71,12 @@ namespace Assets.Scripts.ObjectInteraction{
 
                     if (this.tag == "RemoteController")
                     {
+						EventManager.TriggerEvent ("remotecontrol");
                         print("Tried to reset pos remote");
                         this.transform.position = _remoteControllerStartPosition;
                         this.transform.localRotation = _remoteControllerStartRotation;
+                        
+                        _remote.GetComponent<CapsuleCollider>().enabled = false;
                     }
 
                     //Distance threshold reset so that buttons do not highlight
@@ -112,6 +119,8 @@ namespace Assets.Scripts.ObjectInteraction{
                     //this.transform.localRotation = new Quaternion(0f,0f,225f,1f);
                     //this.transform.position = Camera.main.transform.position + Camera.main.transform.forward * _distance;
                     //this.transform.rotation = new Quaternion(0.0f, Camera.main.transform.rotation.y, 0.0f, Camera.main.transform.rotation.w);
+
+                    _remote.GetComponent<CapsuleCollider>().enabled = true;
                 }
 
                 //A distance is set so that the button will be highlighted

@@ -7017,7 +7017,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1155059854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca11ba3d0fafad3488740c878afee31f, type: 3}
+  m_Script: {fileID: 11500000, guid: d02203fb0ecae9646903d1678d4cd1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1155059856
@@ -7584,7 +7584,7 @@ MeshCollider:
   m_GameObject: {fileID: 1233642550}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300002, guid: 6000eb6e9510d44cf8ce34a4e77bdb82, type: 3}
@@ -8492,15 +8492,15 @@ GameObject:
   - 33: {fileID: 1476145087}
   - 23: {fileID: 1476145086}
   - 64: {fileID: 1476145088}
+  - 114: {fileID: 1476145091}
   - 114: {fileID: 1476145089}
-  - 114: {fileID: 1476145090}
   m_Layer: 0
   m_Name: l3_killBlade_V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1476145085
 Transform:
   m_ObjectHideFlags: 0
@@ -8575,7 +8575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980ac38d22c244cf28ac2e5a5eb2790f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1476145090
+--- !u!114 &1476145091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -9515,7 +9515,7 @@ MeshCollider:
   m_GameObject: {fileID: 1604065855}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300002, guid: 6000eb6e9510d44cf8ce34a4e77bdb82, type: 3}
@@ -9608,7 +9608,7 @@ MeshCollider:
   m_GameObject: {fileID: 1616223806}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300002, guid: 6000eb6e9510d44cf8ce34a4e77bdb82, type: 3}

@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Assets.Scripts.PickUp{
@@ -7,9 +8,6 @@ namespace Assets.Scripts.PickUp{
 		private GameObject _carriedObjectParent;
 		private bool _carrying;
 		public float Distance;
-
-		private Vector3 _large = Vector3.one;
-		private Vector3 _small = Vector3.one / 2;
 
 		private Pickupable _pick;
 
@@ -59,7 +57,7 @@ namespace Assets.Scripts.PickUp{
 						p.GetComponent<Rigidbody>().isKinematic = true;
 						_carriedObject.GetComponent<Pickupable>().SetDropped(false);
 
-						_carriedObject.transform.localScale = _small;
+						_carriedObject.transform.localScale = _carriedObject.transform.localScale/2;
 					}
 				}
 			}
@@ -70,7 +68,7 @@ namespace Assets.Scripts.PickUp{
 		/// </summary>
 		private void CheckDrop() {
 			if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) {
-				_carriedObject.transform.localScale = _large;
+				
 				DropObject();
 			}
 		}
@@ -82,8 +80,8 @@ namespace Assets.Scripts.PickUp{
 			_carrying = false;
 			// _carriedObject.GetComponent<Rigidbody>().isKinematic = false;
 			_carriedObject.GetComponent<Pickupable>().SetDropped(true);
-
-			_carriedObject = null;
+            _carriedObject.transform.localScale = _carriedObject.transform.localScale*2;
+            _carriedObject = null;
 			//hasDropped = true;
 		}
 

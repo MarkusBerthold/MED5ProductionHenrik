@@ -31448,6 +31448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f26b10080cb4469ebc2bbf7b1854a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
   AudioSource: {fileID: 0}
 --- !u!1 &712623592
 GameObject:
@@ -70749,8 +70750,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LightSwitcher: {fileID: 2064969262}
-  LowerBound: 1.564
-  OpperBound: 1.904
+  LowerBound: 1.62
+  OpperBound: 1.93
   Pivot: {fileID: 1920763286}
   SlideAxis: 89
   SliderLength: 0.17

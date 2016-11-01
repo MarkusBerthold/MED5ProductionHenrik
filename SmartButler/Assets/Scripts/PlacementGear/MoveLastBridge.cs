@@ -28,8 +28,8 @@ namespace Assets.Scripts.PlacementGear{
 
         // Update is called once per frame
         private void Update(){
-            if (CogPlacer.GetComponent<PlaceLastGear>().GetConnected())
-                if ((CogPlacer.GetComponent<PlaceLastGear>().Placeable.tag == "LastGear") && _doOnceLastGear){
+            if (CogPlacer.GetComponent<placeLastGear>().GetConnected())
+                if ((CogPlacer.GetComponent<placeLastGear>().Placeable.tag == "LastGear") && _doOnceLastGear){
                     while (_doOnce == 0){
                         _currentLerpTime = 0f;
                         _doOnce = 1;
