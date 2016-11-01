@@ -27,7 +27,7 @@ namespace Assets.Scripts.Sound_System{
 
 		private void Awake(){
 			_someListener = Coffee;
-			DontDestroyOnLoad (transform.gameObject);
+			//DontDestroyOnLoad (transform.gameObject);
 		}
 
 		// Use this for initialization
@@ -77,8 +77,7 @@ namespace Assets.Scripts.Sound_System{
 						print("starting coroutine for reseting cues");
 					}
 				}
-
-			print (_state);
+			//print (_state);
 		}
 
 		/// <summary>
