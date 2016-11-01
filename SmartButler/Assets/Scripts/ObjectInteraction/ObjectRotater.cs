@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.Controllers;
-using Assets.Scripts.MessageingSystem;
+//using Assets.Scripts.MessageingSystem;
 using UnityEngine;
 
 namespace Assets.Scripts.ObjectInteraction{
@@ -65,7 +65,7 @@ namespace Assets.Scripts.ObjectInteraction{
         //Triggers the remotecontrol event
         private void OnMouseDown() {
 
-            EventManager.TriggerEvent ("remotecontrol");
+            
         
             // rotating flag
             IsRotating = true;

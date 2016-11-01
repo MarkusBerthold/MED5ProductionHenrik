@@ -27,6 +27,8 @@ TagManager:
   - RemoteController
   - KillCube
   - Thoughts
+  - CoffeeButton
+  - ThirdPerson
   layers:
   - Default
   - TransparentFX

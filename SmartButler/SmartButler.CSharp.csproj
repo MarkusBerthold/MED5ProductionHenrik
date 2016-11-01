@@ -77,9 +77,9 @@
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationFollower.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationXAxis.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\GearRotationYAxis.cs" />
-    <Compile Include="Assets\Scripts\ClockLevel\GearRotationZaxis.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\KillBlade.cs" />
     <Compile Include="Assets\Scripts\ClockLevel\TransparentCog.cs" />
+    <Compile Include="Assets\Scripts\ClockLevel\gearRotationZaxis.cs" />
     <Compile Include="Assets\Scripts\Controllers\DButton.cs" />
     <Compile Include="Assets\Scripts\Controllers\GlobalControl.cs" />
     <Compile Include="Assets\Scripts\Controllers\LightController.cs" />
@@ -110,8 +110,8 @@
     <Compile Include="Assets\Scripts\PlacementGear\MoveLastBridge.cs" />
     <Compile Include="Assets\Scripts\PlacementGear\MoveSecondBridge.cs" />
     <Compile Include="Assets\Scripts\PlacementGear\PlaceFirstGear.cs" />
-    <Compile Include="Assets\Scripts\PlacementGear\PlaceLastGear.cs" />
     <Compile Include="Assets\Scripts\PlacementGear\PlaceSecondGear.cs" />
+    <Compile Include="Assets\Scripts\PlacementGear\placeLastGear.cs" />
     <Compile Include="Assets\Scripts\PlacementGear\testMoveCanBeRemoved.cs" />
     <Compile Include="Assets\Scripts\Platforms\FallingPlatform.cs" />
     <Compile Include="Assets\Scripts\Platforms\Invisible.cs" />

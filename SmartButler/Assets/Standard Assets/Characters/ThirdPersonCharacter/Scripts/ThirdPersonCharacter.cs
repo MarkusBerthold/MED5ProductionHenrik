@@ -29,10 +29,14 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
 
+        // ?
+        private Vector3 _currentCheckpoint;
+        private Vector3 _respawnOffset = Vector3.up * 5;
 
-		void Start()
+        void Start()
 		{
-			m_Animator = GetComponent<Animator>();
+            _currentCheckpoint = transform.position;
+            m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Capsule = GetComponent<CapsuleCollider>();
 			m_CapsuleHeight = m_Capsule.height;
@@ -212,5 +216,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
-	}
+        /// <summary>
+        /// ?
+        /// </summary>
+        /// <param name="newCheckpoint"></param>
+        public void SetCurrentCheckpoint(Vector3 newCheckpoint)
+        {
+            Debug.Log("Checkpoint is reached");
+            _currentCheckpoint = newCheckpoint;
+        }
+
+        /// <summary>
+        /// ?
+        /// </summary>
+        public void RespawnChar()
+        {
+            transform.position = _currentCheckpoint + _respawnOffset;
+        }
+    }
 }

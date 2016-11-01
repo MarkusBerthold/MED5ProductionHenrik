@@ -1,8 +1,13 @@
 ﻿using Assets.Scripts.PickUp;
 using UnityEngine;
 
+<<<<<<< HEAD
 namespace Assets.Scripts.PlacementGear {
     public class placeLastGear : MonoBehaviour {
+=======
+namespace Assets.Scripts.PlacementGear{
+    public class placeLastGear : MonoBehaviour{
+>>>>>>> Develop
         private bool _connected;
         private float _dist;
 

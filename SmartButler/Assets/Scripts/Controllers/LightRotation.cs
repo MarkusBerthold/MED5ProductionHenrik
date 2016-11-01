@@ -34,9 +34,9 @@ namespace Assets.Scripts.Controllers {
             if ((horizontalInput != 0) && !_isRotating &&
                 Input.GetButtonDown("Horizontal")) {
                 if (horizontalInput < 0)
-                    horizontalInput = 1;
-                else if (horizontalInput > 0)
                     horizontalInput = -1;
+                else if (horizontalInput > 0)
+                    horizontalInput = 1;
 
                 if (_rotationPos == 8)
                     _rotationPos = 0;

@@ -34737,7 +34737,7 @@ GameObject:
   - 114: {fileID: 846859979}
   m_Layer: 0
   m_Name: coffeeMachine_knob
-  m_TagString: Untagged
+  m_TagString: CoffeeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52870,7 +52870,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1284648404}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37713763352b09943be7c24109a31f80, type: 3}
   m_Name: 
@@ -68099,7 +68099,7 @@ GameObject:
   - 114: {fileID: 1759921430}
   m_Layer: 0
   m_Name: coffeeMachine_button
-  m_TagString: Untagged
+  m_TagString: CoffeeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70719,7 +70719,7 @@ GameObject:
   - 114: {fileID: 1920763287}
   m_Layer: 0
   m_Name: coffeeMachine_slider
-  m_TagString: Untagged
+  m_TagString: CoffeeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71331,7 +71331,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -79100,7 +79100,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11400002, guid: b99a0a5998b2736429fd2a2fd1d01c5e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b99a0a5998b2736429fd2a2fd1d01c5e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2141514075

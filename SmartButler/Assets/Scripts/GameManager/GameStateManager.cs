@@ -4,6 +4,8 @@
 
 using Assets.Scripts.Controllers;
 using UnityEngine;
+using UnityEngine.Events;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.GameManager{
     public class GameStateManager : MonoBehaviour {
@@ -38,7 +40,7 @@ namespace Assets.Scripts.GameManager{
             Debug.Log(_lightLoader == null);
 
             ChangeCurrentState(State.Start);
-            DayNightController = FindObjectOfType<DayNightController>();
+            //DayNightController = FindObjectOfType<DayNightController>();
         }
 
 
@@ -74,6 +76,7 @@ namespace Assets.Scripts.GameManager{
                     /*
                  clock fixed all other levels are enterable
                  */
+					EventManager.TriggerEvent ("backfromclock");
                     _clockLoader.IsEnterable = false;
                     _stereoLoader.IsEnterable = true;
                     _lightLoader.IsEnterable = true;
