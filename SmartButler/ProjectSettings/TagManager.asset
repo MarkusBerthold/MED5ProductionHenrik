@@ -28,7 +28,7 @@ TagManager:
   - KillCube
   - Thoughts
   - CoffeeButton
-  - ThirdPerson
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
