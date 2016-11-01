@@ -35,7 +35,7 @@ namespace Assets.Scripts.ObjectInteraction{
         private void Update(){
             //zerToOne is the number that we want to access later, 0 -> 1
             SliderLength = OpperBound - LowerBound;
-            _zeroToOne = (transform.position.y - LowerBound)/SliderLength;
+            
 
             //only drag if mouse is pressed
             if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) _dragEnabled = false;
@@ -80,6 +80,7 @@ namespace Assets.Scripts.ObjectInteraction{
         }
 
         public float GetZeroToOne(){
+            _zeroToOne = (transform.position.y - LowerBound) / SliderLength;
             return _zeroToOne;
         }
 
