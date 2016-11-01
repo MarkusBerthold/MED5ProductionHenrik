@@ -28,6 +28,7 @@ TagManager:
   - KillCube
   - Thoughts
   - CoffeeButton
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
