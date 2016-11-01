@@ -1,0 +1,188 @@
+fileFormatVersion: 2
+guid: f65188c103a81ea42a91c9c53b1a44de
+timeCreated: 1477991265
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: speakers_exterior
+    100004: speakers_onoffButton
+    100006: speakers_volumeKnob
+    100008: switch1
+    100010: switch2
+    100012: switch3
+    100014: exterior
+    100016: exteriorFrame
+    100018: interactable
+    100020: l_speakerGrill
+    100022: l_speakerGrillFrame
+    100024: l_speakerInside
+    100026: l_speakerInsideCenter
+    100028: leatherHandle
+    100030: leatherKnob
+    100032: r_speakerGrill
+    100034: r_speakerGrillFrame
+    100036: r_speakerInside
+    100038: r_speakerInsideCenter
+    100040: speaker_exterior
+    100042: switch4
+    100044: switch5
+    100046: switch6
+    100048: usb
+    400000: //RootNode
+    400002: speakers_exterior
+    400004: speakers_onoffButton
+    400006: speakers_volumeKnob
+    400008: switch1
+    400010: switch2
+    400012: switch3
+    400014: exterior
+    400016: exteriorFrame
+    400018: interactable
+    400020: l_speakerGrill
+    400022: l_speakerGrillFrame
+    400024: l_speakerInside
+    400026: l_speakerInsideCenter
+    400028: leatherHandle
+    400030: leatherKnob
+    400032: r_speakerGrill
+    400034: r_speakerGrillFrame
+    400036: r_speakerInside
+    400038: r_speakerInsideCenter
+    400040: speaker_exterior
+    400042: switch4
+    400044: switch5
+    400046: switch6
+    400048: usb
+    2300000: speakers_exterior
+    2300002: speakers_onoffButton
+    2300004: speakers_volumeKnob
+    2300006: switch1
+    2300008: switch2
+    2300010: switch3
+    2300012: exterior
+    2300014: exteriorFrame
+    2300016: l_speakerGrill
+    2300018: l_speakerGrillFrame
+    2300020: l_speakerInside
+    2300022: l_speakerInsideCenter
+    2300024: leatherHandle
+    2300026: leatherKnob
+    2300028: r_speakerGrill
+    2300030: r_speakerGrillFrame
+    2300032: r_speakerInside
+    2300034: r_speakerInsideCenter
+    2300036: switch4
+    2300038: switch5
+    2300040: switch6
+    2300042: usb
+    3300000: speakers_exterior
+    3300002: speakers_onoffButton
+    3300004: speakers_volumeKnob
+    3300006: switch1
+    3300008: switch2
+    3300010: switch3
+    3300012: exterior
+    3300014: exteriorFrame
+    3300016: l_speakerGrill
+    3300018: l_speakerGrillFrame
+    3300020: l_speakerInside
+    3300022: l_speakerInsideCenter
+    3300024: leatherHandle
+    3300026: leatherKnob
+    3300028: r_speakerGrill
+    3300030: r_speakerGrillFrame
+    3300032: r_speakerInside
+    3300034: r_speakerInsideCenter
+    3300036: switch4
+    3300038: switch5
+    3300040: switch6
+    3300042: usb
+    4300000: switch1
+    4300002: switch2
+    4300004: switch3
+    4300006: speakers_onoffButton
+    4300008: speakers_volumeKnob
+    4300010: speakers_exterior
+    4300012: switch4
+    4300014: switch5
+    4300016: switch6
+    4300018: exteriorFrame
+    4300020: leatherKnob
+    4300022: leatherHandle
+    4300024: exterior
+    4300026: l_speakerInside
+    4300028: l_speakerInsideCenter
+    4300030: l_speakerGrillFrame
+    4300032: usb
+    4300034: r_speakerInside
+    4300036: r_speakerInsideCenter
+    4300038: r_speakerGrillFrame
+    4300040: l_speakerGrill
+    4300042: r_speakerGrill
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
