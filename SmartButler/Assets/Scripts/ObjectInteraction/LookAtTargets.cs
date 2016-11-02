@@ -39,7 +39,8 @@ namespace Assets.Scripts.ObjectInteraction{
             _button0 = GameObject.Find("coffeeMachine_button");
             _button1 = GameObject.Find("coffeeMachine_knob");
             _button2 = GameObject.Find("coffeeMachine_slider");
-            _remote = GameObject.Find("Cylinder");
+            //_remote = GameObject.Find("Cylinder");
+            _remote = GameObject.Find("lightRemote_hueManipulator");
 
             _button0.GetComponent<Highlighter>().DistanceThreshold = 0;
             _button1.GetComponent<Highlighter>().DistanceThreshold = 0;
@@ -48,7 +49,8 @@ namespace Assets.Scripts.ObjectInteraction{
             _button0.GetComponent<MeshCollider>().enabled = false;
             _button1.GetComponent<MeshCollider>().enabled = false;
             _button2.GetComponent<MeshCollider>().enabled = false;
-            _remote.GetComponent<CapsuleCollider>().enabled = false;
+            //_remote.GetComponent<CapsuleCollider>().enabled = false;
+            _remote.GetComponent<MeshCollider>().enabled = false;
 
             Cam = Camera.main.gameObject;
             Player = GameObject.FindGameObjectWithTag("Player");

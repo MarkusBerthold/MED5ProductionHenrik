@@ -1,42 +1,72 @@
 fileFormatVersion: 2
-guid: 72d1d650123499341818d30dd15a3ad0
-timeCreated: 1476779495
+guid: 1dd8dbfd7da9a2b4b80d427258ba2e72
+timeCreated: 1477997389
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: coffeeMachine_button
-    100004: coffeeMachine_exterior
-    100006: coffeeMachine_knob
-    100008: coffeeMachine_slider
-    100010: coffeMachine_exterior
-    100012: coffeMachine_knob
-    400000: //RootNode
-    400002: coffeeMachine_button
-    400004: coffeeMachine_exterior
-    400006: coffeeMachine_knob
-    400008: coffeeMachine_slider
-    400010: coffeMachine_exterior
-    400012: coffeMachine_knob
-    2300000: coffeeMachine_button
-    2300002: coffeeMachine_exterior
-    2300004: coffeeMachine_knob
-    2300006: coffeeMachine_slider
-    2300008: coffeMachine_exterior
-    2300010: coffeMachine_knob
-    3300000: coffeeMachine_button
-    3300002: coffeeMachine_exterior
-    3300004: coffeeMachine_knob
-    3300006: coffeeMachine_slider
-    3300008: coffeMachine_exterior
-    3300010: coffeMachine_knob
-    4300000: coffeeMachine_button
-    4300002: coffeeMachine_knob
-    4300004: coffeeMachine_exterior
-    4300006: coffeeMachine_slider
-    4300008: coffeMachine_exterior
-    4300010: coffeMachine_knob
+    100000: gear1
+    100002: gear2
+    100004: gear3
+    100006: gear4
+    100008: hourArm
+    100010: minutesArm
+    100012: secondArm
+    100014: soloGear1
+    100016: soloGear2
+    100018: soloGear3
+    100020: //RootNode
+    100022: watchFace
+    100024: watchGear
+    400000: gear1
+    400002: gear2
+    400004: gear3
+    400006: gear4
+    400008: hourArm
+    400010: minutesArm
+    400012: secondArm
+    400014: soloGear1
+    400016: soloGear2
+    400018: soloGear3
+    400020: //RootNode
+    400022: watchFace
+    400024: watchGear
+    2300000: gear1
+    2300002: gear2
+    2300004: gear3
+    2300006: gear4
+    2300008: hourArm
+    2300010: minutesArm
+    2300012: secondArm
+    2300014: soloGear1
+    2300016: soloGear2
+    2300018: soloGear3
+    2300020: watchFace
+    2300022: watchGear
+    3300000: gear1
+    3300002: gear2
+    3300004: gear3
+    3300006: gear4
+    3300008: hourArm
+    3300010: minutesArm
+    3300012: secondArm
+    3300014: soloGear1
+    3300016: soloGear2
+    3300018: soloGear3
+    3300020: watchFace
+    3300022: watchGear
+    4300000: secondArm
+    4300002: minutesArm
+    4300004: hourArm
+    4300006: watchFace
+    4300008: gear3
+    4300010: soloGear2
+    4300012: gear4
+    4300014: soloGear1
+    4300016: soloGear3
+    4300018: gear1
+    4300020: gear2
+    4300022: watchGear
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -62,7 +92,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 9
+    globalScale: 11
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
