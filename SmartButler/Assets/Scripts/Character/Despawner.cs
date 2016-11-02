@@ -6,8 +6,8 @@ using UnityStandardAssets.Characters.ThirdPerson;
 namespace Assets.Scripts.Character {
     public class Despawner : MonoBehaviour {
         //private fallingPlatform[] _allFallingPlatforms;
-        ///public Transform CurrentCheckpoint;
-        public Vector3 Offset = Vector3.up;
+        //public Transform CurrentCheckpoint;
+        public Vector3 Offset = Vector3.up; // is used for when a player is killed so that the player doesn't spawn inside the cog
         private FirstPersonController _player;
         private ThirdPersonCharacter _thirdPersonCharacter;
 

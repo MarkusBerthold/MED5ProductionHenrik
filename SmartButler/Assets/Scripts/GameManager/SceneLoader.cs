@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace Assets.Scripts.GameManager{
     public class SceneLoader : MonoBehaviour{
-        public enum Scene{
+        public enum Scene{ //not sure how this works but it's used for switching between the scenes
             LivingRoom,
             Clock,
             Stereo,
@@ -25,7 +25,7 @@ namespace Assets.Scripts.GameManager{
         }
 
         /// <summary>
-        ///     Loads a scene and shows "loading" text
+        /// Loads a scene and shows "loading" text
         /// </summary>
         public void LoadScene(){
             Canvas.SetActive(true);
