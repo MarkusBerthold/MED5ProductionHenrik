@@ -2439,7 +2439,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1104336591}
   m_LocalRotation: {x: 0.06162845, y: -0.70441604, z: 0.06162845, w: 0.70441604}
-  m_LocalPosition: {x: 599, y: -5.71, z: -0.55}
+  m_LocalPosition: {x: 1492, y: -5.71, z: -0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 10, y: -90, z: 0}
   m_Children: []
@@ -3381,6 +3381,67 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300110, guid: d55f6df19e6c98a4ba78a4511ea4d2ca, type: 3}
+--- !u!1 &1581855709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1581855713}
+  - 33: {fileID: 1581855712}
+  - 65: {fileID: 1581855711}
+  - 114: {fileID: 1581855710}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1581855710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581855709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0e630cdc5083247a9bb5f6d20a3a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1581855711
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581855709}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1581855712
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581855709}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1581855713
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1581855709}
+  m_LocalRotation: {x: 0.13759983, y: 0.6935894, z: 0.13759984, w: 0.69358945}
+  m_LocalPosition: {x: 0, y: 7.05, z: -6.84}
+  m_LocalScale: {x: 14.731364, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.203001}
+  m_Children: []
+  m_Father: {fileID: 2057270425}
+  m_RootOrder: 3
 --- !u!1 &1587606692 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100018, guid: d55f6df19e6c98a4ba78a4511ea4d2ca, type: 3}
