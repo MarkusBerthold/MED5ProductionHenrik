@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Controllers\LightController.cs" />
     <Compile Include="Assets\Scripts\Controllers\LightRotation.cs" />
     <Compile Include="Assets\Scripts\Controllers\LightSwitcher.cs" />
+    <Compile Include="Assets\Scripts\Controllers\PathFollower.cs" />
     <Compile Include="Assets\Scripts\Controllers\StereoController.cs" />
     <Compile Include="Assets\Scripts\GameManager\DayNightController.cs" />
     <Compile Include="Assets\Scripts\GameManager\EndLightLevel.cs" />
