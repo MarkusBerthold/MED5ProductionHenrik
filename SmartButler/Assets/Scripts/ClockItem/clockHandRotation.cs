@@ -1,18 +1,21 @@
-﻿using Assets.Scripts.ClockLevel;
+﻿using System.Collections;
+using Assets.Scripts.ClockLevel;
 using UnityEngine;
 
 namespace Assets.Scripts.ClockItem{
     public class clockHandRotation : MonoBehaviour{
-        private float _hourHandBrokenRotSpeed;
+        public float HourHandBrokenRotSpeed;
         private float _hourHandRotSpeed;
-        private float _minuteHandBrokenRotSpeed;
+        public float MinuteHandBrokenRotSpeed;
         private float _minuteHandRotSpeed;
-        private float _secondHandBrokenRotSpeed;
+        public float SecondHandBrokenRotSpeed;
         private float _secondHandRotSpeed;
 
         private float _nextActionTime;
         public bool IsBroken;
         public float Period = 3f;
+
+        private bool _notDone = true;
 
         // Use this for initialization
         private void Start(){
@@ -29,39 +32,48 @@ namespace Assets.Scripts.ClockItem{
             gameObject.transform.GetChild(11).gameObject.GetComponent<GearRotationYAxis>().Rotspeed = -3;
 
             //Rotation speed of the clock when NOT broken
-            _hourHandRotSpeed = 0.5f;
-            _minuteHandRotSpeed = _hourHandRotSpeed*6;
-            _secondHandRotSpeed = _minuteHandRotSpeed*6;
+            //This is high because it waits in-between rotating
+            _hourHandRotSpeed = 1000;
+            _minuteHandRotSpeed = 600;
+            _secondHandRotSpeed = 200;
+            
         }
 
         // Update is called once per frame
         private void Update(){
             if (Time.time > _nextActionTime){
                 _nextActionTime += Period;
-                _hourHandBrokenRotSpeed = Random.Range(-100f, 100f);
-                _minuteHandBrokenRotSpeed = Random.Range(-50f, 50f);
-                _secondHandBrokenRotSpeed = Random.Range(-10f, 10f);
+                HourHandBrokenRotSpeed = Random.Range(-100f, 100f);
+                MinuteHandBrokenRotSpeed = Random.Range(-50f, 50f);
+                SecondHandBrokenRotSpeed = Random.Range(-25f, 25f);
             }
 
-            //If statements for changing rotation speeds if the clock is broken
-            if (IsBroken)
+            //If the clock is broken, set the rotation speed to that variable
+            //otherwise call the unbroken rotation function once.
+            if (IsBroken){
                 gameObject.transform.FindChild("HourPivot").
-                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _hourHandBrokenRotSpeed;
-            else
-                gameObject.transform.FindChild("HourPivot").
-                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _hourHandRotSpeed;
-            if (IsBroken)
+                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = HourHandBrokenRotSpeed;
                 gameObject.transform.FindChild("MinutePivot").
-                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _minuteHandBrokenRotSpeed;
-            else
-                gameObject.transform.FindChild("MinutePivot").
-                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _minuteHandRotSpeed;
-            if (IsBroken)
+                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = MinuteHandBrokenRotSpeed;
                 gameObject.transform.FindChild("SecondPivot").
-                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _secondHandBrokenRotSpeed;
-            else
-                gameObject.transform.FindChild("SecondPivot").
-                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = _secondHandRotSpeed;
+                    gameObject.GetComponent<gearRotationZaxis>().Rotspeed = SecondHandBrokenRotSpeed;
+            }else if (_notDone){
+                StartRotationNotBroken();
+                _notDone = false;
+            }
+        }
+
+        /// <summary>
+        /// Starts the unbroken rotation of the clock.
+        /// Should only be called once.
+        /// </summary>
+        private void StartRotationNotBroken(){
+            gameObject.transform.FindChild("HourPivot").
+                gameObject.GetComponent<gearRotationZaxis>().RotateWaitHour(_hourHandRotSpeed);
+            gameObject.transform.FindChild("MinutePivot").
+                gameObject.GetComponent<gearRotationZaxis>().RotateWaitMinute(_minuteHandRotSpeed);
+            gameObject.transform.FindChild("SecondPivot").
+                gameObject.GetComponent<gearRotationZaxis>().RotateWaitSecond(_secondHandRotSpeed);
+        }
         }
     }
-}
