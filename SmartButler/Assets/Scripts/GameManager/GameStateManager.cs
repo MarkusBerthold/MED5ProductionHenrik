@@ -19,6 +19,10 @@ namespace Assets.Scripts.GameManager{
         private SceneLoader _stereoLoader;
         private SceneLoader _lightLoader;
 
+		/*
+		 * private SoundManager _soundManager;
+		 */
+
         public DayNightController DayNightController ;
 
         // All States should be thought of as post-level or -interaction
@@ -38,6 +42,10 @@ namespace Assets.Scripts.GameManager{
             Debug.Log(_stereoLoader == null);
             _lightLoader = GameObject.Find("remote").GetComponent<SceneLoader>();
             Debug.Log(_lightLoader == null);
+
+			/*
+			 * _soundManager = GameObject.Find("soundmanager").GetComponent<SceneLoader>();
+			 */
 
             ChangeCurrentState(State.Start);
             //DayNightController = FindObjectOfType<DayNightController>();
@@ -76,7 +84,10 @@ namespace Assets.Scripts.GameManager{
                     /*
                  clock fixed all other levels are enterable
                  */
-					EventManager.TriggerEvent ("backfromclock");
+
+				/*
+				 * _soundManager._state = 5;
+				 */
                     _clockLoader.IsEnterable = false;
                     _stereoLoader.IsEnterable = true;
                     _lightLoader.IsEnterable = true;
@@ -88,6 +99,10 @@ namespace Assets.Scripts.GameManager{
                     /*
                  clock fixed all other levels are enterable
                  */
+
+				/*
+				* _soundManager._state = 6;
+				*/
                     _stereoLoader.IsEnterable = false;
                     DayNightController.CurrentTimeOfDay = 0.6f;
                     return;
@@ -97,6 +112,10 @@ namespace Assets.Scripts.GameManager{
                     /*
                  clock fixed all other levels are enterable
                  */
+
+				/*
+				* _soundManager._state = 7;
+				*/
                     _lightLoader.IsEnterable = false;
                     return;
                 case State.End:
