@@ -99,11 +99,13 @@
     <Compile Include="Assets\Scripts\Highlighting\Highlighter.cs" />
     <Compile Include="Assets\Scripts\LightLevel\KillCube.cs" />
     <Compile Include="Assets\Scripts\MessageingSystem\EventManager.cs" />
+    <Compile Include="Assets\Scripts\MessageingSystem\GameControlDontDestroy.cs" />
     <Compile Include="Assets\Scripts\ObjectInteraction\HoldOnRotate.cs" />
     <Compile Include="Assets\Scripts\ObjectInteraction\InteractableObject.cs" />
     <Compile Include="Assets\Scripts\ObjectInteraction\LookAtTargets.cs" />
     <Compile Include="Assets\Scripts\ObjectInteraction\MoveSlider.cs" />
     <Compile Include="Assets\Scripts\ObjectInteraction\ObjectRotater.cs" />
+    <Compile Include="Assets\Scripts\ObjectInteraction\StereoButton.cs" />
     <Compile Include="Assets\Scripts\PickUp\PickUpScript.cs" />
     <Compile Include="Assets\Scripts\PickUp\Pickupable.cs" />
     <Compile Include="Assets\Scripts\PlacementGear\MoveFirstBridge.cs" />
@@ -123,6 +125,9 @@
     <Compile Include="Assets\Scripts\StereoPuzzle\StereoPuzzleCenterPiece.cs" />
     <Compile Include="Assets\Scripts\StereoPuzzle\StereoPuzzleHook.cs" />
     <Compile Include="Assets\Scripts\StereoPuzzle\StereoPuzzlePiece.cs" />
+    <Compile Include="Assets\Scripts\StereoPuzzleV2\CenterPiece.cs" />
+    <Compile Include="Assets\Scripts\StereoPuzzleV2\HookPiece.cs" />
+    <Compile Include="Assets\Scripts\StereoPuzzleV2\SmallPiece.cs" />
     <Compile Include="Assets\Scripts\UnusedTest\UIWatch.cs" />
     <Compile Include="Assets\Scripts\UnusedTest\WaveformFloor.cs" />
   </ItemGroup>
