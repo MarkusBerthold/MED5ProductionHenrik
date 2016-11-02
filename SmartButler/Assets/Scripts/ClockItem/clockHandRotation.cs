@@ -4,16 +4,16 @@ using UnityEngine;
 
 namespace Assets.Scripts.ClockItem{
     public class clockHandRotation : MonoBehaviour{
-        public float HourHandBrokenRotSpeed;
+        public float HourHandBrokenRotSpeed; //controls the speed of the hour dial?
         private float _hourHandRotSpeed;
-        public float MinuteHandBrokenRotSpeed;
+        public float MinuteHandBrokenRotSpeed; //controls the speed of the minute dial?
         private float _minuteHandRotSpeed;
-        public float SecondHandBrokenRotSpeed;
+        public float SecondHandBrokenRotSpeed; //controls the speed of the second dial?
         private float _secondHandRotSpeed;
 
         private float _nextActionTime;
-        public bool IsBroken;
-        public float Period = 3f;
+        public bool IsBroken; //sets whether or not if the dials goes with or against the clock?
+        public float Period = 3f; //weren't we suppose to delete thìs part?
 
         private bool _notDone = true;
 

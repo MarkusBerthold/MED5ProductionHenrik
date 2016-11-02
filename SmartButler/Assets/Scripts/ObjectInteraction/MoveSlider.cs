@@ -3,8 +3,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.ObjectInteraction{
     public class MoveSlider : MonoBehaviour{
-        private bool _dragEnabled;
-        private float _dragStartDistance;
+        private bool _dragEnabled; //is used to set whether or not you can drag the slider
+        private float _dragStartDistance; //where are the max/min values set?
         private Vector3 _dragStartPosition;
         private Vector3 _objectStartPosition;
         private float _zeroToOne;
@@ -36,11 +36,9 @@ namespace Assets.Scripts.ObjectInteraction{
             //zerToOne is the number that we want to access later, 0 -> 1
             SliderLength = OpperBound - LowerBound;
             
-
             //only drag if mouse is pressed
             if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) _dragEnabled = false;
         }
-
 
         //function is called when you click an object with a collider
         private void OnMouseDrag(){
@@ -58,6 +56,7 @@ namespace Assets.Scripts.ObjectInteraction{
                         transform.position = new Vector3(worldDragTo.x, _dragStartPosition.y, _dragStartPosition.z);
                 }
 
+                // ?
                 if (SlideAxis.Equals('Y')){
                     var worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
@@ -67,6 +66,7 @@ namespace Assets.Scripts.ObjectInteraction{
                         transform.position = new Vector3(_dragStartPosition.x, worldDragTo.y, _dragStartPosition.z);
                 }
 
+                // ?
                 if (SlideAxis.Equals('Z')){
                     var worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
@@ -79,12 +79,18 @@ namespace Assets.Scripts.ObjectInteraction{
             }
         }
 
+        /// <summary>
+        /// ?
+        /// </summary>
+        /// <returns></returns>
         public float GetZeroToOne(){
             _zeroToOne = (transform.position.y - LowerBound) / SliderLength;
             return _zeroToOne;
         }
 
-
+        /// <summary>
+        /// ?
+        /// </summary>
         private void OnDrawGizmos(){
             if (SlideAxis.Equals('X'))
                 Gizmos.DrawLine(Pivot.transform.position + Vector3.right*SliderLength,
