@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6079691876741e349a6be161379f91e9
-timeCreated: 1477649185
+guid: df4a38dd6b523454e96752d1271201b7
+timeCreated: 1478082919
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Lightpath1
+    4300000: Light_path1
     9500000: //RootNode
   materials:
     importMaterials: 1
