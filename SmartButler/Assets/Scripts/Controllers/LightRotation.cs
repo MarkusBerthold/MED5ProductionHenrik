@@ -19,6 +19,8 @@ namespace Assets.Scripts.Controllers {
 
         private bool isGrounded = true; //makes sure you can only move if you touch the tunnel?
 
+        public Quaternion savedRotation;
+
         //private bool isLerping;
 
         // Use this for initialization
@@ -34,7 +36,10 @@ namespace Assets.Scripts.Controllers {
             var horizontalInput = Input.GetAxis("Horizontal");
             
             if ((horizontalInput != 0) && !_isRotating &&
-                Input.GetButtonDown("Horizontal") && isGrounded) {
+                Input.GetButtonDown("Horizontal") && isGrounded){
+
+                //savedRotation = Rotator.transform.rotation; //Saves the rotation of the tube
+
                 if (horizontalInput < 0)
                     horizontalInput = -1; //makes sure the tunnel rotate to the right side when going left?
                 else if (horizontalInput > 0)
