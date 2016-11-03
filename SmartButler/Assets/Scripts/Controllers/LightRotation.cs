@@ -11,7 +11,7 @@ namespace Assets.Scripts.Controllers {
 
         private Quaternion _target;
         private Vector3 _targetRotationEuler; //is the center of the rotation? it doesn't look like it's used anywhere in the script...
-        private int _rotationPos;
+        public int _rotationPos;
 
         public GameObject Rotator; //this is the tunnel?
 
@@ -38,9 +38,6 @@ namespace Assets.Scripts.Controllers {
             
             if ((horizontalInput != 0) && !_isRotating &&
                 Input.GetButtonDown("Horizontal") && isGrounded){
-
-                savedRotation = Rotator.transform.rotation; //saves the rotation
-                savedRotationPos = _rotationPos; 
 
                 if (horizontalInput < 0)
                     horizontalInput = -1; //makes sure the tunnel rotate to the right side when going left?
