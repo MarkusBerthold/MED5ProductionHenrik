@@ -683,8 +683,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01895e04f1866ec47a828295dbab4203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotationPos: 0
   Rotator: {fileID: 965346775}
   RotSpeed: 10
+  savedRotation: {x: 0, y: 0, z: 0, w: 0}
+  savedRotationPos: 0
 --- !u!1 &316276689 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100092, guid: 611f7af0dc6a2c447aef5430a8fa2be4, type: 3}
@@ -1027,7 +1030,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 495474580}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2150.16, y: -0.14999962, z: 0.10000038}
+  m_LocalPosition: {x: 2156.6, y: -0.14999962, z: 0.10000038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1337,7 +1340,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 725844496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1188.4, y: -0.14999962, z: 0.10000038}
+  m_LocalPosition: {x: 1190.63, y: -0.14999962, z: 0.10000038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1930,6 +1933,10 @@ Prefab:
     - target: {fileID: 400000, guid: d55f6df19e6c98a4ba78a4511ea4d2ca, type: 3}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300014, guid: d55f6df19e6c98a4ba78a4511ea4d2ca, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d55f6df19e6c98a4ba78a4511ea4d2ca, type: 3}
@@ -3100,7 +3107,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407108876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 686.43, y: -0.14999962, z: 0.10000038}
+  m_LocalPosition: {x: 690.11, y: -0.14999962, z: 0.10000038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
