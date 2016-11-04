@@ -16,6 +16,9 @@ namespace Assets.Scripts.PlacementGear{
 
         public GameObject CogPlacer;
 
+		placeLastGear cogplacerlastgear;
+	
+
         // Use this for initialization
         private void Start(){
             _startPos = transform.localPosition;
@@ -24,12 +27,14 @@ namespace Assets.Scripts.PlacementGear{
 
             _endPos = new Vector3(-0.1068f, 0.2051299f, -0.5089f);
             _sceneLoader = FindObjectOfType<SceneLoader>();
+
+			cogplacerlastgear = CogPlacer.GetComponent<placeLastGear> ();
         }
 
         // Update is called once per frame
         private void Update(){
-            if (CogPlacer.GetComponent<placeLastGear>().GetConnected())
-                if ((CogPlacer.GetComponent<placeLastGear>().Placeable.tag == "LastGear") && _doOnceLastGear){
+			if (cogplacerlastgear.GetConnected())
+			if ((cogplacerlastgear.Placeable.tag == "LastGear") && _doOnceLastGear){
                     while (_doOnce == 0){
                         _currentLerpTime = 0f;
                         _doOnce = 1;
@@ -42,9 +47,10 @@ namespace Assets.Scripts.PlacementGear{
                     var perc = _currentLerpTime/_lerpTime;
                     transform.localPosition = Vector3.Lerp(_startPos, _endPos, perc);
 
-                    if (perc >= 1){
+					if (perc >= 1 && _doOnceLastGear){
                         _doOnceLastGear = false;
-                        // do loading
+                        // do loading once
+					print("did this happen more than once?");
                         _sceneLoader.LoadScene();
                     }
                 }

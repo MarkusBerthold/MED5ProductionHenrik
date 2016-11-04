@@ -14,6 +14,7 @@ namespace Assets.Scripts.GameManager{
 
         private void Start(){
             _sunInitialIntensity = Sun.intensity;
+            Sun = GetComponentInChildren<Light>();
         }
 
         private void Update(){
