@@ -10,10 +10,14 @@ namespace Assets.Scripts.Sound_System{
 		public enum StatesEnum{
 			Start,
 			Coffee,
+			SeesRemote,
 			RemoteControl,
+			SeesStereo,
+			Stereo,
 			BackFromClock,
 			BackFromLight,
-			BackFromStereo
+			BackFromStereo,
+			End
 		}
 
 		private bool _introsHasBeenPlayed;
@@ -26,6 +30,8 @@ namespace Assets.Scripts.Sound_System{
 		public int _state;
 		public State[] Arrayofstates;
 		public AudioSource AudioSource;
+
+		private int EndTime;
 
 		private void Awake(){
 			_someListener = Coffee;
@@ -79,15 +85,28 @@ namespace Assets.Scripts.Sound_System{
 						print("starting coroutine for reseting cues");
 					}
 				}
-			//print (_state);
+			if (EndTime == 3) {
+				End ();
+				EndTime++;
+			}
 		}
 
 		/// <summary>
 		/// Sets the _state to 1
 		/// </summary>
+		/// Start,
 		private void Coffee(){
 			Debug.Log("coffeebutton was pressed");
 			_state = 1;
+			doOncePerState = false;
+		}
+
+		private void SeesRemote(){
+			Debug.Log("Remote Control was seen");
+			if (_state == 1) {
+				_state = 2;
+				EventManager.StopListening ("coffeebutton", _someListener);
+			}
 			doOncePerState = false;
 		}
 
@@ -96,23 +115,49 @@ namespace Assets.Scripts.Sound_System{
 		/// </summary>
 		private void RemoteControl(){
 			Debug.Log("Remote Control was pressed");
-			if (_state == 1) {
-				_state = 2;
-				EventManager.StopListening ("coffeebutton", _someListener);
+			if (_state == 2) {
+				_state = 3;
+				EventManager.StopListening ("seeingremote", _someListener);
 			}
 			doOncePerState = false;
 
 		}
+
+		private void SeesStereo(){
+			Debug.Log("Stereo was seen");
+			if (_state == 3) {
+				_state = 4;
+				EventManager.StopListening ("remotecontrol", _someListener);
+			}
+			doOncePerState = false;
+		}
+
+		private void Stereo(){
+			Debug.Log("Stereo was pressed");
+			if (_state == 4) {
+				_state = 5;
+				EventManager.StopListening ("stereo", _someListener);
+			}
+			doOncePerState = false;
+		}
+	
 		public void BackFromClock(){
-			_state = 3;
+			_state = 6;
+			EndTime++;
 			doOncePerState = false;
 		}
 		public void BackFromLight(){
-			_state = 4;
+			_state = 7;
+			EndTime++;
 			doOncePerState = false;
 		}
 		public void BackFromStereo(){
-			_state = 5;
+			_state = 8;
+			EndTime++;
+			doOncePerState = false;
+		}
+		private void End(){
+			_state = 9;
 			doOncePerState = false;
 		}
 
@@ -120,14 +165,14 @@ namespace Assets.Scripts.Sound_System{
 		private void OnEnable(){
 			EventManager.StartListening("coffeebutton", _someListener);
 			EventManager.StartListening("remotecontrol", RemoteControl);
-			EventManager.StartListening("backfromclock", BackFromClock);
+			//EventManager.StartListening("backfromclock", BackFromClock);
 		}
 
 		//Stops event listening
 		private void OnDisable(){
 			EventManager.StopListening("coffeebutton", _someListener);
 			EventManager.StopListening("remotecontrol", RemoteControl);
-			EventManager.StopListening("backfromclock", BackFromClock);
+			//EventManager.StopListening("backfromclock", BackFromClock);
 		}
 
 		public class State{
