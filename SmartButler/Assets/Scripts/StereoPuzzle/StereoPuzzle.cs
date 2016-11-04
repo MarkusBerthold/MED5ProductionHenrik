@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.StereoPuzzle{
     public class StereoPuzzle : MonoBehaviour{
-        private StereoPuzzleHook[] _puzzleHooks = new StereoPuzzleHook[4];
+      /*  private StereoPuzzleHook[] _puzzleHooks = new StereoPuzzleHook[4];
         //private bool _puzzleIsSolved;
         private InvisiblePath _invisiblePath;
 
@@ -15,12 +15,12 @@ namespace Assets.Scripts.StereoPuzzle{
 
         private void Start(){
             _puzzleHooks = GetComponentsInChildren<StereoPuzzleHook>();
-            /*
+            
         _puzzleHooks[0] = Left  
         _puzzleHooks[1] = Bottom
         _puzzleHooks[2] = Right
         _puzzleHooks[3] =  Top
-         */
+         
             //invisiblePath = GameObject.Find("StraigthPath").GetComponent<InvisiblePath>();
             CheckAlignedPieces();
             _sceneLoader = GetComponent<SceneLoader>();
@@ -72,5 +72,6 @@ namespace Assets.Scripts.StereoPuzzle{
                 //invisiblePath.MakePathVisible(); //is not used for v2
             }
         }
+    */
     }
 }
