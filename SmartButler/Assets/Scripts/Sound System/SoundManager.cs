@@ -11,7 +11,9 @@ namespace Assets.Scripts.Sound_System{
 			Start,
 			Coffee,
 			RemoteControl,
-			BackFromClock
+			BackFromClock,
+			BackFromLight,
+			BackFromStereo
 		}
 
 		private bool _introsHasBeenPlayed;
@@ -103,6 +105,14 @@ namespace Assets.Scripts.Sound_System{
 		}
 		public void BackFromClock(){
 			_state = 3;
+			doOncePerState = false;
+		}
+		public void BackFromLight(){
+			_state = 4;
+			doOncePerState = false;
+		}
+		public void BackFromStereo(){
+			_state = 5;
 			doOncePerState = false;
 		}
 

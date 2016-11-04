@@ -2857,7 +2857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1000011437324026, guid: e06f97be2bad9490283a58d0f4da577e, type: 2}
-  IsEnterable: 0
+  IsEnterable: 1
   LoadingText: {fileID: 468140936}
   TargetScene: 0
   CurrentScene: 1
