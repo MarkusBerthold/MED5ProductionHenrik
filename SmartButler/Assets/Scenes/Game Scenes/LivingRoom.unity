@@ -51496,11 +51496,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1198682633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e1531661e23e4f7bb8dd4de8c1fe3f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HourHandBrokenRotSpeed: 0
+  MinuteHandBrokenRotSpeed: 0
+  SecondHandBrokenRotSpeed: 0
   IsBroken: 0
   Period: 3
 --- !u!82 &1198682636
