@@ -19,7 +19,7 @@ public class BetweenPlayerAndCamera : MonoBehaviour {
 
     IEnumerator ResetRenderer(Collider coll)
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         coll.GetComponent<Renderer>().enabled = true;
 
