@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.ClockItem;
-using Assets.Scripts.Controllers;
+﻿using Assets.Scripts.Controllers;
 //using Assets.Scripts.MessageingSystem;
 using UnityEngine;
 
@@ -14,13 +13,13 @@ namespace Assets.Scripts.ObjectInteraction{
         public Axis RotationalAxis;
         public LightSwitcher LightSwitcher;
         public StereoController StereoController;
-        public clockHandRotation ClockRotater;
 
         public enum Axis {
             X,
             Y,
             Z
         };
+
 
         public bool IsRotating { get; private set; }
         public bool IsActive = true;
@@ -34,8 +33,10 @@ namespace Assets.Scripts.ObjectInteraction{
         //Runs once per frame
         private void Update() {
 
+
             // Offset
             _mouseOffset = Input.mousePosition - _mouseReference;
+
 
             if (IsRotating) {
                 switch (RotationalAxis) {
@@ -56,24 +57,15 @@ namespace Assets.Scripts.ObjectInteraction{
                 // store mouse
                 _mouseReference = Input.mousePosition;
                 GetAngle();
-
-                if (gameObject.name == "coffeeMachine_knob"){
-                    LightSwitcher.IsActive = true;
-                    LightSwitcher.UpdateLightsHue((int) CurrentAngle);
-                }
-                else if(this.tag == "RemoteController"){
-                    StereoController.UpdateStereoDegrees((int) CurrentAngle);
-                }else if (gameObject.name == "knob"){
-                    ClockRotater.HourHandBrokenRotSpeed = (CurrentAngle);
-                    ClockRotater.MinuteHandBrokenRotSpeed = (CurrentAngle *2);
-                    ClockRotater.SecondHandBrokenRotSpeed = (CurrentAngle *4);
-                }
-
+                LightSwitcher.UpdateLightsHue((int)CurrentAngle);
+                StereoController.UpdateStereoDegrees((int)CurrentAngle);
             }
         }
 
         //Triggers the remotecontrol event
         private void OnMouseDown() {
+
+            
         
             // rotating flag
             IsRotating = true;

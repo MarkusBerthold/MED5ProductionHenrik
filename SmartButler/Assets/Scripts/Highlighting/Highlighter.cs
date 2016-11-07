@@ -3,8 +3,7 @@
 namespace Assets.Scripts.Highlighting{
     public class Highlighter : MonoBehaviour {
 
-
-        public float DistanceThreshold = 1.0f;
+        public float DistanceThreshold = 1.0f; //???
         public Shader OutlineShader;
         private Material[] _defaultMaterials;
         private Material[] _currentMaterials;

@@ -2,35 +2,39 @@
 using System.Collections;
 
 class AnimateTiledTexture : MonoBehaviour {
-    public int columns = 2;
-    public int rows = 2;
-    public float framesPerSecond = 10f;
+    public int Columns = 2;
+    public int Rows = 2;
+    public float FramesPerSecond = 10f;
 
     //the current frame to display
-    private int index = 0;
+    private int _index = 0;
 
     void Start() {
-        StartCoroutine(updateTiling());
+        StartCoroutine(UpdateTiling());
 
         //set the tile size of the texture (in UV units), based on the rows and columns
-        Vector2 size = new Vector2(1f / columns, 1f / rows);
+        Vector2 size = new Vector2(1f / Columns, 1f / Rows);
         GetComponent<Renderer>().sharedMaterial.SetTextureScale("_MainTex", size);
     }
 
-    private IEnumerator updateTiling() {
+    /// <summary>
+    /// ?
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator UpdateTiling() {
         while (true) {
             //move to the next index
-            index++;
-            if (index >= rows * columns)
-                index = 0;
+            _index++;
+            if (_index >= Rows * Columns)
+                _index = 0;
 
             //split into x and y indexes
-            Vector2 offset = new Vector2((float)index / columns - (index / columns), //x index
-                                          (index / columns) / (float)rows);          //y index
+            Vector2 offset = new Vector2((float)_index / Columns - (_index / Columns), //x index
+                                           (_index / Columns) / (float)Rows);          //y index
 
             GetComponent<Renderer>().sharedMaterial.SetTextureOffset("_MainTex", offset);
 
-            yield return new WaitForSeconds(1f / framesPerSecond);
+            yield return new WaitForSeconds(1f / FramesPerSecond);
         }
 
     }

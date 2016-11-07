@@ -11,13 +11,16 @@ namespace Assets.Scripts.Controllers {
 
         private Quaternion _target;
         private Vector3 _targetRotationEuler; //is the center of the rotation? it doesn't look like it's used anywhere in the script...
-        private int _rotationPos;
+        public int _rotationPos;
 
         public GameObject Rotator; //this is the tunnel?
 
         public float RotSpeed = 10f; //sets how fast the rotation is carried out?
 
         private bool isGrounded = true; //makes sure you can only move if you touch the tunnel?
+
+        public Quaternion savedRotation;
+        public int savedRotationPos;
 
         //private bool isLerping;
 
@@ -37,7 +40,8 @@ namespace Assets.Scripts.Controllers {
             var horizontalInput = Input.GetAxis("Horizontal");
             
             if ((horizontalInput != 0) && !_isRotating &&
-                Input.GetButtonDown("Horizontal") && isGrounded) {
+                Input.GetButtonDown("Horizontal") && isGrounded){
+
                 if (horizontalInput < 0)
                     horizontalInput = -1; //makes sure the tunnel rotate to the right side when going left?
                 else if (horizontalInput > 0)
@@ -89,6 +93,14 @@ namespace Assets.Scripts.Controllers {
         /// <param name="collisionInfo"></param>
         void OnCollisionExit(Collision collisionInfo){
             isGrounded = false;
+        }
+
+        /// <summary>
+        /// Reset values of the level to save
+        /// </summary>
+        public void ResetLevel(){
+            Rotator.transform.rotation = savedRotation;
+            _rotationPos = savedRotationPos;
         }
     }
 }

@@ -5,20 +5,20 @@ using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.Controllers{
     public class DButton : MonoBehaviour{
-        private GameStateManager _gameStateManager;
+        //private GameStateManager _gameStateManager;
 
         public LightSwitcher LightSwitcher;
 
         //Initalise the _gameStateManager
         private void Awake(){
-            _gameStateManager = FindObjectOfType<GameStateManager>();
+            //_gameStateManager = FindObjectOfType<GameStateManager>();
         }
 
         //When the mouse is pressed, enable LightSwitcher and change the state
         private void OnMouseDown(){
 			EventManager.TriggerEvent ("coffeebutton");
             LightSwitcher.SwitchEnable();
-            _gameStateManager.ChangeCurrentState(GameStateManager.State.Coffee);
+			GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
         }
     }
 }
