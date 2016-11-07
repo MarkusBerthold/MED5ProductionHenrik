@@ -128,6 +128,7 @@
     <Compile Include="Assets\Scripts\UnusedTest\AnimateTiledTexture.cs" />
     <Compile Include="Assets\Scripts\UnusedTest\UIWatch.cs" />
     <Compile Include="Assets\Scripts\UnusedTest\WaveformFloor.cs" />
+    <Compile Include="Assets\Scripts\Video\VideoController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
