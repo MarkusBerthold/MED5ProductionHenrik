@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.GameManager;
+﻿using Assets.Scripts.Controllers;
+using Assets.Scripts.GameManager;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityStandardAssets.Characters.ThirdPerson;
@@ -10,11 +11,13 @@ namespace Assets.Scripts.Character {
         public Vector3 Offset = Vector3.up; // is used for when a player is killed so that the player doesn't spawn inside the cog
         private FirstPersonController _player;
         private ThirdPersonCharacter _thirdPersonCharacter;
+        private LightRotation _lightRotation;
 
         //Initialise
         private void Start(){
-                _player = FindObjectOfType<FirstPersonController>();
-                _thirdPersonCharacter = FindObjectOfType<ThirdPersonCharacter>();
+            _player = FindObjectOfType<FirstPersonController>();
+            _thirdPersonCharacter = FindObjectOfType<ThirdPersonCharacter>();
+            _lightRotation = FindObjectOfType<LightRotation>();
             //CurrentCheckpoint = GameObject.Find("RespawnPoint").transform;
             //_allFallingPlatforms = FindObjectsOfType<fallingPlatform>();
         }
@@ -47,6 +50,7 @@ namespace Assets.Scripts.Character {
                     break;
                 case "ThirdPerson":
                     _thirdPersonCharacter.RespawnChar();
+                    _lightRotation.ResetLevel();
                     break;
             }
 
