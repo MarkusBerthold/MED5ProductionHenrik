@@ -11,15 +11,14 @@ namespace Assets.Scripts.ClockItem{
         public float SecondHandBrokenRotSpeed; //controls the speed of the second dial?
         private float _secondHandRotSpeed;
 
-        private float _nextActionTime;
         public bool IsBroken; //sets whether or not if the dials goes with or against the clock?
-        public float Period = 3f; //weren't we suppose to delete thìs part?
+        //public float Period = 3f; //weren't we suppose to delete thìs part?
 
         private bool _notDone = true;
 
         // Use this for initialization
         private void Start(){
-            IsBroken = true;
+            //IsBroken;
 
             //Set rotation speeds for the different gears. These are never changed
             gameObject.transform.GetChild(0).gameObject.GetComponent<gearRotationZaxis>().Rotspeed = -4;
@@ -41,12 +40,6 @@ namespace Assets.Scripts.ClockItem{
 
         // Update is called once per frame
         private void Update(){
-            if (Time.time > _nextActionTime){
-                _nextActionTime += Period;
-                HourHandBrokenRotSpeed = Random.Range(-100f, 100f);
-                MinuteHandBrokenRotSpeed = Random.Range(-50f, 50f);
-                SecondHandBrokenRotSpeed = Random.Range(-25f, 25f);
-            }
 
             //If the clock is broken, set the rotation speed to that variable
             //otherwise call the unbroken rotation function once.

@@ -1,24 +1,32 @@
 ﻿using System.Collections;
+using Assets.Scripts.ClockItem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.ClockLevel{
     public class gearRotationZaxis : MonoBehaviour{
         public float Rotspeed;
-        private string sceneName;
+        private string _sceneName;
 
         //Check which scene we are in and store it
         private void Start(){
             Scene currentScene = SceneManager.GetActiveScene();
-            sceneName = currentScene.name;
+            _sceneName = currentScene.name;
         }
 
         // Update is called once per frame
         private void Update(){
             //If we are in the clock level, just rotate all the time
-            if (sceneName == "Clock"){
+            if (_sceneName == "Clock"){
                 transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * Rotspeed, Space.Self);
-            }       
+            }else if (_sceneName == "LivingRoom"){
+                //When we are in the LivingRoom, make a clockRotator and check if the clock is broken
+                //If it is broken, then we rotate with the broken speeds from stereo
+                clockHandRotation ClockRotater;
+                ClockRotater = this.GetComponentInParent<clockHandRotation>();
+                if(ClockRotater.IsBroken)
+                RotateBroken();
+    }
         }
 
         /// <summary>
@@ -84,6 +92,10 @@ namespace Assets.Scripts.ClockLevel{
         public void RotateWaitHour(float rotspeed)
         {
             StartCoroutine(WaitForHour(rotspeed));
+        }
+
+        public void RotateBroken(){
+            transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * Rotspeed, Space.Self);
         }
     }
 }
