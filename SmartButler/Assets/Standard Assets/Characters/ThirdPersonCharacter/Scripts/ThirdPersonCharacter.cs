@@ -33,6 +33,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 _currentCheckpoint;
         private Vector3 _respawnOffset = Vector3.up * 5;
 
+		public GameObject soundtrack;
+
         void Start()
 		{
             _currentCheckpoint = transform.position;
@@ -44,6 +46,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
+
 		}
 
 
@@ -233,6 +236,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void RespawnChar()
         {
             transform.position = _currentCheckpoint + _respawnOffset;
+			//soundtrack.GetComponent<DrumSounds>().ResetSounds();
         }
+
+		public bool GetIsGrounded(){
+			return m_IsGrounded;
+		}
     }
 }

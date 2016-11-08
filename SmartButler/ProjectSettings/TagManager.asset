@@ -32,6 +32,7 @@ TagManager:
   - ThirdPerson
   - organ
   - drums
+  - kalimba
   layers:
   - Default
   - TransparentFX
