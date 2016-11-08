@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Controllers;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
-using UnityStandardAssets.Characters.ThirdPerson;
+using Assets.Characters.ThirdPerson;
 
 namespace Assets.Scripts.Character {
     public class Checkpoint : MonoBehaviour {

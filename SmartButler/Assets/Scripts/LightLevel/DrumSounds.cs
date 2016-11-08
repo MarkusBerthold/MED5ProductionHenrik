@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityStandardAssets.Characters.ThirdPerson;
+using Assets.Characters.ThirdPerson;
+using Assets.Scripts.Character;
+using UnityEngine.Events;
+using Assets.Scripts.MessageingSystem;
 
 
 
@@ -14,8 +17,15 @@ public class DrumSounds : MonoBehaviour {
 	private AudioSource KalimbaAudioSource;
 	private AudioSource LightpadAudioSource;
 	public AudioSource falling;
+	public AudioSource emmaCollides;
 
 	public ThirdPersonCharacter tpc;
+
+	private UnityAction _someListener;
+
+	void Awake(){
+		_someListener = ResetSounds;
+	}
 
 
 	// Use this for initialization
@@ -27,6 +37,8 @@ public class DrumSounds : MonoBehaviour {
 		LightpadAudioSource = GameObject.FindGameObjectWithTag("lightpad").GetComponent<AudioSource>();
 
 		tpc = FindObjectOfType<ThirdPersonCharacter> ();
+
+
 	}
 	
 	// Update is called once per frame
@@ -75,4 +87,17 @@ public class DrumSounds : MonoBehaviour {
 		OrganAudioSource.Stop ();
 		LightpadAudioSource.Stop ();
 		}
+	public void OnEmmaCollision(){
+		emmaCollides.Play ();
+		
+	}
+
+	void OnEnable(){
+		EventManager.StartListening ("respawn",_someListener);
+		EventManager.StartListening ("emmacollides",OnEmmaCollision);
+	}
+	void OnDisable(){
+		EventManager.StopListening ("respawn",_someListener);
+		EventManager.StopListening ("emmacollides",OnEmmaCollision);
+	}
 	}

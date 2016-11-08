@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.Events;
+using Assets.Scripts.MessageingSystem;
 
-namespace UnityStandardAssets.Characters.ThirdPerson
+namespace Assets.Characters.ThirdPerson
 {
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
@@ -31,9 +33,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
         // ?
         private Vector3 _currentCheckpoint;
-        private Vector3 _respawnOffset = Vector3.up * 5;
+		public Vector3 _respawnOffset;
 
-		public GameObject soundtrack;
+		//public GameObject soundtrack;
 
         void Start()
 		{
@@ -236,8 +238,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public void RespawnChar()
         {
             transform.position = _currentCheckpoint + _respawnOffset;
-			//soundtrack.GetComponent<DrumSounds>().ResetSounds();
+			EventManager.TriggerEvent ("respawn");
         }
+
+
 
 		public bool GetIsGrounded(){
 			return m_IsGrounded;

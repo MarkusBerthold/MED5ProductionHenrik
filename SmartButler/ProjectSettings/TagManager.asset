@@ -33,6 +33,7 @@ TagManager:
   - organ
   - drums
   - kalimba
+  - lightpad
   layers:
   - Default
   - TransparentFX
