@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.PlacementGear{
     public class MoveFirstBridge : MonoBehaviour{
@@ -42,8 +43,10 @@ namespace Assets.Scripts.PlacementGear{
 
                     print(perc);
 
-                    if (perc >= 1)
-                        _doOnceFirstGear = false;
+				if (perc >= 1) {
+					_doOnceFirstGear = false;
+					EventManager.TriggerEvent ("addfirstsound");
+				}
                 }
         }
     }

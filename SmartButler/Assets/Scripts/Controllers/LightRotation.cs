@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityStandardAssets.Characters.ThirdPerson;
+using Assets.Characters.ThirdPerson;
 
 namespace Assets.Scripts.Controllers {
     public class LightRotation : MonoBehaviour {
@@ -30,6 +30,9 @@ namespace Assets.Scripts.Controllers {
             Cursor.lockState = CursorLockMode.Locked;
 
             Physics.gravity = Physics.gravity*10;
+
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ |
+                                                               RigidbodyConstraints.FreezeRotation;
         }
 
         // Update is called once per frame

@@ -2,7 +2,8 @@
 using Assets.Scripts.GameManager;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
-using UnityStandardAssets.Characters.ThirdPerson;
+using Assets.Characters.ThirdPerson;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.Character {
     public class Despawner : MonoBehaviour {
@@ -47,10 +48,12 @@ namespace Assets.Scripts.Character {
             switch (coll.gameObject.tag){
                 case "Player":
                     _player.RespawnChar();
+				EventManager.TriggerEvent ("emmacollides");
                     break;
-                case "ThirdPerson":
-                    _thirdPersonCharacter.RespawnChar();
-                    _lightRotation.ResetLevel();
+			case "ThirdPerson":
+				_thirdPersonCharacter.RespawnChar ();
+				_lightRotation.ResetLevel ();
+				EventManager.TriggerEvent ("emmacollides");
                     break;
             }
 

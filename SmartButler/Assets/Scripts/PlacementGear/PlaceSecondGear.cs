@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.PickUp;
 using UnityEngine;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.PlacementGear{
     public class PlaceSecondGear : MonoBehaviour{
@@ -30,6 +31,7 @@ namespace Assets.Scripts.PlacementGear{
                     Placeable.gameObject.transform.SetParent(gameObject.transform);
 
                     _connected = true;
+					EventManager.TriggerEvent ("rotategear");
                     Placeable.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
                         gameObject.transform.position.y,
                         gameObject.transform.position.z);

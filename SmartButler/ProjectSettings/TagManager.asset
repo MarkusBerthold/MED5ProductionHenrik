@@ -29,6 +29,11 @@ TagManager:
   - Thoughts
   - CoffeeButton
   - Checkpoint
+  - ThirdPerson
+  - organ
+  - drums
+  - kalimba
+  - lightpad
   layers:
   - Default
   - TransparentFX
