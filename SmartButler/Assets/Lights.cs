@@ -4,7 +4,7 @@ using System.Collections;
 public class Lights : MonoBehaviour {
     private Transform[] _lightTransforms;
     private Light[] _lights;
-    public int lightSpacing = 250; //spacing between light
+    public int lightSpacing = 250; //spacing between light | keep the spacing low or white laggy light appear
     public int lightIntensity = 5; //intensity of light
 
     // Use this for initialization
