@@ -29,6 +29,7 @@ namespace Assets.Scripts.Highlighting{
                     _currentMaterials[i].shader = OutlineShader;
                 }
             }
+            Debug.Log(OutlineShader.name);
         }
 
         //Resets shaders to normal

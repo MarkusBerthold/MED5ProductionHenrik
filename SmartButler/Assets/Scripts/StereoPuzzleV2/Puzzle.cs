@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.MessageingSystem;
 using UnityEngine;
 
 namespace Assets.Scripts.StereoPuzzleV2 {
@@ -9,6 +10,11 @@ namespace Assets.Scripts.StereoPuzzleV2 {
         private Ipv6AdressPiece[] _ipv6AdressArray;
         private bool _puzzleIsSolved;
         public int NumberOfAlignedPiecesInOrderForThisPuzzleToBeSolved;
+        public int PuzzleNumber;
+
+
+        
+
 
         void Awake(){
             _ipv6AdressArray = new Ipv6AdressPiece[Ipv6Adress.Length];
@@ -52,6 +58,7 @@ namespace Assets.Scripts.StereoPuzzleV2 {
             if (NumberOfAlignedPiecesInOrderForThisPuzzleToBeSolved != 0 && booleans.Count(b => b) == NumberOfAlignedPiecesInOrderForThisPuzzleToBeSolved)
             {
                 _puzzleIsSolved = true;
+                EventManager.TriggerEvent("PuzzleIsSolved" + PuzzleNumber);
             }
             return booleans.Count(b => b);
         }
