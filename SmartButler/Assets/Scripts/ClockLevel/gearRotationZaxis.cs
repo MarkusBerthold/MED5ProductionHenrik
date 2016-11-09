@@ -16,19 +16,14 @@ namespace Assets.Scripts.ClockLevel{
 
         // Update is called once per frame
         private void Update(){
-            //If we are in the clock level, just rotate all the time
-            if (_sceneName == "Clock"){
-                transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * Rotspeed, Space.Self);
-            }else if (_sceneName == "LivingRoom"){
-                //When we are in the LivingRoom, make a clockRotator and check if the clock is broken
-                //If it is broken, then we rotate with the broken speeds from stereo
-                clockHandRotation ClockRotater;
-                ClockRotater = this.GetComponentInParent<clockHandRotation>();
-                if(ClockRotater.IsBroken)
-                RotateBroken();
-    }
+                    transform.Rotate(new Vector3(0,0,1) * Time.deltaTime * Rotspeed, Space.Self);
         }
 
+        public void UpdateRotspeed(int rotspeed){
+            Rotspeed = rotspeed;
+        }
+
+        /*
         /// <summary>
         /// Rotates in 1 second intervals. 
         /// Takes a float which is the rotation value
@@ -96,6 +91,6 @@ namespace Assets.Scripts.ClockLevel{
 
         public void RotateBroken(){
             transform.Rotate(new Vector3(0, 0, 1) * Time.deltaTime * Rotspeed, Space.Self);
-        }
+        }*/
     }
 }

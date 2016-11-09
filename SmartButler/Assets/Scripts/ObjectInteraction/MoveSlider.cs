@@ -9,6 +9,7 @@ namespace Assets.Scripts.ObjectInteraction{
         private Vector3 _objectStartPosition;
         private float _zeroToOne;
         public LightSwitcher LightSwitcher;
+        public StereoController StereoController;
         public float LowerBound;
 
         public float OpperBound;
@@ -75,6 +76,9 @@ namespace Assets.Scripts.ObjectInteraction{
                     if ((worldDragTo.z >= LowerBound) && (worldDragTo.z <= OpperBound))
                         transform.position = new Vector3(_dragStartPosition.x, _dragStartPosition.y, worldDragTo.z);
                 }
+                if (this.tag == "RemoteController"){
+                    StereoController.UpdateStereoVolume(GetZeroToOne());
+                }
                 LightSwitcher.SetIntensity(GetZeroToOne());
             }
         }
@@ -84,7 +88,12 @@ namespace Assets.Scripts.ObjectInteraction{
         /// </summary>
         /// <returns></returns>
         public float GetZeroToOne(){
-            _zeroToOne = (transform.position.y - LowerBound) / SliderLength;
+            if (this.tag == "RemoteController"){
+                _zeroToOne = (transform.position.x - LowerBound) / SliderLength;
+            }
+            else{
+                _zeroToOne = (transform.position.y - LowerBound) / SliderLength;
+            }
             return _zeroToOne;
         }
 

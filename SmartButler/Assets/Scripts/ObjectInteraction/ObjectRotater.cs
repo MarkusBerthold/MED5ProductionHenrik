@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.ClockItem;
+using Assets.Scripts.ClockLevel;
 using Assets.Scripts.Controllers;
 //using Assets.Scripts.MessageingSystem;
 using UnityEngine;
@@ -14,7 +15,10 @@ namespace Assets.Scripts.ObjectInteraction{
         public Axis RotationalAxis;
         public LightSwitcher LightSwitcher;
         public StereoController StereoController;
-        public clockHandRotation ClockRotater;
+        public GearRotationYAxis GearRotationYAxis;
+        public gearRotationZaxis GearRotationZaxis;
+        public GearRotationYAxis[] gearsY;
+        public gearRotationZaxis[] gearsZ;
 
         public enum Axis {
             X,
@@ -29,6 +33,8 @@ namespace Assets.Scripts.ObjectInteraction{
             _sensitivity = 0.4f;
             _rotation = Vector3.zero;
             LightSwitcher = FindObjectOfType<LightSwitcher>();
+            gearsY = FindObjectsOfType<GearRotationYAxis>();
+            gearsZ = FindObjectsOfType<gearRotationZaxis>();
         }
 
         //Runs once per frame
@@ -61,13 +67,13 @@ namespace Assets.Scripts.ObjectInteraction{
                     Debug.Log("coffee knob active");
                     LightSwitcher.IsActive = true;
                     LightSwitcher.UpdateLightsHue((int) CurrentAngle);
-                }
-                else if(this.tag == "RemoteController"){
+                }else if(this.tag == "RemoteController"){
                     StereoController.UpdateStereoDegrees((int) CurrentAngle);
-                }else if (gameObject.name == "knob"){
-                    ClockRotater.HourHandBrokenRotSpeed = (CurrentAngle);
-                    ClockRotater.MinuteHandBrokenRotSpeed = (CurrentAngle *2);
-                    ClockRotater.SecondHandBrokenRotSpeed = (CurrentAngle *4);
+                }else if (this.tag == "Speaker"){
+                    foreach (gearRotationZaxis Z in gearsZ)
+                        Z.UpdateRotspeed((int) CurrentAngle);
+                    foreach (GearRotationYAxis Y in gearsY)
+                        Y.UpdateRotspeedY((int) CurrentAngle);
                 }
 
             }
