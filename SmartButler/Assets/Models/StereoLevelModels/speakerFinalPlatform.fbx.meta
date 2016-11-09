@@ -1,15 +1,72 @@
 fileFormatVersion: 2
-guid: 98ad2f11863caa046a0295b4c6016a3b
-timeCreated: 1475571660
+guid: 82f9003f245ee5443935f9f1bd83aa05
+timeCreated: 1478511664
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: CD_Platform
+    100000: hub
+    100002: jack
+    100004: jack1
+    100006: jack2
+    100008: mainPower
+    100010: smallPower
+    100012: soundCord
+    100014: soundCord1
+    100016: soundCord2
+    100018: //RootNode
+    100020: usb
+    100022: usb1
+    100024: usb2
+    400000: hub
+    400002: jack
+    400004: jack1
+    400006: jack2
+    400008: mainPower
+    400010: smallPower
+    400012: soundCord
+    400014: soundCord1
+    400016: soundCord2
+    400018: //RootNode
+    400020: usb
+    400022: usb1
+    400024: usb2
+    2300000: hub
+    2300002: jack
+    2300004: jack1
+    2300006: jack2
+    2300008: mainPower
+    2300010: smallPower
+    2300012: soundCord
+    2300014: soundCord1
+    2300016: soundCord2
+    2300018: usb
+    2300020: usb1
+    2300022: usb2
+    3300000: hub
+    3300002: jack
+    3300004: jack1
+    3300006: jack2
+    3300008: mainPower
+    3300010: smallPower
+    3300012: soundCord
+    3300014: soundCord1
+    3300016: soundCord2
+    3300018: usb
+    3300020: usb1
+    3300022: usb2
+    4300000: usb
+    4300002: jack
+    4300004: jack1
+    4300006: usb1
+    4300008: smallPower
+    4300010: mainPower
+    4300012: soundCord
+    4300014: soundCord1
+    4300016: jack2
+    4300018: usb2
+    4300020: soundCord2
+    4300022: hub
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,7 +92,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1800
+    globalScale: 250
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -54,7 +111,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
@@ -69,7 +126,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

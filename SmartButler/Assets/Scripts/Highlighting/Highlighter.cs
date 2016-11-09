@@ -16,6 +16,7 @@ namespace Assets.Scripts.Highlighting {
             } else {
                 _isWithinDistance = false;
             }
+            Debug.Log(OutlineShader.name);
         }
 
         private void OnMouseOver() {
