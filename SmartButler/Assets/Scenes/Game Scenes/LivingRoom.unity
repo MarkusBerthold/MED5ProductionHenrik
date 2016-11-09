@@ -37,12 +37,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692576, g: 0.49678826, b: 0.57508695, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692582, g: 0.49678797, b: 0.57508683, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: 94b301808fb359e42975ba0204afa96d,
+  m_LightingDataAsset: {fileID: 112000001, guid: 4203c5b4b6e14419ea0e18672d7c3c6f,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -8743,7 +8743,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &203983083
 Transform:
   m_ObjectHideFlags: 0
@@ -24784,7 +24784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentTimeOfDay: 0
-  Sun: {fileID: 0}
+  Sun: {fileID: 1165606771}
   TimeMultiplier: 1
 --- !u!4 &545672513
 Transform:
@@ -35971,7 +35971,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
