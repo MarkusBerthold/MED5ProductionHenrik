@@ -78,6 +78,8 @@ namespace Assets.Scripts.GameManager {
             Debug.Log("GSM:: new scene name: " + newScene.name);
             if (!newScene.name.Equals(SceneManager.GetSceneByName(SceneLoader.Scene.LivingRoom.ToString()).name)) {
                 FindObjectOfType<SceneLoader>().IsEnterable = true;
+
+				print ("Test123");
             } else {
                 if (FindReferences()) {
                     ChangeState(previousScene);
@@ -151,7 +153,7 @@ namespace Assets.Scripts.GameManager {
 
 			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager));
 
-            return _lightLoader & _stereoLoader & _clockLoader & DayNightController;
+			return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager;
         }
     }
 

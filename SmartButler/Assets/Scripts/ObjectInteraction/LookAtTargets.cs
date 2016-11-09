@@ -99,7 +99,6 @@ namespace Assets.Scripts.ObjectInteraction {
                     //this runs whenever you break off the remote, this returns the remote back to its start position
                     if (this.tag == "RemoteController") {
                         _remoteHasBeenPickedUp = false;
-                        //EventManager.TriggerEvent ("remotecontrol"); //what does this do exactly? it doesn't seem to do anything, also i can't find anything named 'remotecontrol'
                         print("Tried to reset position of remote");
                         this.transform.position = _remoteControllerStartPosition;
                         this.transform.localRotation = _remoteControllerStartRotation;
@@ -128,6 +127,7 @@ namespace Assets.Scripts.ObjectInteraction {
                     if (this.tag == "Speaker") {
                         _speakerKnob.GetComponent<Highlighter>().DistanceThreshold = 0;
                         _speakerButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
+						EventManager.TriggerEvent ("stereo");
                     }
 
                 }//end inputs
@@ -150,6 +150,7 @@ namespace Assets.Scripts.ObjectInteraction {
                 //this runs when the player picks up the remote
                 if (this.tag == "RemoteController" && _remoteHasBeenPickedUp == false) {
                     print("hit RemoteController");
+					EventManager.TriggerEvent ("seesremote");
                     _remoteHasBeenPickedUp = true;
                     RemoteClicked = true;
                     this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane)); //???
@@ -191,6 +192,7 @@ namespace Assets.Scripts.ObjectInteraction {
                 if (this.tag == "Speaker") {
                     _speakerKnob.GetComponent<Highlighter>().DistanceThreshold = 3;
                     _speakerButton0.GetComponent<Highlighter>().DistanceThreshold = 3;
+					EventManager.TriggerEvent ("seesstereo");
                 }
             }
         }//end onmousedown

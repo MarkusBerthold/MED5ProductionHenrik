@@ -98,16 +98,19 @@ namespace Assets.Scripts.Sound_System{
 		private void Coffee(){
 			Debug.Log("coffeebutton was pressed");
 			_state = 1;
+			EventManager.StopListening ("coffeebutton", _someListener);
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 
 		private void SeesRemote(){
 			Debug.Log("Remote Control was seen");
 			if (_state == 1) {
 				_state = 2;
-				EventManager.StopListening ("coffeebutton", _someListener);
+				EventManager.StopListening("seesremote", SeesRemote);
 			}
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 
 		/// <summary>
@@ -117,9 +120,10 @@ namespace Assets.Scripts.Sound_System{
 			Debug.Log("Remote Control was pressed");
 			if (_state == 2) {
 				_state = 3;
-				EventManager.StopListening ("seeingremote", _someListener);
+				EventManager.StopListening("remotecontrol", RemoteControl);
 			}
 			doOncePerState = false;
+			AudioSource.Stop ();
 
 		}
 
@@ -127,51 +131,63 @@ namespace Assets.Scripts.Sound_System{
 			Debug.Log("Stereo was seen");
 			if (_state == 3) {
 				_state = 4;
-				EventManager.StopListening ("remotecontrol", _someListener);
+				EventManager.StopListening("seesstereo", SeesStereo);
 			}
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 
 		private void Stereo(){
 			Debug.Log("Stereo was pressed");
 			if (_state == 4) {
 				_state = 5;
-				EventManager.StopListening ("stereo", _someListener);
+				EventManager.StopListening ("stereo", Stereo);
 			}
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 	
 		public void BackFromClock(){
 			_state = 6;
 			EndTime++;
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 		public void BackFromLight(){
 			_state = 7;
 			EndTime++;
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 		public void BackFromStereo(){
 			_state = 8;
 			EndTime++;
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 		private void End(){
 			_state = 9;
 			doOncePerState = false;
+			AudioSource.Stop ();
 		}
 
 		//Starts event listening
 		private void OnEnable(){
 			EventManager.StartListening("coffeebutton", _someListener);
+			EventManager.StartListening("seesremote", SeesRemote);
 			EventManager.StartListening("remotecontrol", RemoteControl);
+			EventManager.StartListening("seesstereo", SeesStereo);
+			EventManager.StartListening("stereo", Stereo);
 			//EventManager.StartListening("backfromclock", BackFromClock);
 		}
 
 		//Stops event listening
 		private void OnDisable(){
 			EventManager.StopListening("coffeebutton", _someListener);
+			EventManager.StopListening("seesremote", SeesRemote);
 			EventManager.StopListening("remotecontrol", RemoteControl);
+			EventManager.StopListening("seesstereo", SeesStereo);
+			EventManager.StopListening("stereo", Stereo);
 			//EventManager.StopListening("backfromclock", BackFromClock);
 		}
 

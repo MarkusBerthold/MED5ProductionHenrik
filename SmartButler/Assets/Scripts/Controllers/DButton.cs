@@ -23,6 +23,7 @@ namespace Assets.Scripts.Controllers{
                 GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
             }else if (this.tag == "RemoteController" && !StereoController.Source.isPlaying){
                 StereoController.StartStopPlayback(true);
+				EventManager.TriggerEvent ("remotecontrol");
             }
             else if (this.tag == "RemoteController" && StereoController.Source.isPlaying){
                 StereoController.StartStopPlayback(false);
