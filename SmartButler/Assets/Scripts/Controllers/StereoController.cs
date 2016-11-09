@@ -12,12 +12,11 @@ namespace Assets.Scripts.Controllers{
         public ObjectRotater[] Rotaters;
         public AudioSource Source;
         public bool StereoStarted;
+        public float Volume;
 
         // Use this for initialization
         private void Start(){
             Source = GameObject.FindGameObjectWithTag("Speaker").GetComponent<AudioSource>();
-            Source.Play();
-            Once = true;
         }
 
         // Update is called once per frame
@@ -36,14 +35,24 @@ namespace Assets.Scripts.Controllers{
         }
 
         /// <summary>
-        /// Allows for controlling of the stereo object
-        /// DEPRECATED
+        /// Updates the volume variable
+        /// Takes an int which is the degrees a cylinder is turned
         /// </summary>
-        public void ControlStereo(){
-            foreach (var objectRotater in Rotaters)
-                if (objectRotater.IsActive && objectRotater.IsRotating){
-                    //StereoStarted = true;
+        /// <param name="degrees"></param>
+        public void UpdateStereoVolume(float volume){
+            Volume = volume;
+        }
+
+        /// <summary>
+        /// Starts and stops playback
+        /// </summary>
+        public void StartStopPlayback(bool play){
+            if (play){
+                Source.Play();
+            }
+            else{
+                Source.Pause();
+            }
                 }
         }
     }
-}

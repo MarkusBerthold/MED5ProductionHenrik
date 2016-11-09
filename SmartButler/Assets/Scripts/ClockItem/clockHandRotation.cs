@@ -18,24 +18,7 @@ namespace Assets.Scripts.ClockItem{
 
         // Use this for initialization
         private void Start(){
-            //IsBroken;
-
-            //Set rotation speeds for the different gears. These are never changed
-            gameObject.transform.GetChild(0).gameObject.GetComponent<gearRotationZaxis>().Rotspeed = -4;
-            gameObject.transform.GetChild(1).gameObject.GetComponent<gearRotationZaxis>().Rotspeed = 4;
-            gameObject.transform.GetChild(2).gameObject.GetComponent<GearRotationYAxis>().Rotspeed = 5;
-            gameObject.transform.GetChild(3).gameObject.GetComponent<GearRotationYAxis>().Rotspeed = 4;
-            gameObject.transform.GetChild(7).gameObject.GetComponent<GearRotationYAxis>().Rotspeed = 3;
-            gameObject.transform.GetChild(8).gameObject.GetComponent<gearRotationZaxis>().Rotspeed = 3;
-            gameObject.transform.GetChild(9).gameObject.GetComponent<gearRotationZaxis>().Rotspeed = 3;
-            gameObject.transform.GetChild(11).gameObject.GetComponent<GearRotationYAxis>().Rotspeed = -3;
-
-            //Rotation speed of the clock when NOT broken
-            //This is high because it waits in-between rotating
-            _hourHandRotSpeed = 1000;
-            _minuteHandRotSpeed = 600;
-            _secondHandRotSpeed = 200;
-            
+       
         }
 
         // Update is called once per frame
@@ -61,12 +44,12 @@ namespace Assets.Scripts.ClockItem{
         /// Should only be called once.
         /// </summary>
         private void StartRotationNotBroken(){
-            gameObject.transform.FindChild("HourPivot").
+            /*gameObject.transform.FindChild("HourPivot").
                 gameObject.GetComponent<gearRotationZaxis>().RotateWaitHour(_hourHandRotSpeed);
             gameObject.transform.FindChild("MinutePivot").
                 gameObject.GetComponent<gearRotationZaxis>().RotateWaitMinute(_minuteHandRotSpeed);
             gameObject.transform.FindChild("SecondPivot").
-                gameObject.GetComponent<gearRotationZaxis>().RotateWaitSecond(_secondHandRotSpeed);
+                gameObject.GetComponent<gearRotationZaxis>().RotateWaitSecond(_secondHandRotSpeed);*/
         }
         }
     }

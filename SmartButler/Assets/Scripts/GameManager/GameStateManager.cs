@@ -34,7 +34,7 @@ namespace Assets.Scripts.GameManager {
 
         public static string LightLoaderGameObjectName = "remote";
         public static string StereoLoaderGameObjectName = "speaker";
-        public static string ClockLoaderGameObjectName = "clock 1";
+        public static string ClockLoaderGameObjectName = "wallClockFinal";
 
         public static DayNightController DayNightController;
 

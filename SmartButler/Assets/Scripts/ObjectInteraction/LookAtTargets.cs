@@ -153,7 +153,7 @@ namespace Assets.Scripts.ObjectInteraction {
                     _remoteHasBeenPickedUp = true;
                     RemoteClicked = true;
                     this.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane)); //???
-                    this.transform.position += new Vector3(0.2f, 0, 0); //offset the remote from the player's face?
+                    this.transform.position += new Vector3(0.4f, 0, 0); //offset the remote from the player's face?
 
                     //this.transform.LookAt(GameObject.FindWithTag("Player").transform);
                     this.transform.LookAt(Cam.transform);

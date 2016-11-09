@@ -9,8 +9,14 @@ namespace Assets.Scripts.ClockLevel{
         }
 
         // Update is called once per frame
-        private void Update(){
-            transform.Rotate(Vector3.up*Time.deltaTime*Rotspeed, Space.Self);
+        private void Update()
+        {
+            transform.Rotate(Vector3.up * Time.deltaTime * Rotspeed, Space.Self);
+        }
+
+        public void UpdateRotspeedY(int rotspeed)
+        {
+            Rotspeed = rotspeed;
         }
     }
 }
