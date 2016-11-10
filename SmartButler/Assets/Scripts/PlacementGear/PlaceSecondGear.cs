@@ -43,7 +43,7 @@ namespace Assets.Scripts.PlacementGear{
                     Destroy(Placeable.GetComponent<Pickupable>());
 
                     if (_doOnce){
-                        Placeable.transform.Rotate(0, 90, 0);
+                        Placeable.transform.Rotate(90, 0, 0);
                         Placeable.gameObject.transform.parent = gameObject.transform;
                         _doOnce = false;
                     }
