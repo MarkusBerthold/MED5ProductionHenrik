@@ -6376,7 +6376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc52eb214240734c80b7bf1d884cb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightSpacing: 500
+  lightSpacing: 50
   lightIntensity: 2
 --- !u!4 &1814431505
 Transform:
