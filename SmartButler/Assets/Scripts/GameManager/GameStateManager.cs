@@ -106,23 +106,30 @@ namespace Assets.Scripts.GameManager {
                     switch (GameState) {
 						case State.Clock:
 							_clockLoader.IsEnterable = false;
-							_lightLoader.IsEnterable = true;
+							//_lightLoader.IsEnterable = true;
 							_stereoLoader.IsEnterable = true;
 							_soundManager.BackFromClock ();
 							_soundManager.SetWaitForBroadcast (false);
 							_BroadcastSpeaker.SetShouldPlay (false);
+							_soundManager.StopListening ();
+							_soundManager.ShouldListen = false;
                             goto default;
                         case State.Light:
                             _lightLoader.IsEnterable = false;
 							_soundManager.BackFromLight ();
 							_soundManager.SetWaitForBroadcast (false);
 							_BroadcastSpeaker.SetShouldPlay (false);
+							_soundManager.StopListening ();
+							_soundManager.ShouldListen = false;
                             goto default;
-                        case State.Stereo:
-                            _stereoLoader.IsEnterable = false;
+						case State.Stereo:
+							_stereoLoader.IsEnterable = false;
+							_lightLoader.IsEnterable = true;
 							_soundManager.BackFromStereo ();
 							_soundManager.SetWaitForBroadcast (false);
 							_BroadcastSpeaker.SetShouldPlay (false);
+							_soundManager.StopListening ();
+							_soundManager.ShouldListen = false;
                             goto default;
                         default:
                             DayNightController.CurrentTimeOfDay += 0.33333f;
@@ -146,8 +153,9 @@ namespace Assets.Scripts.GameManager {
                     GameState = State.Coffee;
                     _clockLoader.IsEnterable = true;
                     break;
-                case State.End:
-                    GameState = State.End;
+				case State.End:
+					GameState = State.End;
+					_soundManager.End ();
                     break;
             }
             Debug.Log("changed state to: " + newState.ToString());
