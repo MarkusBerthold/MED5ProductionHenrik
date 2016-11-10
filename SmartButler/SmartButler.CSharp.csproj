@@ -72,6 +72,7 @@
     <Compile Include="Assets\Easy Outline\Behaviours\OutlineSystem.cs" />
     <Compile Include="Assets\Easy Outline\Demo Scene\Behaviours\DemoBehaviour.cs" />
     <Compile Include="Assets\Lights.cs" />
+    <Compile Include="Assets\Scripts\Bridge.cs" />
     <Compile Include="Assets\Scripts\Character\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Character\Despawner.cs" />
     <Compile Include="Assets\Scripts\Character\HoldCharacter.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="Assets\Scripts\Highlighting\Highlighter.cs" />
     <Compile Include="Assets\Scripts\LightLevel\BetweenPlayerAndCamera.cs" />
     <Compile Include="Assets\Scripts\LightLevel\DrumSounds.cs" />
+    <Compile Include="Assets\Scripts\LivingRoom\BroadcastSpeaker.cs" />
     <Compile Include="Assets\Scripts\MessageingSystem\EventManager.cs" />
     <Compile Include="Assets\Scripts\MessageingSystem\GameControlDontDestroy.cs" />
     <Compile Include="Assets\Scripts\ObjectInteraction\EnableDisable.cs" />
@@ -124,6 +126,7 @@
     <Compile Include="Assets\Scripts\Platforms\MoveToPoints.cs" />
     <Compile Include="Assets\Scripts\Sound System\MouseOverSound.cs" />
     <Compile Include="Assets\Scripts\Sound System\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\Stereo\StereoSoundtrack.cs" />
     <Compile Include="Assets\Scripts\StereoPuzzle\StereoPuzzle.cs" />
     <Compile Include="Assets\Scripts\StereoPuzzle\StereoPuzzleCenterPiece.cs" />
     <Compile Include="Assets\Scripts\StereoPuzzle\StereoPuzzleHook.cs" />
