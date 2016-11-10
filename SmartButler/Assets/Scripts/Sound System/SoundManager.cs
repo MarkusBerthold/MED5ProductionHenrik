@@ -49,7 +49,7 @@ namespace Assets.Scripts.Sound_System{
 			Arrayofstates = new State[nrOfStates];
 
 			coroutines = new IEnumerator[nrOfStates];
-			coroutine2 = SetWaitForBroadcast();
+			coroutine2 = SetWaitForBroadcastCoroutine();
 			StartCoroutine (coroutine2);
 
 
@@ -68,7 +68,7 @@ namespace Assets.Scripts.Sound_System{
 		// Update is called once per frame
 		private void Update(){
 
-			if (WaitForBroadcast) {
+			if (!WaitForBroadcast) {
 				//play intros, some state dont have intros, some "interactions" are intros
 				for (var i = 0; i < Arrayofstates [_state].AmountOfIntros; i++)
 					if (!AudioSource.isPlaying && !Arrayofstates [_state].StateIntrosBeenPlayed [i]) {
@@ -199,10 +199,17 @@ namespace Assets.Scripts.Sound_System{
 			EventManager.StopListening("stereo", Stereo);
 			//EventManager.StopListening("backfromclock", BackFromClock);
 		}
-		public IEnumerator SetWaitForBroadcast(){
+		public IEnumerator SetWaitForBroadcastCoroutine(){
 
 			yield return new WaitForSeconds(36);
-			WaitForBroadcast = true;
+			SetWaitForBroadcast (false);
+		}
+		public void SetWaitForBroadcast(bool x){
+			WaitForBroadcast = x;
+		}
+
+		public bool GetWaitForBroadcast(){
+			return WaitForBroadcast;
 		}
 
 		public class State{

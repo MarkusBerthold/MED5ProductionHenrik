@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Sound_System;
+using Assets.Scripts.LivingRoom.BroadcastSpeaker;
 
 
 namespace Assets.Scripts.GameManager {
@@ -39,6 +40,8 @@ namespace Assets.Scripts.GameManager {
         public static DayNightController DayNightController;
 
 		public static SoundManager _soundManager;
+
+		public static BroadcastSpeaker _BroadcastSpeaker;
 
         string previousScene;
 
@@ -106,14 +109,20 @@ namespace Assets.Scripts.GameManager {
 							_lightLoader.IsEnterable = true;
 							_stereoLoader.IsEnterable = true;
 							_soundManager.BackFromClock ();
+							_soundManager.SetWaitForBroadcast (false);
+							_BroadcastSpeaker.SetShouldPlay (false);
                             goto default;
                         case State.Light:
                             _lightLoader.IsEnterable = false;
 							_soundManager.BackFromLight ();
+							_soundManager.SetWaitForBroadcast (false);
+							_BroadcastSpeaker.SetShouldPlay (false);
                             goto default;
                         case State.Stereo:
                             _stereoLoader.IsEnterable = false;
 							_soundManager.BackFromStereo ();
+							_soundManager.SetWaitForBroadcast (false);
+							_BroadcastSpeaker.SetShouldPlay (false);
                             goto default;
                         default:
                             DayNightController.CurrentTimeOfDay += 0.33333f;
@@ -125,11 +134,13 @@ namespace Assets.Scripts.GameManager {
 
         public void ChangeState(State newState) {
             switch (newState) {
-                case State.Start:
-                    GameState = State.Start;
-                    _clockLoader.IsEnterable = false;
-                    _lightLoader.IsEnterable = false;
-                    _stereoLoader.IsEnterable = false;
+				case State.Start:
+					GameState = State.Start;
+					_clockLoader.IsEnterable = false;
+					_lightLoader.IsEnterable = false;
+					_stereoLoader.IsEnterable = false;
+					_soundManager.SetWaitForBroadcast (true);
+					_BroadcastSpeaker.SetShouldPlay (true);
                     break;
                 case State.Coffee:
                     GameState = State.Coffee;
@@ -150,6 +161,8 @@ namespace Assets.Scripts.GameManager {
             DayNightController = FindObjectOfType<DayNightController>();
 
 			_soundManager = FindObjectOfType<SoundManager> ();
+
+			_BroadcastSpeaker = FindObjectOfType <BroadcastSpeaker> ();
 
 			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager));
 
