@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
+using Assets.Scripts.MessageingSystem;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -24,9 +26,13 @@ namespace Assets.Scripts.GameManager {
 		public bool IsEnterable;
 		public Text LoadingText;
 		public Scene TargetScene;
+	    private UnityAction _someAction;
 
 		void Start(){
 			_loading = false;
+		    _someAction = LoadScene;
+		//    if (SceneManager.GetActiveScene().name.Equals("Stereo")) ;
+		    EventManager.StartListening("PuzzleIsSolved2", _someAction);
 		}
 
 		private void OnMouseDown() {

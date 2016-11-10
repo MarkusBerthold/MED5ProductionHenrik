@@ -34,6 +34,7 @@ TagManager:
   - drums
   - kalimba
   - lightpad
+  - MainDirectionalLight
   layers:
   - Default
   - TransparentFX

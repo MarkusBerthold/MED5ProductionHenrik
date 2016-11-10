@@ -14,6 +14,7 @@ public class Bridge : MonoBehaviour {
         movingPlatforms = GetComponentsInChildren<MoveToPoints>();
         foreach (MoveToPoints platform in movingPlatforms) {
             platform.enabled = false;
+
         }
         _someListener = OnPuzzleSolved;
         EventManager.StartListening("PuzzleIsSolved" + PuzzleNumber, _someListener);
