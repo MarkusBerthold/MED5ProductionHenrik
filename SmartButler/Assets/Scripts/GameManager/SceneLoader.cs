@@ -17,7 +17,8 @@ namespace Assets.Scripts.GameManager {
 			LivingRoom,
 			Clock,
 			Stereo,
-			Light
+			Light,
+            JohnTesting
 		}
 
 		private readonly float _distanceThreshold = 4.0f;
@@ -67,11 +68,9 @@ namespace Assets.Scripts.GameManager {
 
 
 		private IEnumerator LoadNewScene() {
-			// Start an asynchronous operation to load the scene that was passed to the LoadNewScene coroutine.
-			//AsyncOperation async = Application.LoadLevelAsync(scene);
-			var async = SceneManager.LoadSceneAsync(TargetScene.ToString());
-			// While the asynchronous operation to load the new scene is not yet complete, continue waiting until it's done.
-			while (!async.isDone)
+            //start fading
+            AutoFade.LoadLevel(TargetScene.ToString(), 2, 1, Color.black);
+			while (AutoFade.Fading)
 				yield return null;
 			_loading = false;
 			Debug.Log("corutine ends");
