@@ -33,6 +33,9 @@ namespace Assets.Scripts.Sound_System{
 
 		private int EndTime;
 
+		private bool WaitForBroadcast;
+		private IEnumerator coroutine2;
+
 		private void Awake(){
 			_someListener = Coffee;
 			//DontDestroyOnLoad (transform.gameObject);
@@ -46,6 +49,9 @@ namespace Assets.Scripts.Sound_System{
 			Arrayofstates = new State[nrOfStates];
 
 			coroutines = new IEnumerator[nrOfStates];
+			coroutine2 = SetWaitForBroadcast();
+			StartCoroutine (coroutine2);
+
 
 			for (var i = 0; i < Arrayofstates.Length; i++)
 				Arrayofstates[i] = new State((StatesEnum) i);
@@ -61,33 +67,36 @@ namespace Assets.Scripts.Sound_System{
 
 		// Update is called once per frame
 		private void Update(){
-			//play intros, some state dont have intros, some "interactions" are intros
-			for (var i = 0; i < Arrayofstates[_state].AmountOfIntros; i++)
-				if (!AudioSource.isPlaying && !Arrayofstates[_state].StateIntrosBeenPlayed[i]){
-					AudioSource.clip = Arrayofstates[_state].StateIntros[i];
-					AudioSource.Play();
-					Arrayofstates[_state].StateIntrosBeenPlayed[i] = true;
-					_introsHasBeenPlayed = true;
-				}
 
-
-
-			//play cues
-			for (var j = 0; j < Arrayofstates[_state].AmountOfCues; j++)
-				if (!AudioSource.isPlaying && !Arrayofstates[_state].StateCuesBeenPlayed[j] && _introsHasBeenPlayed){
-					int rand = (int)(10 * UnityEngine.Random.Range (0.0f, (Arrayofstates[_state].AmountOfCues / 10f)));
-					AudioSource.clip = Arrayofstates[_state].StateCues[j];
-					AudioSource.Play();
-					Arrayofstates[_state].StateCuesBeenPlayed[j] = true;
-					if (!doOncePerState) {
-						StartCoroutine (coroutines [_state]);
-						doOncePerState = true;
-						print("starting coroutine for reseting cues");
+			if (WaitForBroadcast) {
+				//play intros, some state dont have intros, some "interactions" are intros
+				for (var i = 0; i < Arrayofstates [_state].AmountOfIntros; i++)
+					if (!AudioSource.isPlaying && !Arrayofstates [_state].StateIntrosBeenPlayed [i]) {
+						AudioSource.clip = Arrayofstates [_state].StateIntros [i];
+						AudioSource.Play ();
+						Arrayofstates [_state].StateIntrosBeenPlayed [i] = true;
+						_introsHasBeenPlayed = true;
 					}
+
+
+
+				//play cues
+				for (var j = 0; j < Arrayofstates [_state].AmountOfCues; j++)
+					if (!AudioSource.isPlaying && !Arrayofstates [_state].StateCuesBeenPlayed [j] && _introsHasBeenPlayed) {
+						int rand = (int)(10 * UnityEngine.Random.Range (0.0f, (Arrayofstates [_state].AmountOfCues / 10f)));
+						AudioSource.clip = Arrayofstates [_state].StateCues [j];
+						AudioSource.Play ();
+						Arrayofstates [_state].StateCuesBeenPlayed [j] = true;
+						if (!doOncePerState) {
+							StartCoroutine (coroutines [_state]);
+							doOncePerState = true;
+							print ("starting coroutine for reseting cues");
+						}
+					}
+				if (EndTime == 3) {
+					End ();
+					EndTime++;
 				}
-			if (EndTime == 3) {
-				End ();
-				EndTime++;
 			}
 		}
 
@@ -190,6 +199,11 @@ namespace Assets.Scripts.Sound_System{
 			EventManager.StopListening("stereo", Stereo);
 			//EventManager.StopListening("backfromclock", BackFromClock);
 		}
+		public IEnumerator SetWaitForBroadcast(){
+
+			yield return new WaitForSeconds(36);
+			WaitForBroadcast = true;
+		}
 
 		public class State{
 			public int AmountOfCues;
@@ -225,7 +239,7 @@ namespace Assets.Scripts.Sound_System{
 						}
 				
 			}
-				
+
 
 		}
 
