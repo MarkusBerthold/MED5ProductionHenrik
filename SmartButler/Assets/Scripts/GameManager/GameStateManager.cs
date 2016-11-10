@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Assets.Scripts.Sound_System;
 using Assets.Scripts.LivingRoom.BroadcastSpeaker;
+using Assets.Scripts.LivingRoom.LivingRoomSoundtrack;
 
 
 namespace Assets.Scripts.GameManager {
@@ -42,6 +43,7 @@ namespace Assets.Scripts.GameManager {
 		public static SoundManager _soundManager;
 
 		public static BroadcastSpeaker _BroadcastSpeaker;
+		public static LivingRoomSoundtrack _LivingRoomsSoundtrack;
 
         string previousScene;
 
@@ -106,23 +108,33 @@ namespace Assets.Scripts.GameManager {
                     switch (GameState) {
 						case State.Clock:
 							_clockLoader.IsEnterable = false;
-							_lightLoader.IsEnterable = true;
+							//_lightLoader.IsEnterable = true;
 							_stereoLoader.IsEnterable = true;
 							_soundManager.BackFromClock ();
 							_soundManager.SetWaitForBroadcast (false);
 							_BroadcastSpeaker.SetShouldPlay (false);
+							_soundManager.StopListening ();
+							_soundManager.ShouldListen = false;
+							_LivingRoomsSoundtrack.SetState ("Clock");
                             goto default;
                         case State.Light:
                             _lightLoader.IsEnterable = false;
 							_soundManager.BackFromLight ();
 							_soundManager.SetWaitForBroadcast (false);
 							_BroadcastSpeaker.SetShouldPlay (false);
+							_soundManager.StopListening ();
+							_soundManager.ShouldListen = false;
+							_LivingRoomsSoundtrack.SetState ("Light");
                             goto default;
-                        case State.Stereo:
-                            _stereoLoader.IsEnterable = false;
+						case State.Stereo:
+							_stereoLoader.IsEnterable = false;
+							_lightLoader.IsEnterable = true;
 							_soundManager.BackFromStereo ();
 							_soundManager.SetWaitForBroadcast (false);
 							_BroadcastSpeaker.SetShouldPlay (false);
+							_soundManager.StopListening ();
+							_soundManager.ShouldListen = false;
+							_LivingRoomsSoundtrack.SetState ("Stereo");
                             goto default;
                         default:
                             DayNightController.CurrentTimeOfDay += 0.33333f;
@@ -141,13 +153,15 @@ namespace Assets.Scripts.GameManager {
 					_stereoLoader.IsEnterable = false;
 					_soundManager.SetWaitForBroadcast (true);
 					_BroadcastSpeaker.SetShouldPlay (true);
+					_LivingRoomsSoundtrack.SetState ("Start");
                     break;
                 case State.Coffee:
                     GameState = State.Coffee;
                     _clockLoader.IsEnterable = true;
                     break;
-                case State.End:
-                    GameState = State.End;
+				case State.End:
+					GameState = State.End;
+					_soundManager.End ();
                     break;
             }
             Debug.Log("changed state to: " + newState.ToString());
@@ -164,9 +178,11 @@ namespace Assets.Scripts.GameManager {
 
 			_BroadcastSpeaker = FindObjectOfType <BroadcastSpeaker> ();
 
-			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager));
+			_LivingRoomsSoundtrack = FindObjectOfType<LivingRoomSoundtrack> ();
 
-			return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager;
+			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack));
+
+			return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack;
         }
     }
 
