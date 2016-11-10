@@ -15,8 +15,8 @@ namespace Assets.Scripts.Sound_System{
 			SeesStereo,
 			Stereo,
 			BackFromClock,
-			BackFromLight,
 			BackFromStereo,
+			BackFromLight,
 			End
 		}
 
@@ -36,6 +36,9 @@ namespace Assets.Scripts.Sound_System{
 		private bool WaitForBroadcast;
 		private IEnumerator coroutine2;
 
+		public bool ShouldListen = true;
+		private int doOnceListen = 0;
+
 		private void Awake(){
 			_someListener = Coffee;
 			//DontDestroyOnLoad (transform.gameObject);
@@ -44,7 +47,9 @@ namespace Assets.Scripts.Sound_System{
 		// Use this for initialization
 		private void Start(){
 
-			AudioSource = GameObject.FindGameObjectWithTag("Thoughts").GetComponent<AudioSource>();
+
+
+			//AudioSource = GameObject.FindGameObjectWithTag("Thoughts").GetComponent<AudioSource>();
 			var nrOfStates = Enum.GetValues(typeof(StatesEnum)).Length;
 			Arrayofstates = new State[nrOfStates];
 
@@ -67,6 +72,17 @@ namespace Assets.Scripts.Sound_System{
 
 		// Update is called once per frame
 		private void Update(){
+
+			if (ShouldListen && doOnceListen == 0) {
+				EventManager.StartListening ("coffeebutton", _someListener);
+				EventManager.StartListening ("seesremote", SeesRemote);
+				EventManager.StartListening ("remotecontrol", RemoteControl);
+				EventManager.StartListening ("seesstereo", SeesStereo);
+				EventManager.StartListening ("stereo", Stereo);
+				print ("START LISTENING");
+				ShouldListen = false;
+				doOnceListen = 1;
+			}
 
 			if (!WaitForBroadcast) {
 				//play intros, some state dont have intros, some "interactions" are intros
@@ -93,10 +109,10 @@ namespace Assets.Scripts.Sound_System{
 							print ("starting coroutine for reseting cues");
 						}
 					}
-				if (EndTime == 3) {
-					End ();
-					EndTime++;
-				}
+				//if (_state == 8) {
+				//	End ();
+				//	EndTime++;
+				//}
 			}
 		}
 
@@ -161,20 +177,27 @@ namespace Assets.Scripts.Sound_System{
 			EndTime++;
 			doOncePerState = false;
 			AudioSource.Stop ();
+			StopListening ();
 		}
-		public void BackFromLight(){
+
+
+		public void BackFromStereo(){
 			_state = 7;
 			EndTime++;
 			doOncePerState = false;
 			AudioSource.Stop ();
+			StopListening ();
 		}
-		public void BackFromStereo(){
+
+		public void BackFromLight(){
 			_state = 8;
 			EndTime++;
 			doOncePerState = false;
 			AudioSource.Stop ();
+			StopListening ();
 		}
-		private void End(){
+	
+		public void End(){
 			_state = 9;
 			doOncePerState = false;
 			AudioSource.Stop ();
@@ -182,11 +205,11 @@ namespace Assets.Scripts.Sound_System{
 
 		//Starts event listening
 		private void OnEnable(){
-			EventManager.StartListening("coffeebutton", _someListener);
-			EventManager.StartListening("seesremote", SeesRemote);
-			EventManager.StartListening("remotecontrol", RemoteControl);
-			EventManager.StartListening("seesstereo", SeesStereo);
-			EventManager.StartListening("stereo", Stereo);
+		//	EventManager.StartListening("coffeebutton", _someListener);
+		//	EventManager.StartListening("seesremote", SeesRemote);
+		//	EventManager.StartListening("remotecontrol", RemoteControl);
+		//	EventManager.StartListening("seesstereo", SeesStereo);
+		//	EventManager.StartListening("stereo", Stereo);
 			//EventManager.StartListening("backfromclock", BackFromClock);
 		}
 
@@ -210,6 +233,16 @@ namespace Assets.Scripts.Sound_System{
 
 		public bool GetWaitForBroadcast(){
 			return WaitForBroadcast;
+		}
+
+		public void StopListening(){
+			EventManager.StopListening("coffeebutton", _someListener);
+			EventManager.StopListening("seesremote", SeesRemote);
+			EventManager.StopListening("remotecontrol", RemoteControl);
+			EventManager.StopListening("seesstereo", SeesStereo);
+			EventManager.StopListening("stereo", Stereo);
+			print ("STOP LISTENING");
+			
 		}
 
 		public class State{

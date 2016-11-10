@@ -33094,7 +33094,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _state: 0
-  AudioSource: {fileID: 0}
+  AudioSource: {fileID: 758856729}
+  ShouldListen: 1
 --- !u!1 &712623592
 GameObject:
   m_ObjectHideFlags: 0
