@@ -20,7 +20,6 @@ namespace Assets.Scripts.Controllers{
             if (this.tag == "CoffeeButton"){
                 EventManager.TriggerEvent("coffeebutton");
                 LightSwitcher.SwitchEnable();
-                GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
                 //GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
             } else if (this.tag == "RemoteController" && !StereoController.Source.isPlaying){
                 StereoController.StartStopPlayback(true);
