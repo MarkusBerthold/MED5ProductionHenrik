@@ -69,6 +69,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AutoFade.cs" />
     <Compile Include="Assets\Easy Outline\Behaviours\OutlineSystem.cs" />
     <Compile Include="Assets\Easy Outline\Demo Scene\Behaviours\DemoBehaviour.cs" />
     <Compile Include="Assets\Lights.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Assets\Scripts\LightLevel\BetweenPlayerAndCamera.cs" />
     <Compile Include="Assets\Scripts\LightLevel\DrumSounds.cs" />
     <Compile Include="Assets\Scripts\LivingRoom\BroadcastSpeaker.cs" />
+    <Compile Include="Assets\Scripts\LivingRoom\LivingRoomSoundtrack.cs" />
     <Compile Include="Assets\Scripts\MessageingSystem\EventManager.cs" />
     <Compile Include="Assets\Scripts\MessageingSystem\GameControlDontDestroy.cs" />
     <Compile Include="Assets\Scripts\ObjectInteraction\EnableDisable.cs" />

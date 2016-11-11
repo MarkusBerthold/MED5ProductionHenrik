@@ -14,6 +14,7 @@ public class Bridge : MonoBehaviour {
         movingPlatforms = GetComponentsInChildren<MoveToPoints>();
         foreach (MoveToPoints platform in movingPlatforms) {
             platform.enabled = false;
+            platform.GetComponent<MeshRenderer>().enabled = false;
 
         }
         _someListener = OnPuzzleSolved;
@@ -36,6 +37,7 @@ public class Bridge : MonoBehaviour {
 
     private IEnumerator SpawnBridge() {
         foreach (MoveToPoints platforms in movingPlatforms) {
+            platforms.GetComponent<MeshRenderer>().enabled = true;
             platforms.enabled = true;
             yield return new WaitForSecondsRealtime(.5f);
         }
