@@ -36,7 +36,6 @@ namespace Assets.Scripts.LivingRoom.LivingRoomSoundtrack{
 			case "Start":
 				
 				if (!WaitForBroadcast) {
-					print ("testaweawdawd");
 					Melody.clip = MelodyClipA;
 					Pad.clip = PadA;
 					if (!Melody.isPlaying)
