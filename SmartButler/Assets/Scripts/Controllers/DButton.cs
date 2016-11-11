@@ -21,12 +21,16 @@ namespace Assets.Scripts.Controllers{
                 EventManager.TriggerEvent("coffeebutton");
                 LightSwitcher.SwitchEnable();
                 GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
-            }else if (this.tag == "RemoteController" && !StereoController.Source.isPlaying){
+                //GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
+            } else if (this.tag == "RemoteController" && !StereoController.Source.isPlaying){
                 StereoController.StartStopPlayback(true);
 				EventManager.TriggerEvent ("remotecontrol");
             }
             else if (this.tag == "RemoteController" && StereoController.Source.isPlaying){
                 StereoController.StartStopPlayback(false);
+            } else if (this.tag == "Speaker")
+            {
+                GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
             }
         }
     }
