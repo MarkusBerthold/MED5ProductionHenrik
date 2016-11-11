@@ -20,7 +20,7 @@ namespace Assets.Scripts.StereoPuzzleV2 {
             puzzle = transform.parent.GetComponent<Puzzle>();
             IpPositionValue = puzzle.GetIpPositionValue(IpPosition);
             _ipChar = new IpCharacter(IpPositionValue, transform.position + Vector3.up*3.5f,
-                Quaternion.LookRotation(Vector3.back));
+                Quaternion.LookRotation(this.transform.up));
 
             print(IpPositionValue);
 
