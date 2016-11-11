@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 using Assets.Scripts.Sound_System;
 using Assets.Scripts.LivingRoom.BroadcastSpeaker;
 using Assets.Scripts.LivingRoom.LivingRoomSoundtrack;
+using Assets.Scripts.Controllers;
 
 
 namespace Assets.Scripts.GameManager {
@@ -44,6 +45,8 @@ namespace Assets.Scripts.GameManager {
 
 		public static BroadcastSpeaker _BroadcastSpeaker;
 		public static LivingRoomSoundtrack _LivingRoomsSoundtrack;
+
+		public static StereoController _StereoController;
 
         string previousScene;
 
@@ -108,13 +111,14 @@ namespace Assets.Scripts.GameManager {
                     switch (GameState) {
 						case State.Clock:
 							_clockLoader.IsEnterable = false;
-							//_lightLoader.IsEnterable = true;
+									//_lightLoader.IsEnterable = true;
 							_stereoLoader.IsEnterable = true;
 							_soundManager.BackFromClock ();
 							_soundManager.SetWaitForBroadcast (false);
 							_BroadcastSpeaker.SetShouldPlay (false);
 							_soundManager.StopListening ();
 							_soundManager.ShouldListen = false;
+							_StereoController.MessUp ();
 							_LivingRoomsSoundtrack.SetState ("Clock");
                             goto default;
                         case State.Light:
@@ -180,9 +184,11 @@ namespace Assets.Scripts.GameManager {
 
 			_LivingRoomsSoundtrack = FindObjectOfType<LivingRoomSoundtrack> ();
 
-			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack));
+			_StereoController = FindObjectOfType<StereoController> ();
 
-			return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack;
+			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack & _StereoController));
+
+			return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack & _StereoController;
         }
     }
 

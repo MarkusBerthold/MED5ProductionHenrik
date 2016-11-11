@@ -16,7 +16,8 @@ namespace Assets.Scripts.Controllers{
 
         // Use this for initialization
         private void Start(){
-            Source = GameObject.FindGameObjectWithTag("Speaker").GetComponent<AudioSource>();
+            //Source = GameObject.FindGameObjectWithTag("Speaker").GetComponent<AudioSource>();
+			Degrees = 90;
         }
 
         // Update is called once per frame
@@ -54,5 +55,12 @@ namespace Assets.Scripts.Controllers{
                 Source.Pause();
             }
                 }
+
+		public void MessUp(){
+
+			if (!Source.isPlaying)
+				Source.PlayScheduled (10);
+
+		}
         }
     }
