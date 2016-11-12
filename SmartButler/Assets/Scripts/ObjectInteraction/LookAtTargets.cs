@@ -70,19 +70,6 @@ namespace Assets.Scripts.ObjectInteraction {
             _speakerKnob.GetComponent<Highlighter>().DistanceThreshold = 0;
             _speakerButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
 
-            //////////////////////////////
-
-            /*
-            _coffeeButton0.GetComponent<MeshCollider>().enabled = false;
-            _coffeeButton1.GetComponent<MeshCollider>().enabled = false;
-            _coffeeButton2.GetComponent<MeshCollider>().enabled = false;
-
-            _remoteKnob.GetComponent<CapsuleCollider>().enabled = false;
-            //_remote.GetComponent<MeshCollider>().enabled = false;
-            */
-
-            Cam = Camera.main.gameObject;
-            Player = GameObject.FindGameObjectWithTag("Player");
         }
 
         // Update is called once per frame
@@ -131,6 +118,8 @@ namespace Assets.Scripts.ObjectInteraction {
                     }
 
                 }//end inputs
+                if(!Cam)
+                    Cam = Cam = Camera.main.gameObject;
                 Cam.transform.LookAt(transform.position + Offset);
 
                 Cursor.visible = true;
@@ -140,6 +129,8 @@ namespace Assets.Scripts.ObjectInteraction {
 
         //Checks the players position and check if the player is interacting with a target
         void OnMouseDown() {
+            if(!Player)
+                Player = GameObject.FindGameObjectWithTag("Player");
             _dist = Vector3.Distance(transform.position, Player.transform.position);
             print(_dist);
 

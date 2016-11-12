@@ -5,13 +5,11 @@ using System.Collections;
 /// this will automatic add the audio source that belongs to the video
 /// </summary>
 [RequireComponent(typeof(AudioSource))]
-
 public class VideoController : MonoBehaviour {
 
     MovieTexture movie;
 
     void Start() {
-        //MovieTexture movie = GetComponent<Renderer>().material.mainTexture as MovieTexture;
         movie = GetComponent<Renderer>().material.mainTexture as MovieTexture;
 
         // plays video and its sound once
