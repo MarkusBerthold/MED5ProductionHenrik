@@ -5,6 +5,10 @@ public class AnimatedCamera : MonoBehaviour {
 
     public GameObject FpsGameObject;
 
+    void Awake(){
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
     public IEnumerator Destroy(){
         foreach (Behaviour child in FpsGameObject.GetComponentsInChildren<Behaviour>()){
             if (!child.enabled)
