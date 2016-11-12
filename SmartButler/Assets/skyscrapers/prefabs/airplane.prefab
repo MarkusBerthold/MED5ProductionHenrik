@@ -375,7 +375,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -397,7 +397,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!82 &8294472
 AudioSource:
   m_ObjectHideFlags: 1
@@ -525,7 +525,9 @@ MonoBehaviour:
   smoothSpeed: 10
   rotateSpeed: 5
   dampTime: 3
-  mask: {}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   sensitivity: 5
   myaudiosource: {fileID: 8294470}
   velocityChange: {x: 0, y: 0, z: 0}
@@ -550,7 +552,9 @@ MonoBehaviour:
   damage: 50
   range: 250
   fireRate: 0.3
-  mask: {}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
   muzzles: {fileID: 494468}
 --- !u!198 &19894466
 ParticleSystem:

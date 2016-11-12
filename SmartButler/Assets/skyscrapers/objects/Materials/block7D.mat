@@ -48,17 +48,17 @@ Material:
     m_Floats:
     - first:
         name: _gloss
-      second: 0.35714287
+      second: 0
     m_Colors:
     - first:
         name: _Color
       second: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - first:
         name: _diffusecolor
-      second: {r: 0.16911763, g: 0.16911763, b: 0.16911763, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _illumcolor
-      second: {r: 1, g: 0.7273834, b: 0.3823529, a: 1}
+      second: {r: 0.8602941, g: 0.6313477, b: 0.3415874, a: 1}
     - first:
         name: _speccolor
-      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}

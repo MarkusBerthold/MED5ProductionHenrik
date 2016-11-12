@@ -70,10 +70,10 @@ Material:
       second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - first:
         name: _diffusecolor
-      second: {r: 0.31617647, g: 0.31617647, b: 0.31617647, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _illumcolor
       second: {r: 0.99264705, g: 0.81546056, b: 0.59120893, a: 1}
     - first:
         name: _speccolor
-      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}
