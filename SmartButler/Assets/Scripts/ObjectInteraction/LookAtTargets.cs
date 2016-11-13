@@ -36,6 +36,8 @@ namespace Assets.Scripts.ObjectInteraction {
         //speaker (that is a stero) buttons
         private GameObject _speakerButton0;
         private GameObject _speakerKnob;
+
+		public MoveSlider _RemoteMoveSlider;
         
         // Use this for initialization
         void Start() {
@@ -96,7 +98,8 @@ namespace Assets.Scripts.ObjectInteraction {
                         _remoteButton1.GetComponent<Highlighter>().DistanceThreshold = 0;
 
                         _remoteKnob.GetComponent<CapsuleCollider>().enabled = false; //this doesn't seem to do anything, i guess it disables the input given by turning the knob?
-                    }
+						_RemoteMoveSlider.ResetLowerandOpper();
+					}
 
                     //Distance threshold reset so that buttons do not highlight
                     if (this.tag == "CoffeeMachine") {
@@ -150,6 +153,9 @@ namespace Assets.Scripts.ObjectInteraction {
                     //this.transform.LookAt(GameObject.FindWithTag("Player").transform);
                     this.transform.LookAt(Cam.transform);
                     this.transform.Rotate(new Vector3(0f, 90f, 45f));
+
+					Vector3 v = transform.rotation.eulerAngles;
+					transform.rotation = Quaternion.Euler (v.x, v.y, 90);
                     //this.transform.LookAt(Cam.transform.position + new Vector3(this.transform.position.x, this.transform.position.y, 30f));
                     //this.transform.LookAt(Cam.transform.rotation * new Quaternion(this.transform.rotation.x, this.transform.rotation.y, 45f, 0f));
                     //this.transform.eulerAngles = new Vector3(0f, 0f, 45f); //tilts the remote a little
@@ -164,6 +170,7 @@ namespace Assets.Scripts.ObjectInteraction {
                     _remoteSlider.GetComponent<Highlighter>().DistanceThreshold = 3;
                     _remoteButton0.GetComponent<Highlighter>().DistanceThreshold = 3;
                     _remoteButton1.GetComponent<Highlighter>().DistanceThreshold = 3;
+					_RemoteMoveSlider.SetLowerandOpper ();
                 }
 
                 //A distance is set so that the button will be highlighted

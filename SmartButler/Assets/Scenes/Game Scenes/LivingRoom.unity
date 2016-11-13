@@ -9537,6 +9537,7 @@ MonoBehaviour:
   Player: {fileID: 2104644643}
   RemoteClicked: 0
   Offset: {x: 0, y: 0, z: 0}
+  _RemoteMoveSlider: {fileID: 0}
 --- !u!23 &717206903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12401,6 +12402,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   RemoteClicked: 0
   Offset: {x: 0, y: 0, z: 0}
+  _RemoteMoveSlider: {fileID: 1531292314}
 --- !u!114 &880354172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21125,11 +21127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LightSwitcher: {fileID: 351099561}
   StereoController: {fileID: 351099563}
-  LowerBound: 0.01
-  OpperBound: 0.05
+  LowerBound: -0.1
+  OpperBound: -0.004
   Pivot: {fileID: 1531292310}
-  SlideAxis: 88
-  SliderLength: 0.04
+  SlideAxis: 89
+  SliderLength: 0.096
 --- !u!114 &1531292315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24491,6 +24493,7 @@ MonoBehaviour:
   Player: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   RemoteClicked: 0
   Offset: {x: 0, y: 0, z: 0}
+  _RemoteMoveSlider: {fileID: 0}
 --- !u!23 &1772262119
 MeshRenderer:
   m_ObjectHideFlags: 0
