@@ -35,6 +35,7 @@ TagManager:
   - kalimba
   - lightpad
   - MainDirectionalLight
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
