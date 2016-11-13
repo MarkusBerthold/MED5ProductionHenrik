@@ -300,6 +300,12 @@ ModelImporter:
     100584: wall1
     100586: wall2
     100588: wall3
+    100590: livingRoomLevel:emmaApartment2:fodpanel
+    100592: livingRoomLevel:emmaApartment2:livingRoom_frontDoor
+    100594: livingRoomLevel:emmaApartment2:pCylinder10
+    100596: livingRoomLevel:emmaApartment2:pCylinder11
+    100598: livingRoomLevel:emmaApartment2:pCylinder12
+    100600: livingRoomLevel:emmaApartment2:pCylinder13
     400000: _UNKNOWN_REF_NODE_fosterParent1
     400002: apartment
     400004: //RootNode
@@ -595,6 +601,12 @@ ModelImporter:
     400584: wall1
     400586: wall2
     400588: wall3
+    400590: livingRoomLevel:emmaApartment2:fodpanel
+    400592: livingRoomLevel:emmaApartment2:livingRoom_frontDoor
+    400594: livingRoomLevel:emmaApartment2:pCylinder10
+    400596: livingRoomLevel:emmaApartment2:pCylinder11
+    400598: livingRoomLevel:emmaApartment2:pCylinder12
+    400600: livingRoomLevel:emmaApartment2:pCylinder13
     2300000: bench
     2300002: bobblehead_body
     2300004: bobblehead_head
@@ -827,6 +839,12 @@ ModelImporter:
     2300458: wall1
     2300460: wall2
     2300462: wall3
+    2300464: livingRoomLevel:emmaApartment2:fodpanel
+    2300466: livingRoomLevel:emmaApartment2:livingRoom_frontDoor
+    2300468: livingRoomLevel:emmaApartment2:pCylinder10
+    2300470: livingRoomLevel:emmaApartment2:pCylinder11
+    2300472: livingRoomLevel:emmaApartment2:pCylinder12
+    2300474: livingRoomLevel:emmaApartment2:pCylinder13
     3300000: bench
     3300002: bobblehead_body
     3300004: bobblehead_head
@@ -1059,6 +1077,12 @@ ModelImporter:
     3300458: wall1
     3300460: wall2
     3300462: wall3
+    3300464: livingRoomLevel:emmaApartment2:fodpanel
+    3300466: livingRoomLevel:emmaApartment2:livingRoom_frontDoor
+    3300468: livingRoomLevel:emmaApartment2:pCylinder10
+    3300470: livingRoomLevel:emmaApartment2:pCylinder11
+    3300472: livingRoomLevel:emmaApartment2:pCylinder12
+    3300474: livingRoomLevel:emmaApartment2:pCylinder13
     4300000: emmaApartment2:nut69
     4300002: emmaApartment2:nut68
     4300004: emmaApartment2:nut67
@@ -1291,6 +1315,12 @@ ModelImporter:
     4300458: poster5
     4300460: poster1
     4300462: polySurface40
+    4300464: livingRoomLevel:emmaApartment2:livingRoom_frontDoor
+    4300466: livingRoomLevel:emmaApartment2:pCylinder10
+    4300468: livingRoomLevel:emmaApartment2:pCylinder11
+    4300470: livingRoomLevel:emmaApartment2:pCylinder12
+    4300472: livingRoomLevel:emmaApartment2:pCylinder13
+    4300474: livingRoomLevel:emmaApartment2:fodpanel
   materials:
     importMaterials: 1
     materialName: 0
