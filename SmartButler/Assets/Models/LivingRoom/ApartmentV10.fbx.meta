@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: 820b2c6e573e54842ad2f3773fe5c215
+timeCreated: 1479068716
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: apartment
+    100002: apartment2
+    100004: //RootNode
+    100006: bench
+    100008: bobblehead
+    100010: bobblehead_body
+    100012: bobblehead_head
+    100014: bookshelf1_top
+    100016: bookshelf2_bookshelf2_bottom
+    100018: bookshelfWithItems
+    100020: bookshelfWithItems1
+    100022: bookshelves
+    100024: cap
+    100026: cap_exterior
+    100028: cap_logo
+    100030: carpet1
+    100032: ceilingLamp
+    100034: ceilingLamp 1
+    100036: chair
+    100038: chair1
+    100040: chair2
+    100042: chair3
+    100044: chestOfDrawers
+    100046: couch
+    100048: diningChair
+    100050: diningTable
+    100052: dinningTable
+    100054: dishBrush
+    100056: dishbrush
+    100058: entranceBench
+    100060: fishtankSupport
+    100062: fridge
+    100064: fridge 1
+    100066: High_heels_blue
+    100068: High_heels_purple
+    100070: highheels
+    100072: highheels1
+    100074: Hitman
+    100076: kitchen
+    100078: kitchen 1
+    100080: letters
+    100082: magazine_closed
+    100084: magazine_open
+    100086: magazine_pile
+    100088: magazines
+    100090: Neon_sign
+    100092: neonsign
+    100094: pCube1
+    100096: pCube2
+    100098: pCube3
+    100100: pCylinder1
+    100102: pictureFrame1
+    100104: pictureFrameDad
+    100106: pictureFrameMom
+    100108: Pizza_box
+    100110: pizzabox
+    100112: plant
+    100114: polySurface1
+    100116: polySurface2
+    100118: polySurface40
+    100120: postcard01
+    100122: postcard02
+    100124: postcard03
+    100126: poster1
+    100128: poster4
+    100130: poster5
+    100132: potatoChips2
+    100134: potatoChips_chipsinBowl
+    100136: potatoChips_closed
+    100138: potatoChips_open
+    100140: sneakers
+    100142: Sneaks1
+    100144: sofaTable
+    100146: sofaTable 1
+    100148: stand
+    100150: standLamp
+    100152: studentCard
+    100154: studentcard
+    100156: sunglasses
+    100158: sunGlasses_exterior
+    100160: tv
+    100162: tv 1
+    100164: umbrella
+    400000: apartment
+    400002: apartment2
+    400004: //RootNode
+    400006: bench
+    400008: bobblehead
+    400010: bobblehead_body
+    400012: bobblehead_head
+    400014: bookshelf1_top
+    400016: bookshelf2_bookshelf2_bottom
+    400018: bookshelfWithItems
+    400020: bookshelfWithItems1
+    400022: bookshelves
+    400024: cap
+    400026: cap_exterior
+    400028: cap_logo
+    400030: carpet1
+    400032: ceilingLamp
+    400034: ceilingLamp 1
+    400036: chair
+    400038: chair1
+    400040: chair2
+    400042: chair3
+    400044: chestOfDrawers
+    400046: couch
+    400048: diningChair
+    400050: diningTable
+    400052: dinningTable
+    400054: dishBrush
+    400056: dishbrush
+    400058: entranceBench
+    400060: fishtankSupport
+    400062: fridge
+    400064: fridge 1
+    400066: High_heels_blue
+    400068: High_heels_purple
+    400070: highheels
+    400072: highheels1
+    400074: Hitman
+    400076: kitchen
+    400078: kitchen 1
+    400080: letters
+    400082: magazine_closed
+    400084: magazine_open
+    400086: magazine_pile
+    400088: magazines
+    400090: Neon_sign
+    400092: neonsign
+    400094: pCube1
+    400096: pCube2
+    400098: pCube3
+    400100: pCylinder1
+    400102: pictureFrame1
+    400104: pictureFrameDad
+    400106: pictureFrameMom
+    400108: Pizza_box
+    400110: pizzabox
+    400112: plant
+    400114: polySurface1
+    400116: polySurface2
+    400118: polySurface40
+    400120: postcard01
+    400122: postcard02
+    400124: postcard03
+    400126: poster1
+    400128: poster4
+    400130: poster5
+    400132: potatoChips2
+    400134: potatoChips_chipsinBowl
+    400136: potatoChips_closed
+    400138: potatoChips_open
+    400140: sneakers
+    400142: Sneaks1
+    400144: sofaTable
+    400146: sofaTable 1
+    400148: stand
+    400150: standLamp
+    400152: studentCard
+    400154: studentcard
+    400156: sunglasses
+    400158: sunGlasses_exterior
+    400160: tv
+    400162: tv 1
+    400164: umbrella
+    2300000: apartment2
+    2300002: bench
+    2300004: bobblehead_body
+    2300006: bobblehead_head
+    2300008: bookshelf1_top
+    2300010: bookshelf2_bookshelf2_bottom
+    2300012: bookshelfWithItems1
+    2300014: cap_exterior
+    2300016: cap_logo
+    2300018: ceilingLamp 1
+    2300020: chair
+    2300022: chair1
+    2300024: chair2
+    2300026: chair3
+    2300028: dinningTable
+    2300030: dishBrush
+    2300032: fridge 1
+    2300034: High_heels_blue
+    2300036: High_heels_purple
+    2300038: kitchen 1
+    2300040: magazine_closed
+    2300042: magazine_open
+    2300044: magazine_pile
+    2300046: Neon_sign
+    2300048: pCube1
+    2300050: pCube2
+    2300052: pCube3
+    2300054: pCylinder1
+    2300056: pictureFrameDad
+    2300058: pictureFrameMom
+    2300060: Pizza_box
+    2300062: polySurface1
+    2300064: polySurface2
+    2300066: polySurface40
+    2300068: postcard01
+    2300070: postcard02
+    2300072: postcard03
+    2300074: poster1
+    2300076: poster5
+    2300078: potatoChips_chipsinBowl
+    2300080: potatoChips_closed
+    2300082: potatoChips_open
+    2300084: Sneaks1
+    2300086: sofaTable 1
+    2300088: standLamp
+    2300090: studentCard
+    2300092: sunGlasses_exterior
+    2300094: tv 1
+    3300000: apartment2
+    3300002: bench
+    3300004: bobblehead_body
+    3300006: bobblehead_head
+    3300008: bookshelf1_top
+    3300010: bookshelf2_bookshelf2_bottom
+    3300012: bookshelfWithItems1
+    3300014: cap_exterior
+    3300016: cap_logo
+    3300018: ceilingLamp 1
+    3300020: chair
+    3300022: chair1
+    3300024: chair2
+    3300026: chair3
+    3300028: dinningTable
+    3300030: dishBrush
+    3300032: fridge 1
+    3300034: High_heels_blue
+    3300036: High_heels_purple
+    3300038: kitchen 1
+    3300040: magazine_closed
+    3300042: magazine_open
+    3300044: magazine_pile
+    3300046: Neon_sign
+    3300048: pCube1
+    3300050: pCube2
+    3300052: pCube3
+    3300054: pCylinder1
+    3300056: pictureFrameDad
+    3300058: pictureFrameMom
+    3300060: Pizza_box
+    3300062: polySurface1
+    3300064: polySurface2
+    3300066: polySurface40
+    3300068: postcard01
+    3300070: postcard02
+    3300072: postcard03
+    3300074: poster1
+    3300076: poster5
+    3300078: potatoChips_chipsinBowl
+    3300080: potatoChips_closed
+    3300082: potatoChips_open
+    3300084: Sneaks1
+    3300086: sofaTable 1
+    3300088: standLamp
+    3300090: studentCard
+    3300092: sunGlasses_exterior
+    3300094: tv 1
+    4300000: apartment2
+    4300002: kitchen
+    4300004: ceilingLamp
+    4300006: fridge
+    4300008: magazine_open
+    4300010: magazine_closed
+    4300012: magazine_pile
+    4300014: tv
+    4300016: Neon_sign
+    4300018: dinningTable
+    4300020: chair
+    4300022: chair1
+    4300024: chair2
+    4300026: chair3
+    4300028: sofaTable
+    4300030: bench
+    4300032: pCube1
+    4300034: polySurface1
+    4300036: cap_logo
+    4300038: cap_exterior
+    4300040: Sneaks1
+    4300042: High_heels_purple
+    4300044: High_heels_blue
+    4300046: bobblehead_body
+    4300048: bobblehead_head
+    4300050: pictureFrameMom
+    4300052: pictureFrameDad
+    4300054: standLamp
+    4300056: postcard01
+    4300058: postcard02
+    4300060: postcard03
+    4300062: sunGlasses_exterior
+    4300064: dishBrush
+    4300066: Pizza_box
+    4300068: studentCard
+    4300070: pCylinder1
+    4300072: bookshelfWithItems1
+    4300074: polySurface2
+    4300076: poster5
+    4300078: poster1
+    4300080: pCube3
+    4300082: pCube2
+    4300084: potatoChips_chipsinBowl
+    4300086: potatoChips_open
+    4300088: potatoChips_closed
+    4300090: polySurface40
+    4300092: bookshelf2_bookshelf2_bottom
+    4300094: bookshelf1_top
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
