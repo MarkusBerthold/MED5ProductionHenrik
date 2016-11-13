@@ -73,6 +73,7 @@
     <Compile Include="Assets\Easy Outline\Behaviours\OutlineSystem.cs" />
     <Compile Include="Assets\Easy Outline\Demo Scene\Behaviours\DemoBehaviour.cs" />
     <Compile Include="Assets\Lights.cs" />
+    <Compile Include="Assets\Scripts\BloomScript.cs" />
     <Compile Include="Assets\Scripts\Bridge.cs" />
     <Compile Include="Assets\Scripts\Character\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Character\Despawner.cs" />
