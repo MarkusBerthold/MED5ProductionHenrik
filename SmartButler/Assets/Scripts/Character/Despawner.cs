@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Controllers;
+﻿using Assets.Characters.FirstPersonCharacter.Scripts;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.GameManager;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 using Assets.Characters.ThirdPerson;
 using Assets.Scripts.MessageingSystem;
 

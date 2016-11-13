@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
+using Assets.Scripts.MessageingSystem;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour {
     public GameObject UI;
+    private Canvas _uiCanvas;
     private GameObject PauseMenuPrefab;
 
     void Awake(){
@@ -12,6 +16,8 @@ public class PauseMenu : MonoBehaviour {
     void Start(){
         if (!(UI = GameObject.FindWithTag("PauseMenu")))
             UI = Instantiate(PauseMenuPrefab);
+        _uiCanvas = UI.GetComponentInChildren<Canvas>();
+        _uiCanvas.worldCamera = Camera.main;
         TogglePauseMenu();
     }
 
@@ -22,18 +28,25 @@ public class PauseMenu : MonoBehaviour {
 
     public void TogglePauseMenu(){
         // not the optimal way but for the sake of readability
-        if (UI.GetComponentInChildren<Canvas>().enabled){
-            UI.GetComponentInChildren<Canvas>().enabled = false;
+        if (_uiCanvas.enabled){
+            _uiCanvas.enabled = false;
+            Cursor.visible = false;
+            EventManager.TriggerEvent("EnableControls");
             Time.timeScale = 1.0f;
+
         }
         else{
-            UI.GetComponentInChildren<Canvas>().enabled = true;
+            _uiCanvas.enabled = true;
+            Cursor.visible = true;
+
+            EventManager.TriggerEvent("DisableControls");
             Time.timeScale = 0f;
         }
     }
 
 
     public void OnExit(){
-        AutoFade.LoadLevel(0, 3, 1, Color.black);
+        TogglePauseMenu();
+        AutoFade.LoadLevel(0, 1, 1, Color.black);
     }
 }

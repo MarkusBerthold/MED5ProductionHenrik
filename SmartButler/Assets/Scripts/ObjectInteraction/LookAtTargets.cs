@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Controllers;
+﻿using Assets.Characters.FirstPersonCharacter.Scripts;
+using Assets.Scripts.Controllers;
 using Assets.Scripts.Highlighting;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.ObjectInteraction {
