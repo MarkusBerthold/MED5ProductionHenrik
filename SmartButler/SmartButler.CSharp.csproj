@@ -140,6 +140,9 @@
     <Compile Include="Assets\Scripts\StereoPuzzleV2\Puzzle.cs" />
     <Compile Include="Assets\Scripts\StereoPuzzleV2\SmallPiece.cs" />
     <Compile Include="Assets\Scripts\TunnelLight.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\ScrollingText.cs" />
+    <Compile Include="Assets\Scripts\UI\StartMenu.cs" />
     <Compile Include="Assets\Scripts\UnusedTest\AnimateTiledTexture.cs" />
     <Compile Include="Assets\Scripts\UnusedTest\UIWatch.cs" />
     <Compile Include="Assets\Scripts\UnusedTest\WaveformFloor.cs" />
