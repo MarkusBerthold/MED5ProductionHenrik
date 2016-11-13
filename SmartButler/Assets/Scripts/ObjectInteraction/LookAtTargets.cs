@@ -36,6 +36,8 @@ namespace Assets.Scripts.ObjectInteraction {
         //speaker (that is a stero) buttons
         private GameObject _speakerButton0;
         private GameObject _speakerKnob;
+
+		public MoveSlider _RemoteMoveSlider;
         
         // Use this for initialization
         void Start() {
@@ -70,19 +72,6 @@ namespace Assets.Scripts.ObjectInteraction {
             _speakerKnob.GetComponent<Highlighter>().DistanceThreshold = 0;
             _speakerButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
 
-            //////////////////////////////
-
-            /*
-            _coffeeButton0.GetComponent<MeshCollider>().enabled = false;
-            _coffeeButton1.GetComponent<MeshCollider>().enabled = false;
-            _coffeeButton2.GetComponent<MeshCollider>().enabled = false;
-
-            _remoteKnob.GetComponent<CapsuleCollider>().enabled = false;
-            //_remote.GetComponent<MeshCollider>().enabled = false;
-            */
-
-            Cam = Camera.main.gameObject;
-            Player = GameObject.FindGameObjectWithTag("Player");
         }
 
         // Update is called once per frame
@@ -109,7 +98,8 @@ namespace Assets.Scripts.ObjectInteraction {
                         _remoteButton1.GetComponent<Highlighter>().DistanceThreshold = 0;
 
                         _remoteKnob.GetComponent<CapsuleCollider>().enabled = false; //this doesn't seem to do anything, i guess it disables the input given by turning the knob?
-                    }
+						_RemoteMoveSlider.ResetLowerandOpper();
+					}
 
                     //Distance threshold reset so that buttons do not highlight
                     if (this.tag == "CoffeeMachine") {
@@ -131,6 +121,8 @@ namespace Assets.Scripts.ObjectInteraction {
                     }
 
                 }//end inputs
+                if(!Cam)
+                    Cam = Cam = Camera.main.gameObject;
                 Cam.transform.LookAt(transform.position + Offset);
 
                 Cursor.visible = true;
@@ -140,6 +132,8 @@ namespace Assets.Scripts.ObjectInteraction {
 
         //Checks the players position and check if the player is interacting with a target
         void OnMouseDown() {
+            if(!Player)
+                Player = GameObject.FindGameObjectWithTag("Player");
             _dist = Vector3.Distance(transform.position, Player.transform.position);
             print(_dist);
 
@@ -159,6 +153,9 @@ namespace Assets.Scripts.ObjectInteraction {
                     //this.transform.LookAt(GameObject.FindWithTag("Player").transform);
                     this.transform.LookAt(Cam.transform);
                     this.transform.Rotate(new Vector3(0f, 90f, 45f));
+
+					Vector3 v = transform.rotation.eulerAngles;
+					transform.rotation = Quaternion.Euler (v.x, v.y, 90);
                     //this.transform.LookAt(Cam.transform.position + new Vector3(this.transform.position.x, this.transform.position.y, 30f));
                     //this.transform.LookAt(Cam.transform.rotation * new Quaternion(this.transform.rotation.x, this.transform.rotation.y, 45f, 0f));
                     //this.transform.eulerAngles = new Vector3(0f, 0f, 45f); //tilts the remote a little
@@ -173,6 +170,7 @@ namespace Assets.Scripts.ObjectInteraction {
                     _remoteSlider.GetComponent<Highlighter>().DistanceThreshold = 3;
                     _remoteButton0.GetComponent<Highlighter>().DistanceThreshold = 3;
                     _remoteButton1.GetComponent<Highlighter>().DistanceThreshold = 3;
+					_RemoteMoveSlider.SetLowerandOpper ();
                 }
 
                 //A distance is set so that the button will be highlighted

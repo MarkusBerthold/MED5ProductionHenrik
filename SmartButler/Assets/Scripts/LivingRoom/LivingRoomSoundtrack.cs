@@ -24,8 +24,7 @@ namespace Assets.Scripts.LivingRoom.LivingRoomSoundtrack{
 		// Use this for initialization
 		void Start () {
 
-			coroutine = SetWaitForBroadcastCoroutine ();
-			StartCoroutine (coroutine);
+			StartCoroutine (SetWaitForBroadcastCoroutine());
 	
 		}
 	

@@ -35,7 +35,7 @@ namespace Assets.Scripts.ObjectInteraction{
         //Runs once per frame
         private void Update(){
             //zerToOne is the number that we want to access later, 0 -> 1
-            SliderLength = OpperBound - LowerBound;
+            //SliderLength = OpperBound - LowerBound;
             
             //only drag if mouse is pressed
             if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) _dragEnabled = false;
@@ -82,6 +82,20 @@ namespace Assets.Scripts.ObjectInteraction{
                 LightSwitcher.SetIntensity(GetZeroToOne());
             }
         }
+
+		public void SetLowerandOpper(){
+
+			Vector3 RemotePos = this.transform.parent.gameObject.transform.position;
+			LowerBound = LowerBound + RemotePos.y;
+			OpperBound = OpperBound + RemotePos.y;
+		}
+
+		public void ResetLowerandOpper(){
+
+			Vector3 RemotePos = this.transform.parent.gameObject.transform.position;
+			LowerBound = -0.1f;
+			OpperBound = -0.004f;
+		}
 
         /// <summary>
         /// ?

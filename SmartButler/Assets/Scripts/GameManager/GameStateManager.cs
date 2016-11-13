@@ -37,7 +37,7 @@ namespace Assets.Scripts.GameManager {
 
         public static string LightLoaderGameObjectName = "remote";
         public static string StereoLoaderGameObjectName = "speaker";
-        public static string ClockLoaderGameObjectName = "wallClockFinal";
+        public static string ClockLoaderGameObjectName = "wallClock_centerFace";
 
         public static DayNightController DayNightController;
 
@@ -108,6 +108,8 @@ namespace Assets.Scripts.GameManager {
                     GameState = State.Stereo;
                     goto default;
                 default:
+                    if (!_LivingRoomsSoundtrack)
+                        _LivingRoomsSoundtrack = FindObjectOfType<LivingRoomSoundtrack>();
                     switch (GameState) {
 						case State.Clock:
 							_clockLoader.IsEnterable = false;
