@@ -62,7 +62,7 @@ namespace Assets.Scripts.ObjectInteraction {
 
             //////////////////////////////
 
-            _coffeeButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
+          /*  _coffeeButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
             _coffeeButton1.GetComponent<Highlighter>().DistanceThreshold = 0;
             _coffeeButton2.GetComponent<Highlighter>().DistanceThreshold = 0;
 
@@ -73,6 +73,8 @@ namespace Assets.Scripts.ObjectInteraction {
 
             _speakerKnob.GetComponent<Highlighter>().DistanceThreshold = 0;
             _speakerButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
+
+            */
 
             if (this.tag == "CoffeeMachine")
             {
@@ -108,10 +110,12 @@ namespace Assets.Scripts.ObjectInteraction {
                         this.transform.position = _remoteControllerStartPosition;
                         this.transform.localRotation = _remoteControllerStartRotation;
 
-                        _remoteKnob.GetComponent<Highlighter>().DistanceThreshold = 0;
+                   /*     _remoteKnob.GetComponent<Highlighter>().DistanceThreshold = 0;
                         _remoteSlider.GetComponent<Highlighter>().DistanceThreshold = 0;
                         _remoteButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
                         _remoteButton1.GetComponent<Highlighter>().DistanceThreshold = 0;
+
+                        */
 
                         _remoteKnob.GetComponent<CapsuleCollider>().enabled = false; //this doesn't seem to do anything, i guess it disables the input given by turning the knob?
 						_RemoteMoveSlider.ResetLowerandOpper();
@@ -119,9 +123,9 @@ namespace Assets.Scripts.ObjectInteraction {
 
                     //Distance threshold reset so that buttons do not highlight
                     if (this.tag == "CoffeeMachine") {
-                        _coffeeButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
+                       /* _coffeeButton0.GetComponent<Highlighter>().DistanceThreshold = 0;
                         _coffeeButton1.GetComponent<Highlighter>().DistanceThreshold = 0;
-                        _coffeeButton2.GetComponent<Highlighter>().DistanceThreshold = 0;
+                        _coffeeButton2.GetComponent<Highlighter>().DistanceThreshold = 0; */
 
                         _coffeeButton0.GetComponent<Highlighter>().Activated = false;
                         _coffeeButton1.GetComponent<Highlighter>().Activated = false;
@@ -198,6 +202,7 @@ namespace Assets.Scripts.ObjectInteraction {
                         _remoteSlider.GetComponent<Highlighter>().DistanceThreshold = 3;
                         _remoteButton0.GetComponent<Highlighter>().DistanceThreshold = 3;
                         _remoteButton1.GetComponent<Highlighter>().DistanceThreshold = 3;
+                        
                         _RemoteMoveSlider.SetLowerandOpper();
                     }
 
@@ -209,6 +214,8 @@ namespace Assets.Scripts.ObjectInteraction {
                         _coffeeButton0.GetComponent<Highlighter>().DistanceThreshold = 3;
                         _coffeeButton1.GetComponent<Highlighter>().DistanceThreshold = 3;
                         _coffeeButton2.GetComponent<Highlighter>().DistanceThreshold = 3;
+
+                    
 
                         _coffeeButton0.GetComponent<Highlighter>().Activated = true;
                         _coffeeButton1.GetComponent<Highlighter>().Activated = true;
@@ -224,6 +231,8 @@ namespace Assets.Scripts.ObjectInteraction {
                     {
                         _speakerKnob.GetComponent<Highlighter>().DistanceThreshold = 3;
                         _speakerButton0.GetComponent<Highlighter>().DistanceThreshold = 3;
+
+    
                         EventManager.TriggerEvent("seesstereo");
                     }
                 }
