@@ -103,7 +103,8 @@ namespace Assets.Scripts.ObjectInteraction{
         /// <returns></returns>
         public float GetZeroToOne(){
             if (this.tag == "RemoteController"){
-                _zeroToOne = (transform.position.x - LowerBound) / SliderLength;
+                _zeroToOne = (transform.position.y - LowerBound) / SliderLength;
+				print (_zeroToOne);
             }
             else{
                 _zeroToOne = (transform.position.y - LowerBound) / SliderLength;

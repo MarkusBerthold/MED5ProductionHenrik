@@ -18,12 +18,14 @@ namespace Assets.Scripts.Controllers{
         private void Start(){
             //Source = GameObject.FindGameObjectWithTag("Speaker").GetComponent<AudioSource>();
 			Degrees = 90;
+			Volume = 0.5f;
         }
 
         // Update is called once per frame
         private void Update(){
             Pitch = Degrees/100;
             Source.pitch = Pitch;
+			Source.volume = Volume;
         }
 
         /// <summary>
