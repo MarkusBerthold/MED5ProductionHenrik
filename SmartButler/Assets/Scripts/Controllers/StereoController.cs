@@ -13,12 +13,15 @@ namespace Assets.Scripts.Controllers{
         public AudioSource Source;
         public bool StereoStarted;
         public float Volume;
+        public float MaxVolume;
 
         // Use this for initialization
         private void Start(){
             //Source = GameObject.FindGameObjectWithTag("Speaker").GetComponent<AudioSource>();
 			Degrees = 90;
 			Volume = 0.5f;
+
+            MaxVolume = 0.5f;
         }
 
         // Update is called once per frame
@@ -43,7 +46,7 @@ namespace Assets.Scripts.Controllers{
         /// </summary>
         /// <param name="degrees"></param>
         public void UpdateStereoVolume(float volume){
-            Volume = volume;
+            Volume = volume * MaxVolume;
         }
 
         /// <summary>
