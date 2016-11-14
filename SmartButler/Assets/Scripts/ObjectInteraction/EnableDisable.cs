@@ -11,6 +11,8 @@ public class EnableDisable : MonoBehaviour
     private Component[] _highLighterComponents;
     private Component[] _lookAtTargetComponents;
 
+    public Highlighter _highlighter;
+
     private UnityAction _someListener;
 
     // Use this for initialization
@@ -41,10 +43,12 @@ public class EnableDisable : MonoBehaviour
             _lookAtTargetComponents = GetComponentsInChildren<LookAtTargets>();
             for (int i = 0; i < _highLighterComponents.Length; i++) {
                 _highLighterComponents[i].GetComponent<Highlighter>().enabled = true;
+                _highLighterComponents[i].GetComponent<Highlighter>().Activated = true;
             }
 
             for (int i = 0; i < _lookAtTargetComponents.Length; i++) {
                 _lookAtTargetComponents[i].GetComponent<LookAtTargets>().enabled = true;
+                _lookAtTargetComponents[i].GetComponent<LookAtTargets>().Activated = true;
             }
         }
     }
@@ -56,10 +60,12 @@ public class EnableDisable : MonoBehaviour
             _lookAtTargetComponents = GetComponentsInChildren<LookAtTargets>();
             for (int i = 0; i < _highLighterComponents.Length; i++) {
                 _highLighterComponents[i].GetComponent<Highlighter>().enabled = true;
+                _highLighterComponents[i].GetComponent<Highlighter>().Activated = true;
             }
 
             for (int i = 0; i < _lookAtTargetComponents.Length; i++) {
                 _lookAtTargetComponents[i].GetComponent<LookAtTargets>().enabled = true;
+                _lookAtTargetComponents[i].GetComponent<LookAtTargets>().Activated = true;
             }
         }
     }

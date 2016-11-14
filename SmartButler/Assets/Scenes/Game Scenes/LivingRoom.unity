@@ -2072,6 +2072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!114 &158914642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2116,6 +2117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!114 &158914645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2158,6 +2160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!114 &158914648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2900,12 +2903,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 197022750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!64 &197022755
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3480,12 +3484,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58a49f97436b7cf4098f65de747637ab, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &222147739 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11486862, guid: 58a49f97436b7cf4098f65de747637ab,
-    type: 2}
-  m_PrefabInternal: {fileID: 222147738}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &224201863
 GameObject:
   m_ObjectHideFlags: 0
@@ -5444,12 +5442,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 351099559}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!114 &351099563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9720,6 +9719,7 @@ GameObject:
   - 64: {fileID: 717206901}
   - 82: {fileID: 717206906}
   - 114: {fileID: 717206907}
+  - 114: {fileID: 717206908}
   m_Layer: 0
   m_Name: speaker
   m_TagString: Speaker
@@ -9747,12 +9747,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717206897}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 1.5
+  Activated: 0
 --- !u!114 &717206900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9766,7 +9767,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1340299815}
   IsEnterable: 0
-  LoadingText: {fileID: 222147739}
   TargetScene: 2
 --- !u!64 &717206901
 MeshCollider:
@@ -9786,7 +9786,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717206897}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 574dd429e2bdcc942a562c72aea791eb, type: 3}
   m_Name: 
@@ -9797,6 +9797,7 @@ MonoBehaviour:
   RemoteClicked: 0
   Offset: {x: 0, y: 0, z: 0}
   _RemoteMoveSlider: {fileID: 0}
+  Activated: 0
 --- !u!23 &717206903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10018,6 +10019,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AudioSource: {fileID: 717206906}
+--- !u!114 &717206908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717206897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260f258cae176ef47a57882ebbe98187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _highlighter: {fileID: 717206899}
 --- !u!1 &724897102
 GameObject:
   m_ObjectHideFlags: 0
@@ -12576,6 +12589,7 @@ GameObject:
   - 114: {fileID: 880354171}
   - 114: {fileID: 880354172}
   - 64: {fileID: 880354167}
+  - 114: {fileID: 880354173}
   m_Layer: 0
   m_Name: remote
   m_TagString: RemoteController
@@ -12623,12 +12637,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 880354165}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 1
+  Activated: 0
 --- !u!23 &880354170
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12667,7 +12682,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 880354165}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 574dd429e2bdcc942a562c72aea791eb, type: 3}
   m_Name: 
@@ -12678,6 +12693,7 @@ MonoBehaviour:
   RemoteClicked: 0
   Offset: {x: 0, y: 0, z: 0}
   _RemoteMoveSlider: {fileID: 1531292314}
+  Activated: 0
 --- !u!114 &880354172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12691,8 +12707,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 103028, guid: 58a49f97436b7cf4098f65de747637ab, type: 2}
   IsEnterable: 0
-  LoadingText: {fileID: 222147739}
   TargetScene: 3
+--- !u!114 &880354173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 880354165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260f258cae176ef47a57882ebbe98187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _highlighter: {fileID: 880354169}
 --- !u!1 &881604976
 GameObject:
   m_ObjectHideFlags: 0
@@ -21606,12 +21633,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512592319}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!64 &1512592324
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -21744,12 +21772,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1531292309}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!114 &1531292314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25130,6 +25159,7 @@ MonoBehaviour:
   RemoteClicked: 0
   Offset: {x: 0, y: 0, z: 0}
   _RemoteMoveSlider: {fileID: 0}
+  Activated: 0
 --- !u!23 &1772262119
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25183,6 +25213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 2
+  Activated: 0
 --- !u!33 &1772262121
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -25238,7 +25269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 103028, guid: 58a49f97436b7cf4098f65de747637ab, type: 2}
   IsEnterable: 0
-  LoadingText: {fileID: 222147739}
   TargetScene: 1
 --- !u!58 &1777615398
 CircleCollider2D:
@@ -26404,12 +26434,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1855487047}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!23 &1855487050
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29683,12 +29714,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2122894685}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 601dec9f265899142be1d412511a3112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DistanceThreshold: 0
+  Activated: 0
 --- !u!33 &2122894690
 MeshFilter:
   m_ObjectHideFlags: 0
