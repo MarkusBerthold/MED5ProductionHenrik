@@ -25,7 +25,7 @@ namespace Assets.Scripts.GameManager {
 		private bool _loading;
 		public GameObject Canvas;
 		public bool IsEnterable;
-		public Text LoadingText;
+		//public Text LoadingText;
 		public Scene TargetScene;
 	    private UnityAction _someAction;
 
@@ -60,7 +60,7 @@ namespace Assets.Scripts.GameManager {
 				Canvas.SetActive(true);
 
 				// ...change the instruction text to read "Loading..."
-				LoadingText.text = "Level complete \n Loading...";
+				//LoadingText.text = "Level complete \n Loading...";
 				// ...and start a coroutine that will load the desired scene.
 				StartCoroutine(LoadNewScene());
 			}
