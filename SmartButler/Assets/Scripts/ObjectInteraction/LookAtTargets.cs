@@ -110,8 +110,9 @@ namespace Assets.Scripts.ObjectInteraction {
                     Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Space)) {
                     _isLooking = false;
                     Player.GetComponent<FirstPersonController>().enabled = true;
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
+                    //Cursor.visible = false;
+                    //Cursor.lockState = CursorLockMode.Locked;
+                    LockCursor.DisableCursor();
 
                     //this runs whenever you break off the remote, this returns the remote back to its start position
                     if (this.tag == "RemoteController") {
@@ -158,8 +159,9 @@ namespace Assets.Scripts.ObjectInteraction {
                 
                 Cam.transform.LookAt(transform.position + Offset);
 
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                //Cursor.visible = true;
+                //Cursor.lockState = CursorLockMode.None;
+                LockCursor.EnableCursor();
             }//end _isLooking
         }//end update
 
