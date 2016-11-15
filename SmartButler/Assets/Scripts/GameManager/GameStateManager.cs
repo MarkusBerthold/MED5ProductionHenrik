@@ -9,6 +9,7 @@ using Assets.Scripts.Sound_System;
 using Assets.Scripts.LivingRoom.BroadcastSpeaker;
 using Assets.Scripts.LivingRoom.LivingRoomSoundtrack;
 using Assets.Scripts.Controllers;
+using Assets.Scripts.Highlighting;
 
 
 namespace Assets.Scripts.GameManager {
@@ -47,6 +48,9 @@ namespace Assets.Scripts.GameManager {
 		public static LivingRoomSoundtrack _LivingRoomsSoundtrack;
 
 		public static StereoController _StereoController;
+
+        private static Highlighter _wallClockHighlighter;
+        public static string WallClockHighlighterObjectName = "wallClock_centerFace";
 
         string previousScene;
 
@@ -164,6 +168,7 @@ namespace Assets.Scripts.GameManager {
                 case State.Coffee:
                     GameState = State.Coffee;
                     _clockLoader.IsEnterable = true;
+                    _wallClockHighlighter.Activated = true;
                     break;
 				case State.End:
 					GameState = State.End;
@@ -188,9 +193,11 @@ namespace Assets.Scripts.GameManager {
 
 			_StereoController = FindObjectOfType<StereoController> ();
 
-			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack & _StereoController));
+            _wallClockHighlighter = GameObject.Find(WallClockHighlighterObjectName).GetComponent<Highlighter>();
 
-			return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack & _StereoController;
+			Debug.Log("Loaders Loaded: " + (_lightLoader & _stereoLoader & _clockLoader & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack & _StereoController & _wallClockHighlighter));
+
+			return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager & _BroadcastSpeaker & _LivingRoomsSoundtrack & _StereoController & _wallClockHighlighter;
         }
     }
 
