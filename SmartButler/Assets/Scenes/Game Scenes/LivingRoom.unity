@@ -25474,8 +25474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FixedDistance: 2
-  Cam: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-  Player: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+  Cam: {fileID: 0}
+  Player: {fileID: 0}
   RemoteClicked: 0
   Offset: {x: 0, y: 0, z: 0}
   _RemoteMoveSlider: {fileID: 0}

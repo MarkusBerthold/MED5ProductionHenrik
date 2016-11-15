@@ -1,4 +1,5 @@
-﻿using Assets.Characters.FirstPersonCharacter.Scripts;
+﻿using System.Collections;
+using Assets.Characters.FirstPersonCharacter.Scripts;
 using Assets.Scripts.Controllers;
 using Assets.Scripts.Highlighting;
 using UnityEngine;
@@ -82,17 +83,26 @@ namespace Assets.Scripts.ObjectInteraction {
                 GetComponent<Highlighter>().Activated = true;
             }
 
+            StartCoroutine(FindPlayerAndCam());
+
+        }
+
+        IEnumerator FindPlayerAndCam()
+        {
+            yield return new WaitForSeconds(7);
+
+            //if (!Cam)
+                Cam = Camera.main.gameObject;
+
+            //if (!Player) 
+                Player = Cam.transform.parent.gameObject;
+            
         }
 
         // Update is called once per frame
         void Update() {
 
-            if (!Cam)
-                Cam = Camera.main.gameObject;
-
-            if (!Player) {
-                Player = GameObject.FindGameObjectWithTag("Player");
-            }
+            
 
             if (_isLooking) {
                 if (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape) ||
@@ -160,8 +170,9 @@ namespace Assets.Scripts.ObjectInteraction {
 
             if (Activated)
             {
-                if (!Player)
-                    Player = GameObject.FindGameObjectWithTag("Player");
+               /* if (!Player)
+                    Player = Cam.transform.parent.gameObject; */
+
                 _dist = Vector3.Distance(transform.position, Player.transform.position);
                 print(_dist);
 

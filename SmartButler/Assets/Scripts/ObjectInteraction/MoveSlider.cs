@@ -43,9 +43,11 @@ namespace Assets.Scripts.ObjectInteraction{
 
         //function is called when you click an object with a collider
         private void OnMouseDrag(){
-            if (_dragEnabled){
+            if (_dragEnabled)
+            {
                 //switching axises
-                if (SlideAxis.Equals('X')){
+                if (SlideAxis.Equals('X'))
+                {
                     // using unitys screen to world function
                     var worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
@@ -58,7 +60,8 @@ namespace Assets.Scripts.ObjectInteraction{
                 }
 
                 // ?
-                if (SlideAxis.Equals('Y')){
+                if (SlideAxis.Equals('Y'))
+                {
                     var worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
@@ -68,7 +71,8 @@ namespace Assets.Scripts.ObjectInteraction{
                 }
 
                 // ?
-                if (SlideAxis.Equals('Z')){
+                if (SlideAxis.Equals('Z'))
+                {
                     var worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
@@ -76,10 +80,16 @@ namespace Assets.Scripts.ObjectInteraction{
                     if ((worldDragTo.z >= LowerBound) && (worldDragTo.z <= OpperBound))
                         transform.position = new Vector3(_dragStartPosition.x, _dragStartPosition.y, worldDragTo.z);
                 }
-                if (this.tag == "RemoteController"){
+                if (this.tag == "RemoteController")
+                {
                     StereoController.UpdateStereoVolume(GetZeroToOne());
                 }
-                LightSwitcher.SetIntensity(GetZeroToOne());
+
+                if (this.tag == "CoffeeMachine")
+                {
+                    LightSwitcher.SetIntensity(GetZeroToOne());
+                }
+
             }
         }
 

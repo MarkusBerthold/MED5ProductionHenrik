@@ -9,7 +9,7 @@ namespace Assets.Scripts.Controllers{
         public float Degrees;
         public bool IsActive = true;
 
-        public float MaxIntensity;
+        public float MaxIntensity = 0.5f;
         public ObjectRotater[] Rotaters;
 
         //Initialises AllLights
