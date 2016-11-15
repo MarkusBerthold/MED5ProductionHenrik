@@ -69,6 +69,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
+    <Compile Include="Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
+    <Compile Include="Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Characters\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
+    <Compile Include="Assets\Characters\RollerBall\Scripts\Ball.cs" />
+    <Compile Include="Assets\Characters\RollerBall\Scripts\BallUserControl.cs" />
     <Compile Include="Assets\Easy Outline\Behaviours\OutlineSystem.cs" />
     <Compile Include="Assets\Easy Outline\Demo Scene\Behaviours\DemoBehaviour.cs" />
     <Compile Include="Assets\Scripts\AnimatedCamera.cs" />
@@ -152,14 +158,15 @@
     <Compile Include="Assets\ThirdPersonCharacter\Scripts\ThirdPersonUserControl.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+    <None Include="Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Day-Night Skyboxes\Textures\Readme for Assigning.txt" />
     <None Include="Assets\Day-Night Skyboxes\readme.txt" />
     <None Include="Assets\Easy Outline\Shaders\MobileBlur.shader" />
     <None Include="Assets\Easy Outline\Shaders\ScreenSpaceOutlineShader.shader" />
     <None Include="Assets\Materials\Outlined-Silhouette Only.shader" />
+    <None Include="Assets\Resources\Plane_No_zTest.shader" />
     <None Include="Assets\Shaders\Highlighter.shader" />
-    <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
-    <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
