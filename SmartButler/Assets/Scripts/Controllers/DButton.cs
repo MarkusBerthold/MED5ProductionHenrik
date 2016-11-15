@@ -29,7 +29,7 @@ namespace Assets.Scripts.Controllers{
                 StereoController.StartStopPlayback(false);
             } else if (this.tag == "Speaker")
             {
-                GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
+				GameStateManager.Instance.ChangeState(GameStateManager.State.Stereo);
             }
         }
     }
