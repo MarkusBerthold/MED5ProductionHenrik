@@ -41,6 +41,9 @@ namespace Assets.Scripts.ObjectInteraction {
 		public MoveSlider _RemoteMoveSlider;
 
         public bool Activated;
+
+		private bool StartCameraAnimation = true;
+		public GameObject CameraAnimation;
         
         // Use this for initialization
         void Start() {
@@ -82,22 +85,11 @@ namespace Assets.Scripts.ObjectInteraction {
                 GetComponent<LookAtTargets>().Activated = true;
                 GetComponent<Highlighter>().Activated = true;
             }
-
-            StartCoroutine(FindPlayerAndCam());
+				
 
         }
 
-        IEnumerator FindPlayerAndCam()
-        {
-            yield return new WaitForSeconds(7);
 
-            //if (!Cam)
-                Cam = Camera.main.gameObject;
-
-            //if (!Player) 
-                Player = Cam.transform.parent.gameObject;
-            
-        }
 
         // Update is called once per frame
         void Update() {
@@ -163,7 +155,24 @@ namespace Assets.Scripts.ObjectInteraction {
                 //Cursor.lockState = CursorLockMode.None;
                 LockCursor.EnableCursor();
             }//end _isLooking
+
+			if(StartCameraAnimation){
+				CheckStartCameraAnimation ();
+			}
         }//end update
+
+		void CheckStartCameraAnimation (){
+
+			if (CameraAnimation == null) {
+				StartCameraAnimation = false;
+				//if (!Cam)
+				Cam = Camera.main.gameObject;
+
+				//if (!Player) 
+				Player = Cam.transform.parent.gameObject;
+			}
+			
+		}
 
         //Checks the players position and check if the player is interacting with a target
         void OnMouseDown() {

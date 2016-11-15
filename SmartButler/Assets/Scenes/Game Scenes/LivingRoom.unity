@@ -9929,6 +9929,7 @@ MonoBehaviour:
   Offset: {x: 0, y: 0, z: 0}
   _RemoteMoveSlider: {fileID: 0}
   Activated: 0
+  CameraAnimation: {fileID: 0}
 --- !u!23 &717206903
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12825,6 +12826,7 @@ MonoBehaviour:
   Offset: {x: 0, y: 0, z: 0}
   _RemoteMoveSlider: {fileID: 1531292314}
   Activated: 0
+  CameraAnimation: {fileID: 0}
 --- !u!114 &880354172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25480,6 +25482,7 @@ MonoBehaviour:
   Offset: {x: 0, y: 0, z: 0}
   _RemoteMoveSlider: {fileID: 0}
   Activated: 0
+  CameraAnimation: {fileID: 431281457}
 --- !u!23 &1772262119
 MeshRenderer:
   m_ObjectHideFlags: 0
