@@ -26,7 +26,7 @@ namespace Assets.Scripts.Character {
         //If the player collides with this object, set this to be the new checkpoint
         void OnTriggerEnter(Collider other) {
             if (other.gameObject.tag == "Player") {
-                _FPScontroller.SetCurrentCheckpoint(this.transform.position);
+                _FPScontroller.SetCurrentCheckpoint(this.transform.position + Vector3.right);
                 this.GetComponent<BoxCollider>().enabled = false; //disables the checkpoints you've reached so you can't reach it again
             }
             if (other.gameObject.tag == "ThirdPerson") {
