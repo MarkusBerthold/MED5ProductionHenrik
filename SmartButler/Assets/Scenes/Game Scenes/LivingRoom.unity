@@ -2174,6 +2174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StereoController: {fileID: 0}
   LightSwitcher: {fileID: 351099561}
+  _coffeAudioSource: {fileID: 1364239990}
 --- !u!64 &158914649
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2998,6 +2999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StereoController: {fileID: 351099563}
   LightSwitcher: {fileID: 351099561}
+  _coffeAudioSource: {fileID: 0}
 --- !u!1 &199412598
 GameObject:
   m_ObjectHideFlags: 0
@@ -20188,10 +20190,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 391aad571bef8e64aa5afd73202bfeff, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -27049,6 +27051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StereoController: {fileID: 351099563}
   LightSwitcher: {fileID: 351099561}
+  _coffeAudioSource: {fileID: 0}
 --- !u!1 &1857032195
 GameObject:
   m_ObjectHideFlags: 0

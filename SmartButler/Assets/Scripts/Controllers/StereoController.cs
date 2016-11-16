@@ -19,7 +19,7 @@ namespace Assets.Scripts.Controllers{
         private void Start(){
             //Source = GameObject.FindGameObjectWithTag("Speaker").GetComponent<AudioSource>();
 			Degrees = 90;
-			Volume = 0.5f;
+			Volume = 0.25f;
 
             MaxVolume = 0.5f;
         }
