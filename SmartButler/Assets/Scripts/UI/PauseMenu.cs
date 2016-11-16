@@ -30,14 +30,16 @@ public class PauseMenu : MonoBehaviour {
         // not the optimal way but for the sake of readability
         if (_uiCanvas.enabled){
             _uiCanvas.enabled = false;
-            Cursor.visible = false;
+            //Cursor.visible = false;
+            //LockCursor.DisableCursor();
             EventManager.TriggerEvent("EnableControls");
             Time.timeScale = 1.0f;
 
         }
         else{
             _uiCanvas.enabled = true;
-            Cursor.visible = true;
+            //Cursor.visible = true;
+            //LockCursor.EnableCursor();
 
             EventManager.TriggerEvent("DisableControls");
             Time.timeScale = 0f;

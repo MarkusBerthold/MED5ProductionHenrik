@@ -81,20 +81,19 @@ namespace Assets.Characters.FirstPersonCharacter.Scripts {
             EventManager.StartListening("EnableControls", OnEnableControls);
             EventManager.StartListening("DisableControls", OnDisableControls);
         }
-
+        
         private void OnDisableControls(){
             m_Controlable = false;
-           m_MouseLook.SetCursorLock(true);
-
+            //m_MouseLook.SetCursorLock(true);
+            LockCursor.EnableCursor();
         }
-
         private void OnEnableControls(){
             m_Controlable = true;
-            m_MouseLook.SetCursorLock(false);
-
+            //m_MouseLook.SetCursorLock(false);
+            LockCursor.DisableCursor();
         }
-
-
+        
+        
         // Update is called once per frame
         private void Update(){
             if (m_Controlable)

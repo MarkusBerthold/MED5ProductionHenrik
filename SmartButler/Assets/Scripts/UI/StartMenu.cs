@@ -7,8 +7,11 @@ public class StartMenu : MonoBehaviour {
 
     private bool _isViewingCredits = false;
 
-    public void OnCredits(){
+    void Start() {
+        LockCursor.EnableCursor();
+    }
 
+    public void OnCredits(){
         _isViewingCredits = !_isViewingCredits;
         MenuPanel.SetActive(!_isViewingCredits);
         CreditsPanel.SetActive(_isViewingCredits);
