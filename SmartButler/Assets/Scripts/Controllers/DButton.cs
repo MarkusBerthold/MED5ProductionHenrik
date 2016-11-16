@@ -10,6 +10,8 @@ namespace Assets.Scripts.Controllers{
         public StereoController StereoController;
         public LightSwitcher LightSwitcher;
 
+		public AudioSource _coffeAudioSource;
+
         //Initalise the _gameStateManager
         private void Awake(){
             //_gameStateManager = FindObjectOfType<GameStateManager>();
@@ -20,6 +22,7 @@ namespace Assets.Scripts.Controllers{
             if (this.tag == "CoffeeButton"){
                 EventManager.TriggerEvent("coffeebutton");
                 LightSwitcher.SwitchEnable();
+				_coffeAudioSource.Play ();
                 //GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
             } else if (this.tag == "RemoteController" && !StereoController.Source.isPlaying){
                 StereoController.StartStopPlayback(true);
