@@ -48,7 +48,7 @@ namespace Assets.Scripts.Character {
             switch (coll.gameObject.tag){
                 case "Player":
                     _player.RespawnChar();
-				EventManager.TriggerEvent ("emmacollides");
+				//EventManager.TriggerEvent ("emmacollides");
                     break;
 			case "ThirdPerson":
 				_thirdPersonCharacter.RespawnChar ();
