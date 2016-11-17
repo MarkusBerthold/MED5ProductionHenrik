@@ -3780,6 +3780,29 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: fbb1e239262d2184faaf1895d51c7ce4, type: 3}
+--- !u!114 &508577006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 508577003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6847d67b276bf1b4a82bc01a5e76ba37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &508577007
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 508577003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 55.65564, y: 10.450111, z: 20.115086}
+  m_Center: {x: -0.0000009536743, y: 0, z: -0.00000047683716}
 --- !u!1 &510999448 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100008, guid: 82f9003f245ee5443935f9f1bd83aa05, type: 3}
@@ -8176,6 +8199,29 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: d700b494c61b1d44f97fcdcdcddea89f, type: 3}
+--- !u!114 &1182800179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182800177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6847d67b276bf1b4a82bc01a5e76ba37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1182800180
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1182800177}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13.911414, y: 3.763409, z: 56.516743}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &1192613847 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100136, guid: 663e69c5c6c7a664484b4fa7e3a3041d, type: 3}
@@ -12381,7 +12427,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Canvas: {fileID: 1181205106}
   IsEnterable: 1
-  LoadingText: {fileID: 1100281953}
   TargetScene: 0
 --- !u!1 &1965661425
 GameObject:
