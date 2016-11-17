@@ -100,7 +100,7 @@ GameObject:
   - 4: {fileID: 38984081}
   - 82: {fileID: 38984082}
   m_Layer: 0
-  m_Name: BoneCrack
+  m_Name: Falling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 51e56a83daa694d39bf380622c7b56a5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f009c376c3fac4ef99d3271b23300595, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -11708,6 +11708,67 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1659871287}
   m_Mesh: {fileID: 4300112, guid: 6000eb6e9510d44cf8ce34a4e77bdb82, type: 3}
+--- !u!1 &1674236751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1674236755}
+  - 33: {fileID: 1674236754}
+  - 65: {fileID: 1674236753}
+  - 114: {fileID: 1674236752}
+  m_Layer: 0
+  m_Name: falling plane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1674236752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1674236751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7daf2a151a06466faeec8cf6874a850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1674236753
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1674236751}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1674236754
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1674236751}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1674236755
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1674236751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.2, y: -0.3, z: 5.693161}
+  m_LocalScale: {x: 200, y: 1, z: 200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
 --- !u!1 &1713581001
 GameObject:
   m_ObjectHideFlags: 0
@@ -12305,7 +12366,7 @@ MonoBehaviour:
   Kick: {fileID: 861589021}
   Chimes: {fileID: 913387160}
   Bells: {fileID: 2071992376}
-  BoneCrackFile: {fileID: 38984082}
+  FallingSource: {fileID: 38984082}
 --- !u!1 &1805175182
 GameObject:
   m_ObjectHideFlags: 0

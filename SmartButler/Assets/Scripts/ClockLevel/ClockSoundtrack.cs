@@ -15,7 +15,7 @@ public class ClockSoundtrack : MonoBehaviour {
 	public AudioSource Kick;
 	public AudioSource Chimes;
 	public AudioSource Bells;
-	public AudioSource BoneCrackFile;
+	public AudioSource FallingSource;
 
 	private IEnumerator coroutine;
 
@@ -47,13 +47,13 @@ public class ClockSoundtrack : MonoBehaviour {
 		EventManager.StartListening ("rotategear", _someListener);
 		EventManager.StartListening ("addfirstsound", AddFirstSound);
 		EventManager.StartListening ("addsecondsound", AddSecondSound);
-		EventManager.StartListening ("emmacollides", BoneCrack);
+		EventManager.StartListening ("emmafalls", Falling);
 	}
 	void OnDisable(){
 		EventManager.StopListening ("rotategear", _someListener);
 		EventManager.StopListening ("addfirstsound", AddFirstSound);
 		EventManager.StopListening ("addsecondsound", AddSecondSound);
-		EventManager.StopListening ("emmacollides", BoneCrack);
+		EventManager.StopListening ("emmafalls", Falling);
 	}
 
 	public void GearRotate(){
@@ -68,8 +68,8 @@ public class ClockSoundtrack : MonoBehaviour {
 		Chimes.mute = false;
 		StartCoroutine (coroutine);
 	}
-	public void BoneCrack(){
-		BoneCrackFile.Play ();
+	public void Falling(){
+		FallingSource.Play ();
 	}
 
 	public IEnumerator AddThirdSound(){
