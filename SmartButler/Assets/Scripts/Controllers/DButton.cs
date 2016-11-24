@@ -3,36 +3,27 @@ using System.Collections;
 using Assets.Scripts.GameManager;
 using Assets.Scripts.MessageingSystem;
 
-namespace Assets.Scripts.Controllers{
-    public class DButton : MonoBehaviour{
+namespace Assets.Scripts.Controllers {
+    public class DButton : MonoBehaviour {
         //private GameStateManager _gameStateManager;
 
-        public StereoController StereoController;
-        public LightSwitcher LightSwitcher;
-
-		public AudioSource _coffeAudioSource;
-
-        //Initalise the _gameStateManager
-        private void Awake(){
-            //_gameStateManager = FindObjectOfType<GameStateManager>();
-        }
+        public AudioSource _coffeAudioSource;
 
         //When the mouse is pressed, enable LightSwitcher and change the state
         private void OnMouseDown(){
             if (this.tag == "CoffeeButton"){
-                EventManager.TriggerEvent("coffeebutton");
-                LightSwitcher.SwitchEnable();
-				_coffeAudioSource.Play ();
-                //GameStateManager.Instance.ChangeState(GameStateManager.State.Coffee);
-            } else if (this.tag == "RemoteController" && !StereoController.Source.isPlaying){
-                StereoController.StartStopPlayback(true);
-				EventManager.TriggerEvent ("remotecontrol");
+                if (!LightSwitcher.IsFixed)
+                    EventManager.TriggerEvent("coffeebutton");
             }
-            else if (this.tag == "RemoteController" && StereoController.Source.isPlaying){
-                StereoController.StartStopPlayback(false);
-            } else if (this.tag == "Speaker")
-            {
-				GameStateManager.Instance.ChangeState(GameStateManager.State.Stereo);
+            else if (this.tag == "RemoteController"){
+
+                EventManager.TriggerEvent("remotecontrol");
+
+
+                EventManager.TriggerEvent("StereoButton"); 
+            }
+            else if (this.tag == "Speaker"){
+                GameStateManager.Instance.ChangeState(GameStateManager.State.Stereo);
             }
         }
     }

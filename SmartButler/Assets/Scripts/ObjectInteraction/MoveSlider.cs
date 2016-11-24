@@ -1,15 +1,13 @@
 ﻿using Assets.Scripts.Controllers;
 using UnityEngine;
 
-namespace Assets.Scripts.ObjectInteraction{
-    public class MoveSlider : MonoBehaviour{
+namespace Assets.Scripts.ObjectInteraction {
+    public class MoveSlider : MonoBehaviour {
         private bool _dragEnabled; //is used to set whether or not you can drag the slider
         private float _dragStartDistance; //where are the max/min values set?
         private Vector3 _dragStartPosition;
         private Vector3 _objectStartPosition;
         private float _zeroToOne;
-        public LightSwitcher LightSwitcher;
-        public StereoController StereoController;
         public float LowerBound;
 
         public float OpperBound;
@@ -17,11 +15,12 @@ namespace Assets.Scripts.ObjectInteraction{
         public char SlideAxis;
         public float SliderLength;
 
+
         //Initalises Pivot and _objectStartPosition
         private void Start(){
             if (!Pivot)
                 Pivot = transform;
-
+            SliderLength = OpperBound - LowerBound;
             _objectStartPosition = transform.position;
         }
 
@@ -36,20 +35,18 @@ namespace Assets.Scripts.ObjectInteraction{
         private void Update(){
             //zerToOne is the number that we want to access later, 0 -> 1
             //SliderLength = OpperBound - LowerBound;
-            
+
             //only drag if mouse is pressed
             if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) _dragEnabled = false;
         }
 
         //function is called when you click an object with a collider
         private void OnMouseDrag(){
-            if (_dragEnabled)
-            {
+            if (_dragEnabled){
                 //switching axises
-                if (SlideAxis.Equals('X'))
-                {
+                if (SlideAxis.Equals('X')){
                     // using unitys screen to world function
-                    var worldDragTo =
+                    Vector3 worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
                     //making sure we can only slide along the slider and not further
@@ -60,9 +57,8 @@ namespace Assets.Scripts.ObjectInteraction{
                 }
 
                 // ?
-                if (SlideAxis.Equals('Y'))
-                {
-                    var worldDragTo =
+                if (SlideAxis.Equals('Y')){
+                    Vector3 worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
 
@@ -71,59 +67,58 @@ namespace Assets.Scripts.ObjectInteraction{
                 }
 
                 // ?
-                if (SlideAxis.Equals('Z'))
-                {
-                    var worldDragTo =
+                if (SlideAxis.Equals('Z')){
+                    Vector3 worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
 
                     if ((worldDragTo.z >= LowerBound) && (worldDragTo.z <= OpperBound))
                         transform.position = new Vector3(_dragStartPosition.x, _dragStartPosition.y, worldDragTo.z);
                 }
-                if (this.tag == "RemoteController")
-                {
-                    StereoController.UpdateStereoVolume(GetZeroToOne());
-                }
 
-                if (this.tag == "CoffeeMachine")
-                {
-                    LightSwitcher.SetIntensity(GetZeroToOne());
+                if (tag == "RemoteController"){
+                    //StereoController.UpdateStereoVolume(GetZeroToOne());
+                    if (StereoSwitcher.Instance.Broken)
+                        StereoSwitcher.Instance.Controller.ChangeVolume(GetZeroToOne());
+                    else if (LightSwitcher.IsFixed) {
+                        LightSwitcher.Instance.Controller.ChangeIntensity(GetZeroToOne());
+                    }
                 }
-
+                else{
+                    if (!LightSwitcher.IsFixed)
+                        LightSwitcher.Instance.Controller.ChangeIntensity(GetZeroToOne());
+                }
             }
         }
 
-		public void SetLowerandOpper(){
+        public void SetLowerandOpper(){
+            Vector3 RemotePos = transform.parent.gameObject.transform.position;
+            LowerBound = LowerBound + RemotePos.y;
+            OpperBound = OpperBound + RemotePos.y;
+        }
 
-			Vector3 RemotePos = this.transform.parent.gameObject.transform.position;
-			LowerBound = LowerBound + RemotePos.y;
-			OpperBound = OpperBound + RemotePos.y;
-		}
-
-		public void ResetLowerandOpper(){
-
-			Vector3 RemotePos = this.transform.parent.gameObject.transform.position;
-			LowerBound = -0.1f;
-			OpperBound = -0.004f;
-		}
+        public void ResetLowerandOpper(){
+            LowerBound = -0.1f;
+            OpperBound = -0.004f;
+        }
 
         /// <summary>
-        /// ?
+        ///     ?
         /// </summary>
         /// <returns></returns>
         public float GetZeroToOne(){
-            if (this.tag == "RemoteController"){
-                _zeroToOne = (transform.position.y - LowerBound) / SliderLength;
-				print (_zeroToOne);
+            if (tag == "RemoteController"){
+                _zeroToOne = (transform.position.y - LowerBound)/SliderLength;
+                //print (_zeroToOne);
             }
             else{
-                _zeroToOne = (transform.position.y - LowerBound) / SliderLength;
+                _zeroToOne = (transform.position.y - LowerBound)/SliderLength;
             }
             return _zeroToOne;
         }
 
         /// <summary>
-        /// ?
+        ///     ?
         /// </summary>
         private void OnDrawGizmos(){
             if (SlideAxis.Equals('X'))

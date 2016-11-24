@@ -1,97 +1,91 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-namespace Assets.Scripts.LivingRoom.LivingRoomSoundtrack{
-	public class LivingRoomSoundtrack : MonoBehaviour {
+namespace Assets.Scripts.LivingRoom.LivingRoomSoundtrack {
+    public class LivingRoomSoundtrack : MonoBehaviour {
+        private IEnumerator coroutine;
+        public AudioSource DrumA;
+        public AudioSource DrumB;
+
+        public AudioSource Melody;
+
+        public AudioClip MelodyClipA;
+        public AudioClip MelodyClipB;
+        public AudioSource Noise;
+        public AudioSource Pad;
+        public AudioClip PadA;
+        public AudioClip PadB;
 
 
-		string State;
+        private string State;
 
-		public AudioSource Melody;
-		public AudioSource DrumA;
-		public AudioSource DrumB;
-		public AudioSource Pad;
-		public AudioSource Noise;
+        private bool WaitForBroadcast = true;
 
-		public AudioClip MelodyClipA;
-		public AudioClip MelodyClipB;
-		public AudioClip PadA;
-		public AudioClip PadB;
+        // Use this for initialization
+        private void Start(){
+            StartCoroutine(SetWaitForBroadcastCoroutine());
+        }
 
-		private bool WaitForBroadcast = true;
-		private IEnumerator coroutine;
+        // Update is called once per frame
+        private void Update(){
+            switch (State){
+                case "Start":
 
-		// Use this for initialization
-		void Start () {
+                    if (!WaitForBroadcast){
+                        Melody.clip = MelodyClipA;
+                        Pad.clip = PadA;
+                        if (!Melody.isPlaying)
+                            Melody.Play();
+                        if (!Pad.isPlaying)
+                            Pad.Play();
+                    }
+                    break;
 
-			StartCoroutine (SetWaitForBroadcastCoroutine());
-	
-		}
-	
-		// Update is called once per frame
-		void Update () {
+                case "Clock":
+                    Melody.clip = MelodyClipA;
+                    Pad.clip = PadA;
+                    if (!Melody.isPlaying){
+                        Melody.Play();
+                        DrumA.Play();
+                    }
+                    if (!Pad.isPlaying)
+                        Pad.Play();
+                    break;
+                case "Stereo":
+                    Melody.clip = MelodyClipA;
+                    Pad.clip = PadA;
+                    if (!Melody.isPlaying){
+                        Melody.Play();
+                        DrumA.Play();
+                        DrumB.Play();
+                    }
+                    if (!Pad.isPlaying)
+                        Pad.Play();
 
-			switch(State){
-			case "Start":
-				
-				if (!WaitForBroadcast) {
-					Melody.clip = MelodyClipA;
-					Pad.clip = PadA;
-					if (!Melody.isPlaying)
-						Melody.Play ();
-					if (!Pad.isPlaying)
-						Pad.Play ();
-				}
-					break;
-				
-			case "Clock":
-				Melody.clip = MelodyClipA;
-				Pad.clip = PadA;
-				if (!Melody.isPlaying) {
-					Melody.Play ();
-					DrumA.Play ();
-				}
-				if (!Pad.isPlaying)
-					Pad.Play ();
-				break;
-			case "Stereo":
-				Melody.clip = MelodyClipA;
-				Pad.clip = PadA;
-				if (!Melody.isPlaying) {
-					Melody.Play ();
-					DrumA.Play ();
-					DrumB.Play ();
-				}
-				if (!Pad.isPlaying)
-					Pad.Play ();
+                    break;
+                case "Light":
 
-				break;
-			case "Light":
+                    Melody.clip = MelodyClipB;
+                    Pad.clip = PadB;
+                    if (!Melody.isPlaying){
+                        Melody.Play();
+                        DrumA.Play();
+                        DrumB.Play();
+                        Noise.Play();
+                    }
+                    if (!Pad.isPlaying)
+                        Pad.Play();
+                    break;
+            }
+        }
 
-				Melody.clip = MelodyClipB;
-				Pad.clip = PadB;
-				if (!Melody.isPlaying) {
-					Melody.Play ();
-					DrumA.Play ();
-					DrumB.Play ();
-					Noise.Play ();
-				}
-				if (!Pad.isPlaying)
-					Pad.Play ();
-				break;
-				
-			}
-	
-		}
+        public IEnumerator SetWaitForBroadcastCoroutine(){
+            yield return new WaitForSeconds(33);
+            WaitForBroadcast = false;
+        }
 
-		public IEnumerator SetWaitForBroadcastCoroutine(){
-			yield return new WaitForSeconds(33);
-			WaitForBroadcast = false;
-		}
-
-		public void SetState(string state){
-
-			State = state;
-		}
-	}
+        public void SetState(string state){
+            State = state;
+        }
+    }
 }

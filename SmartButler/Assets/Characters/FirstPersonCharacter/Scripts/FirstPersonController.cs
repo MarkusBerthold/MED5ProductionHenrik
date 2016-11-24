@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.GameManager;
 using Assets.Scripts.MessageingSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -52,7 +53,7 @@ namespace Assets.Characters.FirstPersonCharacter.Scripts {
         private Transform activePlatform;
         private Vector3 activeLocalPlatformPoint;
         private Vector3 activeGlobalPlatformPoint;
-        private Vector3 lastPlatformVelocity;
+        private Vector3 lastPlatformVelocity;   
         // If you want to support moving platform rotation as well:
         private Quaternion activeLocalPlatformRotation;
         private Quaternion activeGlobalPlatformRotation;
@@ -62,6 +63,9 @@ namespace Assets.Characters.FirstPersonCharacter.Scripts {
         private Vector3 _respawnOffset = Vector3.up*5;
 
         private bool m_Controlable = true;
+
+        [Persistent] private static Vector3 _livingRoomSpawnPos;
+        [Persistent] private static bool _loaded;
 
         // Use this for initialization
         private void Start(){
@@ -77,11 +81,26 @@ namespace Assets.Characters.FirstPersonCharacter.Scripts {
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
             m_AudioSource.volume = 0.2f;
-            m_MouseLook.Init(transform, m_Camera.transform);
+            m_MouseLook.Init(transform, m_Camera.transform, _loaded);
             EventManager.StartListening("EnableControls", OnEnableControls);
             EventManager.StartListening("DisableControls", OnDisableControls);
+            EventManager.StartListening("SceneChange", OnSceneChange);
+
+            Debug.Log("FPSCon loaded  ::  " + _loaded);
+            if (_loaded && SceneManager.GetActiveScene().buildIndex == 1){
+                Debug.Log("adjusting fps position");
+                transform.position = _livingRoomSpawnPos;
+            }
+                _loaded = true;          
         }
-        
+
+        private void OnSceneChange(){
+            if (SceneManager.GetActiveScene().buildIndex == 1){ //if we are in living room scene
+                _livingRoomSpawnPos = transform.position;
+                Debug.Log("FPS savedpos at load: " + _livingRoomSpawnPos);
+            }
+        }
+
         private void OnDisableControls(){
             m_Controlable = false;
             //m_MouseLook.SetCursorLock(true);
