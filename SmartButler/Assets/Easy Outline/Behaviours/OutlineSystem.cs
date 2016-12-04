@@ -49,6 +49,13 @@ public class OutlineSystem : MonoBehaviour
     //Used to check if the screen size has been changed
     private Vector2 prevSize;
 
+    static OutlineSystem(){
+        Active = false;
+    }
+
+    public static bool Active { get; set; }
+
+
     void Awake()
     {
         if(mainCamera == null)
@@ -93,7 +100,6 @@ public class OutlineSystem : MonoBehaviour
         mainCamera.targetTexture = renTexInput;
         mainCamera.clearFlags = CameraClearFlags.SolidColor;
         mainCamera.backgroundColor = new Color(1f, 0f, 1f, 1f);
-        
         mainCamera.Render();
 
         mainCamera.backgroundColor = prevColor;
@@ -121,22 +127,25 @@ public class OutlineSystem : MonoBehaviour
         Graphics.Blit(renTexRecolor, renTexOut, outlineMaterial, 1);
     }
 
-    void LateUpdate()
-    {
+    void LateUpdate(){
+        if (Active){
         Vector2 currentSize = new Vector2(Screen.width, Screen.height);
-        if (prevSize != currentSize)
-        {
+        if (prevSize != currentSize){
             UpdateRenderTextureSizes();
         }
         prevSize = currentSize;
         RunCalcs();
     }
+}
 
-    void OnGUI()
-    {
-        GL.PushMatrix();
-        GL.LoadPixelMatrix(0, Screen.width, Screen.height, 0);
-        Graphics.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), renTexOut);
-        GL.PopMatrix();
+    void OnGUI() {
+
+        if (Active){
+
+            GL.PushMatrix();
+            GL.LoadPixelMatrix(0, Screen.width, Screen.height, 0);
+            Graphics.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), renTexOut);
+            GL.PopMatrix();
+        }
     }
 }

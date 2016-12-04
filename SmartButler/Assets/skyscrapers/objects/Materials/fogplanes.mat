@@ -39,7 +39,7 @@ Material:
       second: 0.5
     - first:
         name: _speed
-      second: 0.88
+      second: 0.2
     m_Colors:
     - first:
         name: _Color

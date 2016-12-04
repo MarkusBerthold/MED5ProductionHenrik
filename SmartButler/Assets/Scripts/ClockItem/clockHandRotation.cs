@@ -86,7 +86,7 @@ namespace Assets.Scripts.ClockItem {
                 else
                     Speed = 1;
 
-                Debug.Log("Clock Speed: " + Speed);
+                //Debug.Log("Clock Speed: " + Speed);
                 SecondArmTransform.Rotate(Vector3.forward, 360f/60f);
                 _secondCounter++;
                 if (_secondCounter == 60){

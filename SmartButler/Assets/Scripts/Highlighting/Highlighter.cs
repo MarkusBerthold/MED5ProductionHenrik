@@ -16,12 +16,13 @@ namespace Assets.Scripts.Highlighting {
                     if (!Player)
                         return;
                 }
-                if (Vector3.Distance(transform.position, Player.transform.position) < DistanceThreshold)
-                {
+                if (Vector3.Distance(transform.position, Player.transform.position) < DistanceThreshold){
+                    OutlineSystem.Active = true;
                     gameObject.layer = 8;
+
                 }
-                else
-                {
+                else{
+                    OutlineSystem.Active = false;
                     gameObject.layer = 0;
                 }
             }
