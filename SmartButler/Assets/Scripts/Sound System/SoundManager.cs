@@ -100,7 +100,7 @@ namespace Assets.Scripts.Sound_System{
 				for (var j = 0; j < Arrayofstates [_state].AmountOfCues; j++)
 					if (!AudioSource.isPlaying && !Arrayofstates [_state].StateCuesBeenPlayed [j] && _introsHasBeenPlayed) {
 						int rand = (int)(10 * UnityEngine.Random.Range (0.0f, (Arrayofstates [_state].AmountOfCues / 10f)));
-						AudioSource.clip = Arrayofstates [_state].StateCues [j];
+						AudioSource.clip = Arrayofstates [_state].StateCues [rand];
 						AudioSource.Play ();
 						Arrayofstates [_state].StateCuesBeenPlayed [j] = true;
 						if (!doOncePerState) {

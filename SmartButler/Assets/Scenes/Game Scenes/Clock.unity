@@ -7741,9 +7741,10 @@ Prefab:
     - target: {fileID: 114000012636808802, guid: a3074f3f1ed9b4125b8808a01e217af4,
         type: 2}
       propertyPath: m_Text
-      value: Click to continue
+      value: Click enter key to continue
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 20000012105549882, guid: a3074f3f1ed9b4125b8808a01e217af4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a3074f3f1ed9b4125b8808a01e217af4, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1064581732

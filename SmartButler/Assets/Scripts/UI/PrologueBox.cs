@@ -9,7 +9,7 @@ public class PrologueBox : MonoBehaviour {
 	public GameObject UI;
 	private Canvas _uiCanvas;
 	private GameObject PrologueBoxPrefab;
-	private int doOnce = 0;
+
 
 	void Awake(){
 		PrologueBoxPrefab = Resources.Load("PrologueBoxPrefab") as GameObject;
@@ -22,25 +22,16 @@ public class PrologueBox : MonoBehaviour {
 			UI = Instantiate(PrologueBoxPrefab);
 		_uiCanvas = UI.GetComponentInChildren<Canvas>();
 		_uiCanvas.worldCamera = Camera.main;
+		ClosePrologueBox ();
+		StartCoroutine (OpenPrologueBox());
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (doOnce == 0) {
-			OpenPrologueBox ();
-			doOnce++;
-		}
-
-		if (Input.anyKey)
+		if( Input.GetKeyDown( KeyCode.Return ) )
 			ClosePrologueBox();
 	
-	}
-
-	public void OpenPrologueBox(){
-		_uiCanvas.enabled = true;
-		EventManager.TriggerEvent("DisableControls");
-		Time.timeScale = 0f;
 	}
 
 	public void ClosePrologueBox(){
@@ -49,5 +40,12 @@ public class PrologueBox : MonoBehaviour {
 		EventManager.TriggerEvent("EnableControls");
 		Time.timeScale = 1.0f;
 		}
+	}
+
+	public IEnumerator OpenPrologueBox(){
+		yield return new WaitForSeconds(1.0f);
+		_uiCanvas.enabled = true;
+		EventManager.TriggerEvent("DisableControls");
+		Time.timeScale = 0f;
 	}
 }
