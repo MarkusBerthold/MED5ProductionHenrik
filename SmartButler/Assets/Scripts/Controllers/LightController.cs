@@ -1,110 +1,98 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
-namespace Assets.Scripts.Controllers{
-    public class LightController : MonoBehaviour{
-        //public Color color;
-        public float Color; //changes the color of the lights: mesured in degrees 0-360
-        public float Intensity; //sets the intensity of the lights
-        public Light[] KitchenGlows;
-
-        public Light[] KitchenLights;
-        public int OnOff = 1; //turns the lights: on=1, off=0 or whatever
-        public Light[] SofaGlows;
-        //public Color kitchenColor;
-        //public float kitchenIntensity;
-        //////////////////////////////////////////////////
-        public Light[] SofaLights;
-        //public Color sofaColor;
-        //public float sofaIntensity;
-        //////////////////////////////////////////////////
-        public int SofaOrKitchen = 1; //select light group: kitchen=1, sofa=whatever
-
-        //Runs each frame and sets states to values
-        private void Update(){
-            TurnOnOff(OnOff);
-            SetColorOfLight(Color, SofaOrKitchen);
-            SetIntensityOfLight(Intensity, SofaOrKitchen);
-            //changingValues();
+namespace Assets.Scripts.Controllers {
+    [Serializable]
+    public class LightController {
+        public LightController(float maxIntensity){
+            _maxIntensity = maxIntensity;
+            _currentIntensity = _maxIntensity/2;
+            InitializeLights();
         }
 
-        /// <summary>
-        /// Turns lights on or off
-        /// Takes an int as a binary value, either 0 = off or 1 = on
-        /// </summary>
-        /// <param name="onOff"></param>
-        public void TurnOnOff(int onOff){
-            foreach (var light in KitchenLights)
-                if ((onOff == 0) && light.enabled) light.enabled = false;
-                else if ((onOff == 1) && (light.enabled == false)) light.enabled = true;
-            foreach (var light in KitchenGlows)
-                if ((onOff == 0) && light.enabled) light.enabled = false;
-                else if ((onOff == 1) && (light.enabled == false)) light.enabled = true;
-            //missing a way to turn on/off the sofa lights without also turn on/off the kitchen lights
-        }
+        [Persistent] private static bool loaded;
+        [Persistent] private static Color _savedColor = Color.white;
+        [Persistent] private static float _savedIntensity;
+        [Persistent] private static bool _savedIsOn;
 
-        /// <summary>
-        /// Sets the color of the lights
-        /// Takes a float which is the value of the color and an int which denotes 
-        /// which lights are being manipulated
-        /// </summary>
-        /// <param name="_color"></param>
-        /// <param name="sofaOrKitchen"></param>
-        public void SetColorOfLight(float _color, int sofaOrKitchen){
-            if (sofaOrKitchen == 1){
-                for (var i = 0; i < KitchenLights.Length; i++)
-                    KitchenLights[i].color = UnityEngine.Color.HSVToRGB(_color/360.0f, 1.0f, 1.0f);
-                for (var i = 0; i < KitchenGlows.Length; i++)
-                    KitchenGlows[i].color = UnityEngine.Color.HSVToRGB(_color/360.0f, 1.0f, 1.0f);
+        private readonly float _maxIntensity;
+
+        private readonly List<Light> lights = new List<Light>();
+
+
+        private Color _currentColor = Color.white;
+
+        private float _currentIntensity;
+        private bool _isOn;
+
+
+
+        private void InitializeLights() {
+            Light[] allLightsInScene = Object.FindObjectsOfType<Light>();
+            foreach (Light l in allLightsInScene)
+                if (l.tag != "MainDirectionalLight") {
+                    l.enabled = false;
+                    lights.Add(l);
+                }
+            if (loaded) {
+                Debug.Log("extract Light Values" + _savedColor + "   " + _savedIntensity + "    " + _savedIsOn);
+                ChangeHue(_savedColor);
+                ChangeIntensity(_savedIntensity);
+                SetActive(_savedIsOn);
             }
-            else{
-                for (var i = 0; i < SofaLights.Length; i++)
-                    SofaLights[i].color = UnityEngine.Color.HSVToRGB(_color/360.0f, 1.0f, 1.0f);
-                for (var i = 0; i < SofaGlows.Length; i++)
-                    SofaGlows[i].color = UnityEngine.Color.HSVToRGB(_color/360.0f, 1.0f, 1.0f);
+            else {
+                _savedColor = Color.white;
+                _savedIntensity = _currentIntensity;
+                loaded = true;
             }
         }
 
-        /// <summary>
-        /// Sets intesity of lights
-        /// Takes a float which is intensity and an int which denotes
-        /// which lights are being manipulated
-        /// </summary>
-        /// <param name="_intensity"></param>
-        /// <param name="sofaOrKitchen"></param>
-        public void SetIntensityOfLight(float _intensity, int sofaOrKitchen){
-            if (sofaOrKitchen == 1){
-                for (var i = 0; i < KitchenLights.Length; i++) KitchenLights[i].intensity = _intensity;
-                for (var i = 0; i < KitchenGlows.Length; i++) KitchenGlows[i].intensity = _intensity;
-            }
-            else{
-                for (var i = 0; i < SofaLights.Length; i++) SofaLights[i].intensity = _intensity;
-                for (var i = 0; i < SofaGlows.Length; i++) SofaGlows[i].intensity = _intensity;
-            }
+        public void ChangeIntensity(float ZeroToOne){
+            _currentIntensity = ZeroToOne*_maxIntensity;
+
+            _savedIntensity = _currentIntensity;
+
+            if (!_isOn)
+                FlipLights();
+            UpdateIntensity();
         }
 
-        /*
-    void changingValues () {
-        //kitchen area
-        for (int i = 0; i < kitchenLights.Length; i++) {
-            kitchenLights[i].color = kitchenColor;
-            kitchenLights[i].intensity = kitchenIntensity;
-            //kitchenLights[i].intensity = Mathf.Lerp(kitchenLights[i].intensity, kitchenIntensity, Time.deltaTime);
+        public void ChangeHue(Color color){
+            _currentColor = color;
+            _savedColor = _currentColor;
+            UpdateHue();
         }
-        for (int i = 0; i < kitchenGlows.Length; i++) {
-            kitchenGlows[i].color = kitchenColor;
-            kitchenGlows[i].intensity = kitchenIntensity;
+
+
+        public void FlipLights(){
+            _isOn = !_isOn;
+            _savedIsOn = _isOn;
+            SetActive(_isOn);
+            UpdateHue();
+            UpdateIntensity();
         }
-        //////////////////////////////////////////////////
-        //sofa area
-        for (int i = 0; i < sofaLights.Length; i++) {
-            sofaLights[i].color = sofaColor;
-            sofaLights[i].intensity = sofaIntensity;
+
+        public void SetLightsClear(){
+            ChangeHue(Color.white);
         }
-        for (int i = 0; i < sofaGlows.Length; i++) {
-            sofaGlows[i].color = sofaColor;
-            sofaGlows[i].intensity = sofaIntensity;
+
+
+
+        private void UpdateIntensity(){
+            foreach (Light l in lights)
+                l.intensity = _currentIntensity;
         }
-    }
-    */
+
+        private void SetActive(bool enabled){
+            foreach (Light light in lights)
+                light.enabled = enabled;
+        }
+
+        private void UpdateHue(){
+            foreach (Light l in lights)
+                l.color = _currentColor;
+        }
     }
 }

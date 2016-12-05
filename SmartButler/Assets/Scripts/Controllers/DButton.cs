@@ -3,22 +3,28 @@ using System.Collections;
 using Assets.Scripts.GameManager;
 using Assets.Scripts.MessageingSystem;
 
-namespace Assets.Scripts.Controllers{
-    public class DButton : MonoBehaviour{
-        private GameStateManager _gameStateManager;
+namespace Assets.Scripts.Controllers {
+    public class DButton : MonoBehaviour {
+        //private GameStateManager _gameStateManager;
 
-        public LightSwitcher LightSwitcher;
-
-        //Initalise the _gameStateManager
-        private void Awake(){
-            _gameStateManager = FindObjectOfType<GameStateManager>();
-        }
+        public AudioSource _coffeAudioSource;
 
         //When the mouse is pressed, enable LightSwitcher and change the state
         private void OnMouseDown(){
-			EventManager.TriggerEvent ("coffeebutton");
-            LightSwitcher.SwitchEnable();
-            _gameStateManager.ChangeCurrentState(GameStateManager.State.Coffee);
+            if (this.tag == "CoffeeButton"){
+                if (!LightSwitcher.IsFixed)
+                    EventManager.TriggerEvent("coffeebutton");
+            }
+            else if (this.tag == "RemoteController"){
+
+                EventManager.TriggerEvent("remotecontrol");
+
+
+                EventManager.TriggerEvent("StereoButton"); 
+            }
+            else if (this.tag == "Speaker"){
+                GameStateManager.Instance.ChangeState(GameStateManager.State.Stereo);
+            }
         }
     }
 }

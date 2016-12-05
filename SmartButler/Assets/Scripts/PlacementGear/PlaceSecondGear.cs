@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.PickUp;
 using UnityEngine;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.PlacementGear{
     public class PlaceSecondGear : MonoBehaviour{
@@ -12,6 +13,7 @@ namespace Assets.Scripts.PlacementGear{
         private float _timer;
 
         public GameObject Placeable;
+        public GameObject TransparentCog;
 
         // Use this for initialization
         private void Start(){
@@ -30,6 +32,7 @@ namespace Assets.Scripts.PlacementGear{
                     Placeable.gameObject.transform.SetParent(gameObject.transform);
 
                     _connected = true;
+					EventManager.TriggerEvent ("rotategear");
                     Placeable.gameObject.transform.position = new Vector3(gameObject.transform.position.x,
                         gameObject.transform.position.y,
                         gameObject.transform.position.z);
@@ -39,9 +42,10 @@ namespace Assets.Scripts.PlacementGear{
                     //placeable.gameObject.transform.parent = this.gameObject.transform;
                     //print("SecondGear - should have parented now");
                     Destroy(Placeable.GetComponent<Pickupable>());
+                    TransparentCog.GetComponent<Renderer>().enabled = false;
 
                     if (_doOnce){
-                        Placeable.transform.Rotate(0, 90, 0);
+                        Placeable.transform.Rotate(90, 0, 0);
                         Placeable.gameObject.transform.parent = gameObject.transform;
                         _doOnce = false;
                     }

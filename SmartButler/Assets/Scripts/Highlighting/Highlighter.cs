@@ -1,43 +1,39 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Highlighting{
+namespace Assets.Scripts.Highlighting {
     public class Highlighter : MonoBehaviour {
+        private GameObject Player;
+        public float DistanceThreshold = 0.0f;
+        private bool _isWithinDistance;
+        public bool Activated = false;     
 
+        private void OnMouseOver() {
+            if (Activated)
+            {
+                if (!Player)
+                {
+                    Player = GameObject.FindGameObjectWithTag("Player");
+                    if (!Player)
+                        return;
+                }
+                if (Vector3.Distance(transform.position, Player.transform.position) < DistanceThreshold){
+                    OutlineSystem.Active = true;
+                    gameObject.layer = 8;
 
-        public float DistanceThreshold = 1.0f;
-        public Shader OutlineShader;
-        private Material[] _defaultMaterials;
-        private Material[] _currentMaterials;
-        public int[] Indexes;
-        public Transform Pivot;
-
-        void Start() {
-            if (!Pivot)
-                Pivot = transform;
-        
-            _defaultMaterials = GetComponent<Renderer>().materials;
-            _currentMaterials = _defaultMaterials;
-        }
-
-        //Checks the placement of the camera and sets outlineShader
-        void OnMouseOver() {
-            float distanceToCam = Vector3.Distance(Pivot.position, Camera.main.gameObject.transform.position);
-
-            if (distanceToCam < DistanceThreshold) { //distance check
-                //set all requested shaders to outlineShader
-                foreach (int i in Indexes) {
-                    _currentMaterials[i].shader = OutlineShader;
+                }
+                else{
+                    OutlineSystem.Active = false;
+                    gameObject.layer = 0;
                 }
             }
         }
-
-        //Resets shaders to normal
-        void OnMouseExit() {
-            //set all requested shaders to normal
-            foreach (int i in Indexes) {
-                _currentMaterials[i].shader = Shader.Find("Standard");
-            }
+        private void OnMouseExit() {
+            gameObject.layer = 0;
         }
 
+        public void Update()
+        {
+            
+        }
     }
 }

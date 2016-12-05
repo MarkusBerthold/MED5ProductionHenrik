@@ -1,48 +1,105 @@
-﻿using Assets.Scripts.ClockLevel;
+﻿using System.Collections;
+using Assets.Scripts.GameManager;
+using Assets.Scripts.MessageingSystem;
+using Assets.Scripts.ObjectInteraction;
 using UnityEngine;
 
-namespace Assets.Scripts.ClockItem{
-    public class ClockHandRotation : MonoBehaviour{
-        private float _largeHandBrokenRotSpeed;
+namespace Assets.Scripts.ClockItem {
+    public class clockHandRotation : MonoBehaviour {
+        [Persistent] private static Quaternion _hourArmRotation;
 
-        private float _largeHandRotSpeed;
+        [Persistent] private static Quaternion _minuteArmRotation;
 
-        private float _nextActionTime;
-        private float _smallHandBrokenRotSpeed;
-        private float _smallHandRotSpeed;
+        [Persistent] private static Quaternion _secondArmRotation;
 
-        public bool IsBroken;
-        public float Period = 3f;
+        [Persistent] private static bool _loaded;
 
-        // Use this for initialization
-        private void Start(){
-            IsBroken = true;
+        private bool _broken = true;
 
-            _largeHandRotSpeed = 1;
-            _smallHandRotSpeed = _largeHandRotSpeed*60;
+
+        private int _minuteCounter;
+        private int _secondCounter;
+        private int _maxAbsSpeed = 5;
+
+        public Transform HourArmTransform;
+        public Transform MinuteArmTransform;
+
+        private ObjectRotater objectRotater;
+        public Transform SecondArmTransform;
+
+        public float speed;
+
+
+        public float Speed{
+            get{
+                return speed;
+            }
+            set { speed = value; }
         }
 
-        // Update is called once per frame
-        private void Update(){
-            if (Time.time > _nextActionTime){
-                _nextActionTime += Period;
-                _largeHandBrokenRotSpeed = Random.Range(-100f, 100f);
-                _smallHandBrokenRotSpeed = Random.Range(-10f, 10f);
+        public bool Broken{
+            get { return _broken; }
+            set { _broken = value; }
+        }
+
+        private void Start(){
+            if (_loaded){
+                HourArmTransform.rotation = _hourArmRotation;
+                MinuteArmTransform.rotation = _minuteArmRotation;
+                SecondArmTransform.rotation = _secondArmRotation;
             }
+            else
+                _loaded = true;
+
+            
+
+            if (Broken){
+                foreach (ObjectRotater rotater in ObjectRotater.AllObjectRotaters)
+                    foreach (RotateableObject o in rotater.AssociatedObject)
+                        if (o == RotateableObject.Clock)
+                            objectRotater = rotater;
+                Speed = 5f;
+                EventManager.StartListening(GameStateManager.State.BackFromStereo.ToString(), OnClockFixed);
+            }
+            else
+                Speed = 1;
 
 
-            if (IsBroken)
-                gameObject.transform.GetChild(0).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _largeHandBrokenRotSpeed;
-            else
-                gameObject.transform.GetChild(0).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _largeHandRotSpeed;
-            if (IsBroken)
-                gameObject.transform.GetChild(3).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _smallHandBrokenRotSpeed;
-            else
-                gameObject.transform.GetChild(3).
-                    gameObject.GetComponent<GearRotationZaxis>().Rotspeed = _smallHandRotSpeed;
+            StartCoroutine(Clock());
+        }
+
+        private void OnClockFixed(){
+            Broken = false;
+            EventManager.StopListening(GameStateManager.State.BackFromStereo.ToString(), OnClockFixed);
+        }
+
+
+        private IEnumerator Clock(){
+            while (gameObject.activeSelf){
+                if (Broken){
+                    if (objectRotater.HasNewValue)
+                        Debug.Log("setting new clock speed:  " + objectRotater.CurrentAngle); //.Remap(0, 180, -2f, 2f));
+                    
+                        Speed = objectRotater.CurrentAngle.Remap(-180, 180, -2f, 2f);
+
+                }
+                else
+                    Speed = 1;
+
+                //Debug.Log("Clock Speed: " + Speed);
+                SecondArmTransform.Rotate(Vector3.forward, 360f/60f);
+                _secondCounter++;
+                if (_secondCounter == 60){
+                    MinuteArmTransform.Rotate(Vector3.forward, 360f/60f);
+                    _minuteCounter++;
+                    _secondCounter = 0;
+                    if (_minuteCounter == 60){
+                        HourArmTransform.Rotate(Vector3.forward, 360f/12f);
+                        _minuteCounter = 0;
+                    }
+                }
+                yield return new WaitForSeconds(Speed);
+            }
         }
     }
 }

@@ -1,14 +1,13 @@
 ﻿using Assets.Scripts.Controllers;
 using UnityEngine;
 
-namespace Assets.Scripts.ObjectInteraction{
-    public class MoveSlider : MonoBehaviour{
-        private bool _dragEnabled;
-        private float _dragStartDistance;
+namespace Assets.Scripts.ObjectInteraction {
+    public class MoveSlider : MonoBehaviour {
+        private bool _dragEnabled; //is used to set whether or not you can drag the slider
+        private float _dragStartDistance; //where are the max/min values set?
         private Vector3 _dragStartPosition;
         private Vector3 _objectStartPosition;
         private float _zeroToOne;
-        public LightSwitcher LightSwitcher;
         public float LowerBound;
 
         public float OpperBound;
@@ -16,11 +15,12 @@ namespace Assets.Scripts.ObjectInteraction{
         public char SlideAxis;
         public float SliderLength;
 
+
         //Initalises Pivot and _objectStartPosition
         private void Start(){
             if (!Pivot)
                 Pivot = transform;
-
+            SliderLength = OpperBound - LowerBound;
             _objectStartPosition = transform.position;
         }
 
@@ -34,13 +34,11 @@ namespace Assets.Scripts.ObjectInteraction{
         //Runs once per frame
         private void Update(){
             //zerToOne is the number that we want to access later, 0 -> 1
-            SliderLength = OpperBound - LowerBound;
-            _zeroToOne = (transform.position.y - LowerBound)/SliderLength;
+            //SliderLength = OpperBound - LowerBound;
 
             //only drag if mouse is pressed
             if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) _dragEnabled = false;
         }
-
 
         //function is called when you click an object with a collider
         private void OnMouseDrag(){
@@ -48,7 +46,7 @@ namespace Assets.Scripts.ObjectInteraction{
                 //switching axises
                 if (SlideAxis.Equals('X')){
                     // using unitys screen to world function
-                    var worldDragTo =
+                    Vector3 worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
                     //making sure we can only slide along the slider and not further
@@ -58,8 +56,9 @@ namespace Assets.Scripts.ObjectInteraction{
                         transform.position = new Vector3(worldDragTo.x, _dragStartPosition.y, _dragStartPosition.z);
                 }
 
+                // ?
                 if (SlideAxis.Equals('Y')){
-                    var worldDragTo =
+                    Vector3 worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
 
@@ -67,23 +66,60 @@ namespace Assets.Scripts.ObjectInteraction{
                         transform.position = new Vector3(_dragStartPosition.x, worldDragTo.y, _dragStartPosition.z);
                 }
 
+                // ?
                 if (SlideAxis.Equals('Z')){
-                    var worldDragTo =
+                    Vector3 worldDragTo =
                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
                             _dragStartDistance));
 
                     if ((worldDragTo.z >= LowerBound) && (worldDragTo.z <= OpperBound))
                         transform.position = new Vector3(_dragStartPosition.x, _dragStartPosition.y, worldDragTo.z);
                 }
-                LightSwitcher.SetIntensity(GetZeroToOne());
+
+                if (tag == "RemoteController"){
+                    //StereoController.UpdateStereoVolume(GetZeroToOne());
+                    if (StereoSwitcher.Instance.Broken)
+                        StereoSwitcher.Instance.Controller.ChangeVolume(GetZeroToOne());
+                    else if (LightSwitcher.IsFixed) {
+                        LightSwitcher.Instance.Controller.ChangeIntensity(GetZeroToOne());
+                    }
+                }
+                else{
+                    if (!LightSwitcher.IsFixed)
+                        LightSwitcher.Instance.Controller.ChangeIntensity(GetZeroToOne());
+                }
             }
         }
 
+        public void SetLowerandOpper(){
+            Vector3 RemotePos = transform.parent.gameObject.transform.position;
+            LowerBound = LowerBound + RemotePos.y;
+            OpperBound = OpperBound + RemotePos.y;
+        }
+
+        public void ResetLowerandOpper(){
+            LowerBound = -0.1f;
+            OpperBound = -0.004f;
+        }
+
+        /// <summary>
+        ///     ?
+        /// </summary>
+        /// <returns></returns>
         public float GetZeroToOne(){
+            if (tag == "RemoteController"){
+                _zeroToOne = (transform.position.y - LowerBound)/SliderLength;
+                //print (_zeroToOne);
+            }
+            else{
+                _zeroToOne = (transform.position.y - LowerBound)/SliderLength;
+            }
             return _zeroToOne;
         }
 
-
+        /// <summary>
+        ///     ?
+        /// </summary>
         private void OnDrawGizmos(){
             if (SlideAxis.Equals('X'))
                 Gizmos.DrawLine(Pivot.transform.position + Vector3.right*SliderLength,

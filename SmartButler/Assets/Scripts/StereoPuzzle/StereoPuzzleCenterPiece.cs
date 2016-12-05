@@ -79,7 +79,7 @@ namespace Assets.Scripts.StereoPuzzle{
                     if (p.CurrentHook)
                         p.KeyPositionCheck();
                 transform.eulerAngles = to;
-                _parent.CheckAlignedPieces();
+                //_parent.CheckAlignedPieces();
                 _canSpin = true;
             }
             yield return null;

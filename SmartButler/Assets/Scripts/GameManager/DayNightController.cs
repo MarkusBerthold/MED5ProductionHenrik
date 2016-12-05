@@ -14,15 +14,16 @@ namespace Assets.Scripts.GameManager{
 
         private void Start(){
             _sunInitialIntensity = Sun.intensity;
+           // Sun = GetComponentInChildren<Light>();
         }
 
-        private void Update(){
-            UpdateSun();
-
-            CurrentTimeOfDay += Time.deltaTime/_secondsInFullDay*TimeMultiplier;
-
-            if (CurrentTimeOfDay >= 1) CurrentTimeOfDay = 0;
-        }
+     // private void Update(){
+     //     UpdateSun();
+     //
+     //     //CurrentTimeOfDay += Time.deltaTime/_secondsInFullDay*TimeMultiplier;
+     //
+     //     if (CurrentTimeOfDay >= 1) CurrentTimeOfDay = 0;
+     // }
 
         /// <summary>
         /// Updates variables and set new intensity for sun

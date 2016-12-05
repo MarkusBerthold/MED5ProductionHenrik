@@ -1,70 +1,82 @@
-﻿using Assets.Scripts.ObjectInteraction;
+﻿using Assets.Scripts.GameManager;
+using Assets.Scripts.MessageingSystem;
+using Assets.Scripts.ObjectInteraction;
 using UnityEngine;
 
-namespace Assets.Scripts.Controllers{
-    public class LightSwitcher : MonoBehaviour{
-        private float _currentIntensity;
-        private float _targetedIntensity = 1;
-        public Light[] AllLights;
-        public float Degrees;
-        public bool IsActive = true;
+namespace Assets.Scripts.Controllers {
+    public class LightSwitcher : MonoBehaviour {
+        public static LightSwitcher Instance;
 
-        public float MaxIntensity;
-        public ObjectRotater[] Rotaters;
+        [Persistent] private static bool _isFixed;
 
-        //Initialises AllLights
-        private void Start(){
-            AllLights = FindObjectsOfType(typeof(Light)) as Light[];
-            foreach (var l in AllLights) l.enabled = false;
+
+        private int _currentlyActiveRotater;
+
+        private readonly ObjectRotater[] objectRotaters = new ObjectRotater[2];
+
+
+        public int CurrentlyActiveRotater{
+            set { _currentlyActiveRotater = value; }
         }
 
-        //Runs once per frame
-        private void Update(){
-            if (IsActive){
-                //change colors for all lights
-                foreach (var objectRotater in Rotaters)
-                    if (objectRotater.IsActive && objectRotater.IsRotating)
-                        for (var i = 0; i < AllLights.Length; i++)
-                            AllLights[i].color = Color.HSVToRGB(Degrees/360, 1, 1);
+        public LightController Controller { get; private set; }
 
-                //change intensity for all lights
-                foreach (var light in AllLights)
-                    light.intensity = _targetedIntensity;
+        public static bool IsFixed{
+            get { return _isFixed; }
+        }
+
+
+        private void Awake(){
+            if (Instance != null && Instance != this){
+                Destroy(gameObject);
+            }
+            else{
+                Instance = this;
+            }
+
+            if (!IsFixed){
+                EventManager.StartListening("coffeebutton", OnLightsButton);
+                EventManager.StartListening(GameStateManager.State.BackFromLight.ToString(), OnLightFixed);
+            }
+            else{
+                _currentlyActiveRotater = 1;
+                EventManager.StartListening("remotecontrol", OnLightsButton);
             }
         }
 
-        /// <summary>
-        /// Sets intensity of lights to parameter
-        /// Takes a float which is the intensity
-        /// </summary>
-        /// <param name="intensity"></param>
-        public void SetIntensity(float intensity){
-            _targetedIntensity = intensity*MaxIntensity;
+        private void Start(){
+            Controller = new LightController(0.8f);
+
+            int i = 0;
+            foreach (ObjectRotater rotater in ObjectRotater.AllObjectRotaters){
+                for (int j = 0; j < 2; j++)
+                    if (rotater.AssociatedObject[j] == RotateableObject.Light){
+                        objectRotaters[i++] = rotater;
+                    }
+            }
+
+            Debug.Log("light is broken: "+ !IsFixed);
+            Debug.Log("light is controlled by: " + objectRotaters[_currentlyActiveRotater].gameObject.name);
         }
 
-        /// <summary>
-        /// Returns light color to white
-        /// </summary>
-        public void SetLightsClear(){
-            for (var i = 0; i < AllLights.Length; i++)
-                AllLights[i].color = Color.white;
+
+        private void OnLightFixed() {
+            Debug.Log("Lights have been fixed");
+            _currentlyActiveRotater = 1;
+            _isFixed = true;
+            EventManager.StopListening(GameStateManager.State.BackFromStereo.ToString(), OnLightFixed);
         }
 
-        /// <summary>
-        /// Updates the hue of lights
-        /// Takes an int which is the degrees
-        /// </summary>
-        /// <param name="degrees"></param>
-        public void UpdateLightsHue(int degrees){
-            Degrees = degrees;
+
+        private void Update(){
+            if (objectRotaters[_currentlyActiveRotater].HasNewValue){
+                Controller.ChangeHue(Color.HSVToRGB(objectRotaters[_currentlyActiveRotater].CurrentAngle / 360f, 1, 1));
+            }
         }
 
-        /// <summary>
-        /// Enables all lights
-        /// </summary>
-        public void SwitchEnable(){
-            foreach (var l in AllLights) l.enabled = !l.enabled;
-            IsActive = !IsActive;
+
+        private void OnLightsButton(){
+            Controller.FlipLights();
         }
     }
 }

@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: 1dd8dbfd7da9a2b4b80d427258ba2e72
+timeCreated: 1477997389
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: gear1
+    100002: gear2
+    100004: gear3
+    100006: gear4
+    100008: hourArm
+    100010: minutesArm
+    100012: secondArm
+    100014: soloGear1
+    100016: soloGear2
+    100018: soloGear3
+    100020: //RootNode
+    100022: watchFace
+    100024: watchGear
+    400000: gear1
+    400002: gear2
+    400004: gear3
+    400006: gear4
+    400008: hourArm
+    400010: minutesArm
+    400012: secondArm
+    400014: soloGear1
+    400016: soloGear2
+    400018: soloGear3
+    400020: //RootNode
+    400022: watchFace
+    400024: watchGear
+    2300000: gear1
+    2300002: gear2
+    2300004: gear3
+    2300006: gear4
+    2300008: hourArm
+    2300010: minutesArm
+    2300012: secondArm
+    2300014: soloGear1
+    2300016: soloGear2
+    2300018: soloGear3
+    2300020: watchFace
+    2300022: watchGear
+    3300000: gear1
+    3300002: gear2
+    3300004: gear3
+    3300006: gear4
+    3300008: hourArm
+    3300010: minutesArm
+    3300012: secondArm
+    3300014: soloGear1
+    3300016: soloGear2
+    3300018: soloGear3
+    3300020: watchFace
+    3300022: watchGear
+    4300000: secondArm
+    4300002: minutesArm
+    4300004: hourArm
+    4300006: watchFace
+    4300008: gear3
+    4300010: soloGear2
+    4300012: gear4
+    4300014: soloGear1
+    4300016: soloGear3
+    4300018: gear1
+    4300020: gear2
+    4300022: watchGear
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 11
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

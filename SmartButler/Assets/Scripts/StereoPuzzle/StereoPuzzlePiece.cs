@@ -8,7 +8,7 @@ namespace Assets.Scripts.StereoPuzzle{
         public StereoPuzzleHook CurrentHook;
         public StereoPuzzleHook.Position KeyPosition;
 
-        //Getter for _isKey
+        //Getter for IsKey
         public bool IsKey{
             get { return _isKey; }
         }

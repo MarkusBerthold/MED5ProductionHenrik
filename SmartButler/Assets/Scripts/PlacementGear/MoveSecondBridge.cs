@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Assets.Scripts.MessageingSystem;
 
 namespace Assets.Scripts.PlacementGear{
     public class MoveSecondBridge : MonoBehaviour{
@@ -23,10 +24,12 @@ namespace Assets.Scripts.PlacementGear{
                         _timer += Time.deltaTime;
 
 
-                    if (_timer < 9.4f)
-                        transform.Rotate(new Vector3(0, 1, 0)*Time.deltaTime*-20, Space.Self);
-                    else if (_timer >= 9.4f)
-                        CogPlacer.GetComponent<PlaceSecondGear>().SetShouldRotate(false);
+				if (_timer < 9.4f)
+					transform.Rotate (new Vector3 (0, 1, 0) * Time.deltaTime * -20, Space.Self);
+				else if (_timer >= 9.4f) {
+					CogPlacer.GetComponent<PlaceSecondGear> ().SetShouldRotate (false);
+					EventManager.TriggerEvent ("addsecondsound");
+				}
                 }
         }
     }

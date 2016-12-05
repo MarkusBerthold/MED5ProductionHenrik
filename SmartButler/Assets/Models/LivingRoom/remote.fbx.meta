@@ -6,10 +6,35 @@ ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: lightRemote_hue_on_off
+    100004: lightRemote_hueManipulator
+    100006: lightRemote_on_off
+    100008: lightRemote_slider
+    100010: lightRemoteMesh
     400000: //RootNode
+    400002: lightRemote_hue_on_off
+    400004: lightRemote_hueManipulator
+    400006: lightRemote_on_off
+    400008: lightRemote_slider
+    400010: lightRemoteMesh
     2300000: //RootNode
+    2300002: lightRemote_hue_on_off
+    2300004: lightRemote_hueManipulator
+    2300006: lightRemote_on_off
+    2300008: lightRemote_slider
+    2300010: lightRemoteMesh
     3300000: //RootNode
+    3300002: lightRemote_hue_on_off
+    3300004: lightRemote_hueManipulator
+    3300006: lightRemote_on_off
+    3300008: lightRemote_slider
+    3300010: lightRemoteMesh
     4300000: remoteControl
+    4300002: lightRemote_hue_on_off
+    4300004: lightRemote_on_off
+    4300006: lightRemote_slider
+    4300008: lightRemote_hueManipulator
+    4300010: lightRemoteMesh
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -69,7 +94,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

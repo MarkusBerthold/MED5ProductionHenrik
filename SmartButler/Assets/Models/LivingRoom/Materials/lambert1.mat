@@ -92,6 +92,15 @@ Material:
         name: _GlossyReflections
       second: 1
     - first:
+        name: _LightSaberFactor
+      second: 0.9
+    - first:
+        name: _LineScale
+      second: 1
+    - first:
+        name: _LineWidth
+      second: 1
+    - first:
         name: _Metallic
       second: 0
     - first:
@@ -121,7 +130,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.27642277, g: 0.27642277, b: 0.27642277, a: 1}
+      second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
