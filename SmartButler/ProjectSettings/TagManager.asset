@@ -36,6 +36,7 @@ TagManager:
   - lightpad
   - MainDirectionalLight
   - PauseMenu
+  - PrologueBox
   layers:
   - Default
   - TransparentFX
