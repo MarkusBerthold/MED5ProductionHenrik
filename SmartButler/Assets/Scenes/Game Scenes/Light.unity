@@ -1758,7 +1758,37 @@ Prefab:
     - target: {fileID: 114000012636808802, guid: a3074f3f1ed9b4125b8808a01e217af4,
         type: 2}
       propertyPath: m_Text
-      value: Press enter key to continue
+      value: The objective of the level is to reach the end of the tunnel
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000012826586506, guid: a3074f3f1ed9b4125b8808a01e217af4,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010613410408, guid: a3074f3f1ed9b4125b8808a01e217af4,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013302049944, guid: a3074f3f1ed9b4125b8808a01e217af4,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000011676914144, guid: a3074f3f1ed9b4125b8808a01e217af4,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013421309164, guid: a3074f3f1ed9b4125b8808a01e217af4,
+        type: 2}
+      propertyPath: m_Text
+      value: This level represents how Emma imagines fixing the light remote
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012096285076, guid: a3074f3f1ed9b4125b8808a01e217af4,
+        type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 20000012105549882, guid: a3074f3f1ed9b4125b8808a01e217af4, type: 2}
