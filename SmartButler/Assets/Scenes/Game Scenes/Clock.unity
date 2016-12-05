@@ -672,6 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Placeable: {fileID: 1847188477}
+  TransparentCog: {fileID: 1604065855}
 --- !u!4 &75094249
 Transform:
   m_ObjectHideFlags: 0
@@ -4806,6 +4807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Placeable: {fileID: 633562519}
+  TransparentCog: {fileID: 1233642550}
 --- !u!4 &584899478
 Transform:
   m_ObjectHideFlags: 0
@@ -9084,6 +9086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Placeable: {fileID: 740955423}
+  TransparentCog: {fileID: 1616223806}
 --- !u!4 &1155059856
 Transform:
   m_ObjectHideFlags: 0
@@ -9768,7 +9771,7 @@ Transform:
   m_GameObject: {fileID: 1233642550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.1183, y: -0.0008, z: 0.1799}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1580509664}
@@ -9780,10 +9783,10 @@ MeshCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1233642550}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Convex: 0
+  m_Convex: 1
   m_Mesh: {fileID: 4300002, guid: 6000eb6e9510d44cf8ce34a4e77bdb82, type: 3}
 --- !u!23 &1233642554
 MeshRenderer:
@@ -12082,7 +12085,7 @@ Transform:
   m_GameObject: {fileID: 1604065855}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.2548, y: 0.1481, z: -0.3641}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1150969359}
@@ -12175,7 +12178,7 @@ Transform:
   m_GameObject: {fileID: 1616223806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.1212, y: 0.2057, z: -0.4557}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 1240810162}

@@ -10,6 +10,7 @@ namespace Assets.Scripts.PlacementGear{
         private bool _doOnce = true;
 
         public GameObject Placeable;
+        public GameObject TransparentCog;
 
         // Use this for initialization
         private void Start(){
@@ -38,6 +39,7 @@ namespace Assets.Scripts.PlacementGear{
                     //placeable.gameObject.transform.parent = this.gameObject.transform;
                     print("firstGear - should have parented now");
                     Destroy(Placeable.GetComponent<Pickupable>());
+                    TransparentCog.GetComponent<Renderer>().enabled = false;
                 }
         }
 
