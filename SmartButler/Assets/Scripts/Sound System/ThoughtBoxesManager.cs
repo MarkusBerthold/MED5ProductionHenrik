@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Sound_System{
+namespace Assets.Scripts.ThoughtBoxes{
 	public class ThoughtBoxesManager : MonoBehaviour{
 		//Define new states here
 		public enum StatesEnum{
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Sound_System{
 
 		private int EndTime;
 
-		private bool WaitForBroadcast;
+		private bool WaitForBroadcast = true;
 		private IEnumerator coroutine2;
 
 		public bool ShouldListen = true;
@@ -66,10 +66,17 @@ namespace Assets.Scripts.Sound_System{
 			for (var i = 0; i < Arrayofstates.Length; i++)
 				coroutines [i] = Arrayofstates [i].ResetCues();
 
+			_uiCanvas.worldCamera = Camera.main;
+			CloseThoughtBox ();
+
 		}
 
 		// Update is called once per frame
 		private void Update(){
+
+			if( Input.GetKeyDown( KeyCode.Return ) )
+				CloseThoughtBox();
+
 
 			if (ShouldListen && doOnceListen == 0) {
 				EventManager.StartListening ("coffeebutton", _someListener);
@@ -95,18 +102,18 @@ namespace Assets.Scripts.Sound_System{
 
 
 				//play cues
-			//	for (var j = 0; j < Arrayofstates [_state].AmountOfCues; j++)
-			//		if (!AudioSource.isPlaying && !Arrayofstates [_state].StateCuesBeenPlayed [j] && _introsHasBeenPlayed) {
-			//			int rand = (int)(10 * UnityEngine.Random.Range (0.0f, (Arrayofstates [_state].AmountOfCues / 10f)));
-			//			AudioSource.clip = Arrayofstates [_state].StateCues [rand];
-			//			AudioSource.Play ();
-			//			Arrayofstates [_state].StateCuesBeenPlayed [j] = true;
-			//			if (!doOncePerState) {
-			//				StartCoroutine (coroutines [_state]);
-			//				doOncePerState = true;
-			//				print ("starting coroutine for reseting cues");
-			//			}
-			//		}
+				for (var j = 0; j < Arrayofstates [_state].AmountOfCues; j++)
+					if (_uiCanvas.enabled == false && !Arrayofstates [_state].StateCuesBeenPlayed [j] && _introsHasBeenPlayed) {
+						int rand = (int)(10 * UnityEngine.Random.Range (0.0f, (Arrayofstates [_state].AmountOfCues / 10f)));
+						panel.GetComponent<Text>().text = Arrayofstates [_state].StateCues [rand];
+						OpenThoughtBox ();
+						Arrayofstates [_state].StateCuesBeenPlayed [j] = true;
+						if (!doOncePerState) {
+							StartCoroutine (coroutines [_state]);
+							doOncePerState = true;
+							print ("starting coroutine for reseting cues");
+						}
+					}
 				//if (_state == 8) {
 				//	End ();
 				//	EndTime++;
@@ -121,8 +128,8 @@ namespace Assets.Scripts.Sound_System{
 			}
 		}
 
-		public IEnumerator OpenThoughtBox(){
-			yield return new WaitForSeconds(1.0f);
+		public void OpenThoughtBox(){
+			//yield return new WaitForSeconds(1.0f);
 			_uiCanvas.enabled = true;
 			EventManager.TriggerEvent("DisableControls");
 			Time.timeScale = 0f;
@@ -279,9 +286,15 @@ namespace Assets.Scripts.Sound_System{
 				StateIntrosAssets = Resources.LoadAll<TextAsset>("Text/States/" + statesEnum + "/Intros/");
 				StateCuesAssets = Resources.LoadAll<TextAsset>("Text/States/" + statesEnum + "/Cues/");
 
+				StateIntros = new string[StateIntrosAssets.Length];
+				StateCues = new string[StateCuesAssets.Length];
+
+				if(StateIntrosAssets.Length != 0)
 				for(int i = 0; i < StateIntrosAssets.Length; i++){
 					StateIntros[i] = StateIntrosAssets[i].text;
 				}
+				
+				if(StateCuesAssets.Length != 0)
 				for(int i = 0; i < StateCuesAssets.Length; i++){
 					StateCues[i] = StateCuesAssets[i].text;
 				}
