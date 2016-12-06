@@ -2,8 +2,12 @@
 using System.Collections;
 
 public class StartMenu : MonoBehaviour {
-    public GameObject MenuPanel;
-    public GameObject CreditsPanel;
+    [SerializeField]
+    private GameObject MenuPanel;
+    [SerializeField]
+    private GameObject CreditsPanel;
+    [SerializeField]
+    private GameObject InstructionsPanel;
 
     private bool _isViewingCredits = false;
 
@@ -23,5 +27,10 @@ public class StartMenu : MonoBehaviour {
 
     public void OnStartGame(){
         AutoFade.LoadLevel("LivingRoom", 2, 1, Color.black);
+    }
+
+    public void OnToInstruction(){
+        MenuPanel.SetActive(false);
+        InstructionsPanel.SetActive(true);
     }
 }
