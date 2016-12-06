@@ -42,7 +42,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 7
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000001, guid: 4203c5b4b6e14419ea0e18672d7c3c6f,
+  m_LightingDataAsset: {fileID: 112000001, guid: f4e4cbb8ec9e54823a0a0fe27f4e99a2,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -3734,6 +3734,7 @@ Transform:
   - {fileID: 214553277}
   - {fileID: 1949820791}
   - {fileID: 1441395507}
+  - {fileID: 1217470411}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &593730815 stripped
@@ -7685,6 +7686,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1204158836}
   m_Mesh: {fileID: 4300066, guid: 3227dcdd2271f3f42953473178997d8e, type: 3}
+--- !u!1 &1217470410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1217470411}
+  - 114: {fileID: 1217470412}
+  m_Layer: 0
+  m_Name: TimerLogs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1217470411
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1217470410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 588814887}
+  m_RootOrder: 13
+--- !u!114 &1217470412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1217470410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81888eaf005414ae4a6e9ad46909d97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1220045852
 GameObject:
   m_ObjectHideFlags: 0
