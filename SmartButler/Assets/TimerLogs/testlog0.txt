@@ -1,0 +1,4 @@
+,CoffeeTime,13.12838
+,SeesRemoteTime,6.937721
+,RemoteTime,1.087236
+,RemoteTime,0,12/06/2016 21:57:53

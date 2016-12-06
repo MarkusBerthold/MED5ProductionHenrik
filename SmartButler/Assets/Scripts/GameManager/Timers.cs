@@ -6,11 +6,11 @@ using Assets.Scripts.MessageingSystem;
 using UnityEngine.Events;
 
 
-namespace Assets.Scripts.Timers{
+namespace Assets.Scripts.Timer{
 	public class Timers : MonoBehaviour{
 
 
-		float StartTime,CoffeeTime,SeesRemoteTime,RemoteTime;
+		float StartTime,CoffeeTime,SeesRemoteTime,RemoteTime,SeesStereoTime,StereoTime,BackFromClockTime;
 
 		public int state;
 
@@ -22,12 +22,15 @@ namespace Assets.Scripts.Timers{
 
 		private UnityAction _someListener;
 
+		DateTime starttime;
+
 		private void Awake(){
 			_someListener = Coffee;
 		}
 
 		void Start (){
-			StartTime = timer;
+			starttime = System.DateTime.Now;
+			WriteNewFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "Start of game time: " + starttime+Environment.NewLine);
 		}
 
 		void Update(){
@@ -71,8 +74,11 @@ namespace Assets.Scripts.Timers{
 			EventManager.StopListening ("coffeebutton", _someListener);
 
 			CoffeeTime = timer;
-			WriteNewFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "CoffeeTime,"+CoffeeTime+Environment.NewLine);
-
+			if (newfile != null) {
+				AppendFile (newfile, "CoffeeTime," + CoffeeTime+Environment.NewLine);
+			} else {
+				AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "CoffeeTime," + CoffeeTime+Environment.NewLine);
+			}
 		}
 
 		private void SeesRemote(){
@@ -106,6 +112,12 @@ namespace Assets.Scripts.Timers{
 			if (state == 3) {
 				state = 4;
 				EventManager.StopListening("seesstereo", SeesStereo);
+				SeesStereoTime = timer - SeesRemoteTime-CoffeeTime-RemoteTime;
+				if (newfile != null) {
+					AppendFile (newfile, "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
+				} else {
+					AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
+				}
 			}
 		}
 
@@ -113,11 +125,23 @@ namespace Assets.Scripts.Timers{
 			if (state == 4) {
 				state = 5;
 				EventManager.StopListening ("stereo", Stereo);
+				StereoTime = timer - SeesRemoteTime-CoffeeTime-RemoteTime-SeesStereoTime;
+				if (newfile != null) {
+					AppendFile (newfile, "StereoTime," + StereoTime+Environment.NewLine);
+				} else {
+					AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "StereoTime," + StereoTime+Environment.NewLine);
+				}
 			}
 		}
 
 		public void BackFromClock(){
 			state = 6;
+//			BackFromClockTime = starttime - SeesRemoteTime-CoffeeTime;
+			if (newfile != null) {
+				AppendFile (newfile, "BackFromClockTime," + RemoteTime+","+DateTime.Now+Environment.NewLine);
+			} else {
+				AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "RemoteTime," + RemoteTime+","+DateTime.Now+Environment.NewLine);
+			}
 		}
 
 
