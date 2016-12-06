@@ -5,7 +5,7 @@
 using Assets.Scripts.Highlighting;
 using Assets.Scripts.LivingRoom.LivingRoomSoundtrack;
 using Assets.Scripts.MessageingSystem;
-using Assets.Scripts.Sound_System;
+using Assets.Scripts.ThoughtBoxes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -38,7 +38,7 @@ namespace Assets.Scripts.GameManager {
 
         public static DayNightController DayNightController;
 
-        public static SoundManager _soundManager;
+        public static ThoughtBoxesManager _ThoughtBoxManager;
 
         //public static BroadcastSpeaker _BroadcastSpeaker;
         public static LivingRoomSoundtrack _LivingRoomsSoundtrack;
@@ -115,31 +115,31 @@ namespace Assets.Scripts.GameManager {
                             _clockLoader.IsEnterable = false;
                             //_lightLoader.IsEnterable = true;
                             _stereoLoader.IsEnterable = true;
-                            _soundManager.BackFromClock();
-                            _soundManager.SetWaitForBroadcast(false);
+                            _ThoughtBoxManager.BackFromClock();
+                            _ThoughtBoxManager.SetWaitForBroadcast(false);
                             //_BroadcastSpeaker.SetShouldPlay(false); //the broadcast speaker knows if it should play 
-                            _soundManager.StopListening();
-                            _soundManager.ShouldListen = false;
+                            _ThoughtBoxManager.StopListening();
+                            _ThoughtBoxManager.ShouldListen = false;
                             //_StereoController.MessUp ();   //not needed with persistence
                             _LivingRoomsSoundtrack.SetState("Clock");
                             goto default;
                         case State.BackFromLight:
                             _lightLoader.IsEnterable = false;
-                            _soundManager.BackFromLight();
-                            _soundManager.SetWaitForBroadcast(false);
+                            _ThoughtBoxManager.BackFromLight();
+                            _ThoughtBoxManager.SetWaitForBroadcast(false);
                             // _BroadcastSpeaker.SetShouldPlay(false);
-                            _soundManager.StopListening();
-                            _soundManager.ShouldListen = false;
+                            _ThoughtBoxManager.StopListening();
+                            _ThoughtBoxManager.ShouldListen = false;
                             _LivingRoomsSoundtrack.SetState("Light");
                             goto default;
                         case State.BackFromStereo:
                             _stereoLoader.IsEnterable = false;
                             _lightLoader.IsEnterable = true;
-                            _soundManager.BackFromStereo();
-                            _soundManager.SetWaitForBroadcast(false);
+                            _ThoughtBoxManager.BackFromStereo();
+                            _ThoughtBoxManager.SetWaitForBroadcast(false);
                             // _BroadcastSpeaker.SetShouldPlay(false);
-                            _soundManager.StopListening();
-                            _soundManager.ShouldListen = false;
+                            _ThoughtBoxManager.StopListening();
+                            _ThoughtBoxManager.ShouldListen = false;
                             _LivingRoomsSoundtrack.SetState("Stereo");
                             goto default;
                         default:
@@ -158,7 +158,7 @@ namespace Assets.Scripts.GameManager {
                     _clockLoader.IsEnterable = false;
                     _lightLoader.IsEnterable = false;
                     _stereoLoader.IsEnterable = false;
-                    _soundManager.SetWaitForBroadcast(true);
+                    _ThoughtBoxManager.SetWaitForBroadcast(true);
                     // _BroadcastSpeaker.SetShouldPlay(true);
                     _LivingRoomsSoundtrack.SetState("Start");
                     break;
@@ -172,7 +172,7 @@ namespace Assets.Scripts.GameManager {
                     break;
                 case State.End:
                     GameState = State.End;
-                    _soundManager.End();
+                    _ThoughtBoxManager.End();
                     break;
             }
             Debug.Log("changed state to: " + newState);
@@ -185,7 +185,7 @@ namespace Assets.Scripts.GameManager {
 
             DayNightController = FindObjectOfType<DayNightController>();
 
-            _soundManager = FindObjectOfType<SoundManager>();
+			_ThoughtBoxManager = FindObjectOfType<ThoughtBoxesManager>();
 
             //_BroadcastSpeaker = FindObjectOfType<BroadcastSpeaker>();
 
@@ -196,10 +196,10 @@ namespace Assets.Scripts.GameManager {
             _wallClockHighlighter = GameObject.Find(WallClockHighlighterObjectName).GetComponent<Highlighter>();
 
             Debug.Log("Loaders Loaded: " +
-                      (_lightLoader & _stereoLoader & _clockLoader & _soundManager & _LivingRoomsSoundtrack &
+                      (_lightLoader & _stereoLoader & _clockLoader & _ThoughtBoxManager & _LivingRoomsSoundtrack &
                        _wallClockHighlighter));
 
-            return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager &
+            return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _ThoughtBoxManager &
                    _LivingRoomsSoundtrack & _wallClockHighlighter;
         }
     }
