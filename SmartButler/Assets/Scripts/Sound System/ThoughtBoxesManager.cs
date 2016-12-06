@@ -84,7 +84,6 @@ namespace Assets.Scripts.ThoughtBoxes{
 				EventManager.StartListening ("remotecontrol", RemoteControl);
 				EventManager.StartListening ("seesstereo", SeesStereo);
 				EventManager.StartListening ("stereo", Stereo);
-				print ("START LISTENING");
 				ShouldListen = false;
 				doOnceListen = 1;
 			}
