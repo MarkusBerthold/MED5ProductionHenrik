@@ -29,8 +29,9 @@ namespace Assets.Scripts.Timer{
 		}
 
 		void Start (){
+
 			starttime = System.DateTime.Now;
-			WriteNewFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "Start of game time: " + starttime+Environment.NewLine);
+			WriteNewFile (Application.dataPath+"/TimerLogs/testlog0.txt", "Start of game time: " + starttime+Environment.NewLine);
 		}
 
 		void Update(){
