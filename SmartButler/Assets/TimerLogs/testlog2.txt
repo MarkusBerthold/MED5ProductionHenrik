@@ -1,1 +1,11 @@
-,Start of game time: 12/06/2016 21:57:53
+,Start of game time: 12/07/2016 20:29:41
+,CoffeeTime,11.7958
+,SeesRemoteTime,4.821691
+,RemoteTime,1.152903
+,SeesStereoTime,2.770287
+,StereoTime,2.53896
+,BackFromClock,12/07/2016 20:41:17
+LEFT FOR STEREO
+,BackFromStereo,12/07/2016 20:41:17
+LEFT FOR LIGHT
+END OF FILE

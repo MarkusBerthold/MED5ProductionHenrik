@@ -15,7 +15,8 @@ namespace Assets.Scripts.Timer{
 		public int state;
 
 		float timer;
-		string newfile;
+		string newestfilepath,newPathToAppend;
+		string [] newestfilelines;
 
 		public bool ShouldListen = true;
 		private int doOnceListen = 0;
@@ -31,7 +32,43 @@ namespace Assets.Scripts.Timer{
 		void Start (){
 
 			starttime = System.DateTime.Now;
-			WriteNewFile (Application.dataPath+"/TimerLogs/testlog0.txt", "Start of game time: " + starttime+Environment.NewLine);
+
+			print ("checking if there are any files");
+			if (File.Exists (Application.dataPath + "/TimerLogs/testlog0.txt")) {
+				FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
+				print ("The newest found file is " + newestfilepath);
+
+				newestfilelines = System.IO.File.ReadAllLines (newestfilepath);
+
+				print ("readin the lines of "+newestfilepath);
+
+				print ("checking what the last line of the file is");
+				if (newestfilelines [newestfilelines.Length-1] == "END OF FILE") {
+					print ("it ends in END OF FILE");
+
+					int filenr = int.Parse (newestfilepath.Substring (newestfilepath.Length - 5, 1));
+
+					newPathToAppend = newestfilepath.Substring (0, newestfilepath.Length - 5) + (filenr + 1) + ".txt";
+
+					print ("creating a new file at "+newPathToAppend);
+					WriteNewFile (newPathToAppend, "Start of game time: " + starttime + Environment.NewLine);
+				}else if (newestfilelines [newestfilelines.Length-1] == "LEFT FOR CLOCK") {
+					print ("it ends in LEFT FOR CLOCK");
+					BackFromClock ();
+				} else if (newestfilelines [newestfilelines.Length-1] == "LEFT FOR STEREO") {
+					print ("it ends in LEFT FOR STEREO");
+					print ("calling backfromstereo()");
+					BackFromStereo ();
+				} else if (newestfilelines [newestfilelines.Length-1] == "LEFT FOR LIGHT") {
+					print ("it ends in LEFT FOR LIGHT");
+					BackFromLight ();
+				} else {
+					return;
+				}
+			} else {
+				print ("there were no files, making file0");
+				WriteNewFile (Application.dataPath + "/TimerLogs/testlog0.txt", "Start of game time: " + starttime + Environment.NewLine);
+			}
 		}
 
 		void Update(){
@@ -46,21 +83,31 @@ namespace Assets.Scripts.Timer{
 				doOnceListen = 1;
 			}
 			timer += Time.deltaTime; 
+
+		}
+
+		public void FindNewestFile(string path){
+			
+			string result;
+
+			if (File.Exists (path)) {
+
+				int filenr = int.Parse (path.Substring (path.Length - 5, 1));
+				result = path.Substring (0, path.Length - 5) + (filenr+1) + ".txt";
+
+				FindNewestFile (result);
+			} else {
+				int filenr = int.Parse (path.Substring (path.Length - 5, 1));
+				result = path.Substring (0, path.Length - 5) + (filenr-1) + ".txt";
+				newestfilepath = result;
+			}
 		}
 
 
 		public void WriteNewFile(string path,string textToWrite){
 
-			if (File.Exists (path)) {
-
-				string filenr = path.Substring (path.Length-5, 1);
-				int newfilenr = int.Parse(filenr);
-				newfile = path.Substring (0, path.Length - 5) + (newfilenr+1) + ".txt";
-				WriteNewFile (newfile, textToWrite);
-
-			} else {
-				System.IO.File.WriteAllText (path, "," + textToWrite);
-			}
+			System.IO.File.WriteAllText (path, "," + textToWrite);
+			
 				
 		}
 
@@ -75,8 +122,8 @@ namespace Assets.Scripts.Timer{
 			EventManager.StopListening ("coffeebutton", _someListener);
 
 			CoffeeTime = timer;
-			if (newfile != null) {
-				AppendFile (newfile, "CoffeeTime," + CoffeeTime+Environment.NewLine);
+			if (newPathToAppend != null) {
+				AppendFile (newPathToAppend, "CoffeeTime," + CoffeeTime+Environment.NewLine);
 			} else {
 				AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "CoffeeTime," + CoffeeTime+Environment.NewLine);
 			}
@@ -87,8 +134,8 @@ namespace Assets.Scripts.Timer{
 				state = 2;
 				EventManager.StopListening("seesremote", SeesRemote);
 				SeesRemoteTime = timer - CoffeeTime;
-				if (newfile != null) {
-					AppendFile (newfile, "SeesRemoteTime," + SeesRemoteTime+Environment.NewLine);
+				if (newPathToAppend != null) {
+					AppendFile (newPathToAppend, "SeesRemoteTime," + SeesRemoteTime+Environment.NewLine);
 				} else {
 					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "SeesRemoteTime," + SeesRemoteTime+Environment.NewLine);
 				}
@@ -101,8 +148,8 @@ namespace Assets.Scripts.Timer{
 				state = 3;
 				EventManager.StopListening("remotecontrol", RemoteControl);
 				RemoteTime = timer - SeesRemoteTime-CoffeeTime;
-				if (newfile != null) {
-					AppendFile (newfile, "RemoteTime," + RemoteTime+Environment.NewLine);
+				if (newPathToAppend != null) {
+					AppendFile (newPathToAppend, "RemoteTime," + RemoteTime+Environment.NewLine);
 				} else {
 					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "RemoteTime," + RemoteTime+Environment.NewLine);
 				}
@@ -114,8 +161,8 @@ namespace Assets.Scripts.Timer{
 				state = 4;
 				EventManager.StopListening("seesstereo", SeesStereo);
 				SeesStereoTime = timer - SeesRemoteTime-CoffeeTime-RemoteTime;
-				if (newfile != null) {
-					AppendFile (newfile, "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
+				if (newPathToAppend != null) {
+					AppendFile (newPathToAppend, "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
 				} else {
 					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
 				}
@@ -127,35 +174,34 @@ namespace Assets.Scripts.Timer{
 				state = 5;
 				EventManager.StopListening ("stereo", Stereo);
 				StereoTime = timer - SeesRemoteTime-CoffeeTime-RemoteTime-SeesStereoTime;
-				if (newfile != null) {
-					AppendFile (newfile, "StereoTime," + StereoTime+Environment.NewLine);
+				if (newPathToAppend != null) {
+					AppendFile (newPathToAppend, "StereoTime," + StereoTime+Environment.NewLine+"LEFT FOR CLOCK"+Environment.NewLine);
 				} else {
-					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "StereoTime," + StereoTime+Environment.NewLine);
+					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "StereoTime," + StereoTime+Environment.NewLine+"LEFT FOR CLOCK"+Environment.NewLine);
 				}
 			}
 		}
 
 		public void BackFromClock(){
 			state = 6;
-//			BackFromClockTime = starttime - SeesRemoteTime-CoffeeTime;
-			if (newfile != null) {
-				AppendFile (newfile, "BackFromClockTime," + RemoteTime+","+DateTime.Now+Environment.NewLine);
-			} else {
-				AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "RemoteTime," + RemoteTime+","+DateTime.Now+Environment.NewLine);
-			}
+			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
+			print ("appending "+newestfilepath);
+			AppendFile (newestfilepath, "BackFromClock," + DateTime.Now + Environment.NewLine + "LEFT FOR STEREO" + Environment.NewLine);
 		}
 
 
 		public void BackFromStereo(){
 			state = 7;
+			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
+			print ("appending "+newestfilepath);
+			AppendFile (newestfilepath, "BackFromStereo,"+DateTime.Now+Environment.NewLine+"LEFT FOR LIGHT"+Environment.NewLine);
 		}
 
 		public void BackFromLight(){
 			state = 8;
-		}
-
-		public void End(){
-			state = 9;
+			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
+			print ("appending "+newestfilepath);
+			AppendFile (newestfilepath, "BackFromLight,"+DateTime.Now+Environment.NewLine+"END OF FILE"+Environment.NewLine);
 		}
 	}
 }

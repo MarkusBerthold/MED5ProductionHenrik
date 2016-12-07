@@ -1,0 +1,8 @@
+,Start of game time: 12/07/2016 20:50:04
+,CoffeeTime,12.23652
+,SeesRemoteTime,9.142929
+,RemoteTime,1.917202
+,SeesStereoTime,3.35375
+,StereoTime,2.421148
+fail
+END OF FILE

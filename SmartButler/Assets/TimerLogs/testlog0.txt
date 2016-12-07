@@ -1,4 +1,13 @@
-,CoffeeTime,13.12838
-,SeesRemoteTime,6.937721
-,RemoteTime,1.087236
-,RemoteTime,0,12/06/2016 21:57:53
+,Start of game time: 12/07/2016 20:13:11
+END OF FILE,BackFromStereo,12/07/2016 20:18:35
+LEFT FOR LIGHT
+,BackFromStereo,12/07/2016 20:18:59
+LEFT FOR LIGHT
+,BackFromStereo,12/07/2016 20:25:10
+LEFT FOR LIGHT
+,CoffeeTime,11.95147
+,SeesRemoteTime,4.014836
+,RemoteTime,1.100278
+,SeesStereoTime,3.118475
+,StereoTime,2.903851
+LEFT FOR CLOCK

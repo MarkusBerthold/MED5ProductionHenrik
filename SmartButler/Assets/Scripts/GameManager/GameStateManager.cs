@@ -41,7 +41,7 @@ namespace Assets.Scripts.GameManager {
 
         public static ThoughtBoxesManager _ThoughtBoxManager;
 
-		public static Timers _Timers;
+		//public static Timers _Timers;
 
         //public static BroadcastSpeaker _BroadcastSpeaker;
         public static LivingRoomSoundtrack _LivingRoomsSoundtrack;
@@ -119,7 +119,7 @@ namespace Assets.Scripts.GameManager {
                             //_lightLoader.IsEnterable = true;
                             _stereoLoader.IsEnterable = true;
                             _ThoughtBoxManager.BackFromClock();
-							_Timers.BackFromClock ();
+							//_Timers.BackFromClock ();
                             _ThoughtBoxManager.SetWaitForBroadcast(false);
                             //_BroadcastSpeaker.SetShouldPlay(false); //the broadcast speaker knows if it should play 
                             _ThoughtBoxManager.StopListening();
@@ -130,7 +130,7 @@ namespace Assets.Scripts.GameManager {
                         case State.BackFromLight:
                             _lightLoader.IsEnterable = false;
                             _ThoughtBoxManager.BackFromLight();
-							_Timers.BackFromLight ();
+							//_Timers.BackFromLight ();
                             _ThoughtBoxManager.SetWaitForBroadcast(false);
                             // _BroadcastSpeaker.SetShouldPlay(false);
                             _ThoughtBoxManager.StopListening();
@@ -141,7 +141,7 @@ namespace Assets.Scripts.GameManager {
                             _stereoLoader.IsEnterable = false;
                             _lightLoader.IsEnterable = true;
                             _ThoughtBoxManager.BackFromStereo();
-							_Timers.BackFromStereo ();
+							//_Timers.BackFromStereo ();
                             _ThoughtBoxManager.SetWaitForBroadcast(false);
                             // _BroadcastSpeaker.SetShouldPlay(false);
                             _ThoughtBoxManager.StopListening();
@@ -193,7 +193,7 @@ namespace Assets.Scripts.GameManager {
 
 			_ThoughtBoxManager = FindObjectOfType<ThoughtBoxesManager>();
 
-			_Timers = FindObjectOfType<Timers> ();
+			//_Timers = FindObjectOfType<Timers> ();
 
             //_BroadcastSpeaker = FindObjectOfType<BroadcastSpeaker>();
 
@@ -204,11 +204,11 @@ namespace Assets.Scripts.GameManager {
             _wallClockHighlighter = GameObject.Find(WallClockHighlighterObjectName).GetComponent<Highlighter>();
 
             Debug.Log("Loaders Loaded: " +
-                      (_lightLoader & _stereoLoader & _clockLoader & _ThoughtBoxManager &_Timers & _LivingRoomsSoundtrack &
+                      (_lightLoader & _stereoLoader & _clockLoader & _ThoughtBoxManager  & _LivingRoomsSoundtrack &
                        _wallClockHighlighter));
 
             return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _ThoughtBoxManager &
-				_LivingRoomsSoundtrack & _wallClockHighlighter & _Timers;
+				_LivingRoomsSoundtrack & _wallClockHighlighter;
         }
     }
 }
