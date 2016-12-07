@@ -10,13 +10,13 @@ namespace Assets.Scripts.Timer{
 	public class Timers : MonoBehaviour{
 
 
-		float StartTime,CoffeeTime,SeesRemoteTime,RemoteTime,SeesStereoTime,StereoTime,BackFromClockTime;
+		float StartTime,CoffeeTime,SeesRemoteTime,RemoteTime,SeesStereoTime,StereoTime,BackFromClockTime; //timed times we can write to file
 
-		public int state;
+		public int state; 
 
 		float timer;
-		string newestfilepath,newPathToAppend;
-		string [] newestfilelines;
+		string newestfilepath,newPathToAppend; //used for knowing what file to create or append
+		string [] newestfilelines; // used to read the content of previous files
 
 		public bool ShouldListen = true;
 		private int doOnceListen = 0;
@@ -31,48 +31,49 @@ namespace Assets.Scripts.Timer{
 
 		void Start (){
 
-			starttime = System.DateTime.Now;
+			starttime = System.DateTime.Now;  //time when we start the game
 
 			print ("checking if there are any files");
-			if (File.Exists (Application.dataPath + "/TimerLogs/testlog0.txt")) {
-				FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
-				print ("The newest found file is " + newestfilepath);
+			if (File.Exists (Application.dataPath + "/TimerLogs/testlog0.txt")) { //does file0 exist?
+				FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");  // if yes, directory is not empty, find the latest file
+				 ("The newest found file is " + newestfilepath);
 
-				newestfilelines = System.IO.File.ReadAllLines (newestfilepath);
+				newestfilelines = System.IO.File.ReadAllLines (newestfilepath); //read all the lines as strings in an array
 
 				print ("readin the lines of "+newestfilepath);
 
 				print ("checking what the last line of the file is");
-				if (newestfilelines [newestfilelines.Length-1] == "END OF FILE") {
+				if (newestfilelines [newestfilelines.Length-1] == "END OF FILE") { //read the last line, is it END OF FILE?
 					print ("it ends in END OF FILE");
 
-					int filenr = int.Parse (newestfilepath.Substring (newestfilepath.Length - 5, 1));
+					int filenr = int.Parse (newestfilepath.Substring (newestfilepath.Length - 5, 1)); //if yes, check which number the latest file has
 
-					newPathToAppend = newestfilepath.Substring (0, newestfilepath.Length - 5) + (filenr + 1) + ".txt";
+					newPathToAppend = newestfilepath.Substring (0, newestfilepath.Length - 5) + (filenr + 1) + ".txt"; //and make a new one with that number+1
 
 					print ("creating a new file at "+newPathToAppend);
 					WriteNewFile (newPathToAppend, "Start of game time: " + starttime + Environment.NewLine);
-				}else if (newestfilelines [newestfilelines.Length-1] == "LEFT FOR CLOCK") {
+				}else if (newestfilelines [newestfilelines.Length-1] == "LEFT FROM CLOCK") { //read the last line, is it LEFT FOR CLOCK?
 					print ("it ends in LEFT FOR CLOCK");
-					BackFromClock ();
-				} else if (newestfilelines [newestfilelines.Length-1] == "LEFT FOR STEREO") {
+					BackFromClock (); // we had left for clock, and now we are back
+				} else if (newestfilelines [newestfilelines.Length-1] == "LEFT FROM STEREO") { //read the last line, is it LEFT FOR STEREO?
 					print ("it ends in LEFT FOR STEREO");
 					print ("calling backfromstereo()");
-					BackFromStereo ();
-				} else if (newestfilelines [newestfilelines.Length-1] == "LEFT FOR LIGHT") {
+					BackFromStereo (); // we had left for stereo, and now we are back
+				} else if (newestfilelines [newestfilelines.Length-1] == "LEFT FROM LIGHT") { //read the last line, is it END OF LEFT FOR LIGHT???
 					print ("it ends in LEFT FOR LIGHT");
-					BackFromLight ();
-				} else {
+					BackFromLight (); // we had left for light, and now we are back
+				} else { 
 					return;
 				}
-			} else {
+			} else { // if there is no file0, then the directory is empty
 				print ("there were no files, making file0");
-				WriteNewFile (Application.dataPath + "/TimerLogs/testlog0.txt", "Start of game time: " + starttime + Environment.NewLine);
+				WriteNewFile (Application.dataPath + "/TimerLogs/testlog0.txt", "Start of game time: " + starttime + Environment.NewLine); //create file0
 			}
 		}
 
 		void Update(){
 
+			// listen to events
 			if (ShouldListen && doOnceListen == 0) {
 				EventManager.StartListening ("coffeebutton", _someListener);
 				EventManager.StartListening ("seesremote", SeesRemote);
@@ -82,33 +83,44 @@ namespace Assets.Scripts.Timer{
 				ShouldListen = false;
 				doOnceListen = 1;
 			}
-			timer += Time.deltaTime; 
+			timer += Time.deltaTime;  //tick the timer
 
 		}
 
-		public void FindNewestFile(string path){
+		/**
+		 * Function looks for file0, when file0 is the input
+		 * Function finds file0 and repeats for file1, et.c recursively 
+		 * when it can no longer find another file, it will set newestfilepath to the currect search-1
+		 * example, it could find file97, but not file 98, it set newestfilepath to file97
+		 */
+		public void FindNewestFile(string path){ //is only called with file0
 			
 			string result;
 
-			if (File.Exists (path)) {
+			if (File.Exists (path)) {  //does fileX exist? yes
 
-				int filenr = int.Parse (path.Substring (path.Length - 5, 1));
-				result = path.Substring (0, path.Length - 5) + (filenr+1) + ".txt";
+				int filenr = int.Parse (path.Substring (path.Length - 5, 1)); //get the file number
+				result = path.Substring (0, path.Length - 5) + (filenr+1) + ".txt"; //increment the number 
 
-				FindNewestFile (result);
-			} else {
-				int filenr = int.Parse (path.Substring (path.Length - 5, 1));
-				result = path.Substring (0, path.Length - 5) + (filenr-1) + ".txt";
-				newestfilepath = result;
+				FindNewestFile (result); //call function again with new file path
+			} else { //does fileX exist? no
+				int filenr = int.Parse (path.Substring (path.Length - 5, 1)); //get the file number
+				result = path.Substring (0, path.Length - 5) + (filenr-1) + ".txt"; //decrement the number
+				newestfilepath = result; //change this variable
 			}
 		}
 
-
+		/**
+		 * Function writes a new file at the path with the string
+		 */
 		public void WriteNewFile(string path,string textToWrite){
 
 			System.IO.File.WriteAllText (path, "," + textToWrite);
 			
-				
+
+		/**
+		 * Function appends a file at the path with the string
+		 */
 		}
 
 		public void AppendFile(string path,string textToWrite){
