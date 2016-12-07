@@ -78,7 +78,7 @@ namespace Assets.Scripts.Timer{
 			if (newfile != null) {
 				AppendFile (newfile, "CoffeeTime," + CoffeeTime+Environment.NewLine);
 			} else {
-				AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "CoffeeTime," + CoffeeTime+Environment.NewLine);
+				AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "CoffeeTime," + CoffeeTime+Environment.NewLine);
 			}
 		}
 
@@ -90,7 +90,7 @@ namespace Assets.Scripts.Timer{
 				if (newfile != null) {
 					AppendFile (newfile, "SeesRemoteTime," + SeesRemoteTime+Environment.NewLine);
 				} else {
-					AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "SeesRemoteTime," + SeesRemoteTime+Environment.NewLine);
+					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "SeesRemoteTime," + SeesRemoteTime+Environment.NewLine);
 				}
 			}
 		}
@@ -104,7 +104,7 @@ namespace Assets.Scripts.Timer{
 				if (newfile != null) {
 					AppendFile (newfile, "RemoteTime," + RemoteTime+Environment.NewLine);
 				} else {
-					AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "RemoteTime," + RemoteTime+Environment.NewLine);
+					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "RemoteTime," + RemoteTime+Environment.NewLine);
 				}
 			}
 		}
@@ -117,7 +117,7 @@ namespace Assets.Scripts.Timer{
 				if (newfile != null) {
 					AppendFile (newfile, "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
 				} else {
-					AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
+					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "SeesStereoTime," + SeesStereoTime+Environment.NewLine);
 				}
 			}
 		}
@@ -130,7 +130,7 @@ namespace Assets.Scripts.Timer{
 				if (newfile != null) {
 					AppendFile (newfile, "StereoTime," + StereoTime+Environment.NewLine);
 				} else {
-					AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "StereoTime," + StereoTime+Environment.NewLine);
+					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "StereoTime," + StereoTime+Environment.NewLine);
 				}
 			}
 		}
@@ -141,7 +141,7 @@ namespace Assets.Scripts.Timer{
 			if (newfile != null) {
 				AppendFile (newfile, "BackFromClockTime," + RemoteTime+","+DateTime.Now+Environment.NewLine);
 			} else {
-				AppendFile ("/Users/emil/Documents/git/MED5ProductionHenrik/SmartButler/Assets/TimerLogs/testlog0.txt", "RemoteTime," + RemoteTime+","+DateTime.Now+Environment.NewLine);
+				AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "RemoteTime," + RemoteTime+","+DateTime.Now+Environment.NewLine);
 			}
 		}
 
