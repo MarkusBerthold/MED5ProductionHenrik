@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.PickUp;
+﻿using Assets.Scripts.GameManager;
+using Assets.Scripts.PickUp;
 using UnityEngine;
 using Assets.Scripts.MessageingSystem;
 
@@ -12,12 +13,16 @@ namespace Assets.Scripts.PlacementGear{
 
         private float _timer;
 
+        private SceneLoader _sceneLoader;
+
         public GameObject Placeable;
         public GameObject TransparentCog;
 
         // Use this for initialization
         private void Start(){
             _connected = false;
+
+            _sceneLoader = FindObjectOfType<SceneLoader>();
         }
 
         // Update is called once per frame
@@ -43,6 +48,8 @@ namespace Assets.Scripts.PlacementGear{
                     //print("SecondGear - should have parented now");
                     Destroy(Placeable.GetComponent<Pickupable>());
                     TransparentCog.GetComponent<Renderer>().enabled = false;
+
+                    _sceneLoader.LoadScene();
 
                     if (_doOnce){
                         Placeable.transform.Rotate(90, 0, 0);
