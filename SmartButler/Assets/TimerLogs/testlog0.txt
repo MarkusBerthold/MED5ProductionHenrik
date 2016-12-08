@@ -13,3 +13,4 @@ LEFT FOR LIGHT
 LEFT FOR CLOCK
 ,CoffeeTime,42.96762
 ,CoffeeTime,60.78693
+,CoffeeTime,54.23156

@@ -33,7 +33,7 @@ namespace Assets.Scripts.ThoughtBoxes{
 		public GameObject UI;
 		private Canvas _uiCanvas;
 		public GameObject TextPanel;
-		public GameObject FacePanel;
+		public GameObject FacePanel, ClickEnterPanel;
 
 		public Sprite emmasFace, radioSpeakerFace;
 
@@ -72,6 +72,40 @@ namespace Assets.Scripts.ThoughtBoxes{
 			_uiCanvas.worldCamera = Camera.main;
 			CloseThoughtBox ();
 
+			StartCoroutine (StartRadioTalker ());
+
+		}
+		IEnumerator StartRadioTalker(){
+			yield return new WaitForSeconds(6);
+			TextPanel.GetComponent<Text> ().text = "Today, a new version of internet protocol is being introduced.";
+			OpenThoughtBox ("radio");
+			StartCoroutine (NextRadioLine1 ());
+		}
+		IEnumerator NextRadioLine1(){
+			yield return new WaitForSeconds(6);
+			CloseThoughtBox ();
+			TextPanel.GetComponent<Text> ().text = "IP version six, it will greatly improve the efficiency and security of internet connections.";
+			OpenThoughtBox ("radio");
+			StartCoroutine (NextRadioLine2 ());
+		}
+		IEnumerator NextRadioLine2(){
+			yield return new WaitForSeconds(6);
+			CloseThoughtBox ();
+			TextPanel.GetComponent<Text> ().text = "During the transition period, some devices connected to the internet of things may exhibit strange behaviour.";
+			OpenThoughtBox ("radio");
+			StartCoroutine (NextRadioLine3 ());
+		}
+		IEnumerator NextRadioLine3(){
+			yield return new WaitForSeconds(6);
+			CloseThoughtBox ();
+			TextPanel.GetComponent<Text> ().text = "But don’t panic, the change will make life easier.";
+			OpenThoughtBox ("radio");
+			StartCoroutine (NextRadioLine4 ());
+		}
+		IEnumerator NextRadioLine4(){
+			yield return new WaitForSeconds(6);
+			CloseThoughtBox ();
+			ClickEnterPanel.SetActive (true);
 		}
 
 		// Update is called once per frame
