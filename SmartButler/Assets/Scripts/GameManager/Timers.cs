@@ -10,7 +10,7 @@ namespace Assets.Scripts.Timer{
 	public class Timers : MonoBehaviour{
 
 
-		float StartTime,CoffeeTime,SeesRemoteTime,RemoteTime,SeesStereoTime,StereoTime,BackFromClockTime; //timed times we can write to file
+		float StartTime,CoffeeTime,SeesRemoteTime,RemoteTime,SeesStereoTime,StereoTime,ClickedClockTime,BackFromClockTime; //timed times we can write to file
 
 		public int state; 
 
@@ -187,10 +187,19 @@ namespace Assets.Scripts.Timer{
 				EventManager.StopListening ("stereo", Stereo);
 				StereoTime = timer - SeesRemoteTime-CoffeeTime-RemoteTime-SeesStereoTime;
 				if (newPathToAppend != null) {
-					AppendFile (newPathToAppend, "StereoTime," + StereoTime+Environment.NewLine+"LEFT FOR CLOCK"+Environment.NewLine);
+					AppendFile (newPathToAppend, "StereoTime," + StereoTime+Environment.NewLine);
 				} else {
-					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "StereoTime," + StereoTime+Environment.NewLine+"LEFT FOR CLOCK"+Environment.NewLine);
+					AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "StereoTime," + StereoTime+Environment.NewLine);
 				}
+			}
+		}
+
+		public void ClickedClock(){
+			ClickedClockTime = timer - SeesRemoteTime-CoffeeTime-RemoteTime-SeesStereoTime-StereoTime;
+			if (newPathToAppend != null) {
+				AppendFile (newPathToAppend, "ClickedClockTime," + ClickedClockTime+Environment.NewLine+"LEFT FOR CLOCK"+Environment.NewLine);
+			} else {
+				AppendFile (Application.dataPath+"/TimerLogs/testlog0.txt", "ClickedClockTime," + ClickedClockTime+Environment.NewLine+"LEFT FOR CLOCK"+Environment.NewLine);
 			}
 		}
 
@@ -214,6 +223,28 @@ namespace Assets.Scripts.Timer{
 			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
 			print ("appending "+newestfilepath);
 			AppendFile (newestfilepath, "BackFromLight,"+DateTime.Now+Environment.NewLine+"END OF FILE"+Environment.NewLine);
+		}
+
+		public int SystemTimeHours(DateTime datetime){
+			string firstcut = datetime.ToString();
+			string secondcut = firstcut.Substring (11,2);
+
+
+			return int.Parse(secondcut);
+		}
+
+		public int SystemTimeMinutes(DateTime datetime){
+			string firstcut = datetime.ToString();
+			string secondcut = firstcut.Substring (14,2);
+
+
+			return int.Parse(secondcut);
+		}
+		public int SystemTimeSeconds(DateTime datetime){
+			string firstcut = datetime.ToString();
+			string secondcut = firstcut.Substring (17,2);
+
+			return int.Parse(secondcut);
 		}
 	}
 }

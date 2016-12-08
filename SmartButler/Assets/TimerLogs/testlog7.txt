@@ -1,2 +1,4 @@
 ,Start of game time: 12/08/2016 13:05:04
 ,CoffeeTime,48.70877
+testing whatever
+END OF FILE
