@@ -55,12 +55,28 @@ namespace Assets.Scripts.StereoPuzzleV2 {
         /// <param name="booleans"> the booleans to count</param>
         /// <returns>returns and integer with the value of the number of true values</returns>
         public int Truth(params bool[] booleans){
+
             if (NumberOfAlignedPiecesInOrderForThisPuzzleToBeSolved != 0 && booleans.Count(b => b) == NumberOfAlignedPiecesInOrderForThisPuzzleToBeSolved)
             {
                 _puzzleIsSolved = true;
                 EventManager.TriggerEvent("PuzzleIsSolved" + PuzzleNumber);
             }
             return booleans.Count(b => b);
+        }
+
+
+
+
+
+
+        public void Update()
+        {
+            if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.RightAlt) && Input.GetKey(KeyCode.S)) {
+                
+                print("Skipped Stereo");
+                _puzzleIsSolved = true;
+                EventManager.TriggerEvent("PuzzleIsSolved" + 2);
+            }
         }
 
         public char GetIpPositionValue(int ipPosition){
