@@ -2,6 +2,7 @@
     Script handles the state of the environment
 */
 
+using System.Collections;
 using Assets.Scripts.Highlighting;
 using Assets.Scripts.LivingRoom.LivingRoomSoundtrack;
 using Assets.Scripts.MessageingSystem;
@@ -131,6 +132,8 @@ namespace Assets.Scripts.GameManager {
                             _soundManager.StopListening();
                             _soundManager.ShouldListen = false;
                             _LivingRoomsSoundtrack.SetState("Light");
+                            StartCoroutine(EndGame());
+                            
                             goto default;
                         case State.BackFromStereo:
                             _stereoLoader.IsEnterable = false;
@@ -201,6 +204,12 @@ namespace Assets.Scripts.GameManager {
 
             return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager &
                    _LivingRoomsSoundtrack & _wallClockHighlighter;
+        }
+
+        IEnumerator EndGame()
+        {
+            yield return new WaitForSeconds(10);
+            AutoFade.LoadLevel(0, 1, 1, Color.black);
         }
     }
 }
