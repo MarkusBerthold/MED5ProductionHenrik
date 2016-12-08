@@ -36,7 +36,7 @@ namespace Assets.Scripts.Timer{
 			print ("checking if there are any files");
 			if (File.Exists (Application.dataPath + "/TimerLogs/testlog0.txt")) { //does file0 exist?
 				FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");  // if yes, directory is not empty, find the latest file
-				 ("The newest found file is " + newestfilepath);
+				 print("The newest found file is " + newestfilepath);
 
 				newestfilelines = System.IO.File.ReadAllLines (newestfilepath); //read all the lines as strings in an array
 

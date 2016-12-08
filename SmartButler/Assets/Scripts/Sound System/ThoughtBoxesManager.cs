@@ -32,7 +32,10 @@ namespace Assets.Scripts.ThoughtBoxes{
 		public State[] Arrayofstates;
 		public GameObject UI;
 		private Canvas _uiCanvas;
-		public GameObject panel;
+		public GameObject TextPanel;
+		public GameObject FacePanel;
+
+		public Sprite emmasFace, radioSpeakerFace;
 
 		private int EndTime;
 
@@ -92,8 +95,8 @@ namespace Assets.Scripts.ThoughtBoxes{
 				//play intros, some state dont have intros, some "interactions" are intros
 				for (var i = 0; i < Arrayofstates [_state].AmountOfIntros; i++)
 					if (_uiCanvas.enabled == false && !Arrayofstates [_state].StateIntrosBeenPlayed [i]) {
-						panel.GetComponent<Text>().text = Arrayofstates [_state].StateIntros [i];
-						OpenThoughtBox ();
+						TextPanel.GetComponent<Text>().text = Arrayofstates [_state].StateIntros [i];
+						OpenThoughtBox ("emma");
 						Arrayofstates [_state].StateIntrosBeenPlayed [i] = true;
 						_introsHasBeenPlayed = true;
 					}
@@ -104,8 +107,8 @@ namespace Assets.Scripts.ThoughtBoxes{
 				for (var j = 0; j < Arrayofstates [_state].AmountOfCues; j++)
 					if (_uiCanvas.enabled == false && !Arrayofstates [_state].StateCuesBeenPlayed [j] && _introsHasBeenPlayed) {
 						int rand = (int)(10 * UnityEngine.Random.Range (0.0f, (Arrayofstates [_state].AmountOfCues / 10f)));
-						panel.GetComponent<Text>().text = Arrayofstates [_state].StateCues [rand];
-						OpenThoughtBox ();
+						TextPanel.GetComponent<Text>().text = Arrayofstates [_state].StateCues [rand];
+						OpenThoughtBox ("emma");
 						Arrayofstates [_state].StateCuesBeenPlayed [j] = true;
 						if (!doOncePerState) {
 							StartCoroutine (coroutines [_state]);
@@ -122,16 +125,20 @@ namespace Assets.Scripts.ThoughtBoxes{
 		public void CloseThoughtBox(){
 			if(_uiCanvas.enabled == true){
 				_uiCanvas.enabled = false;
-				EventManager.TriggerEvent("EnableControls");
-				Time.timeScale = 1.0f;
+				//EventManager.TriggerEvent("EnableControls");
+				//Time.timeScale = 1.0f;
 			}
 		}
 
-		public void OpenThoughtBox(){
-			//yield return new WaitForSeconds(1.0f);
+		public void OpenThoughtBox(string Speaker){
+
+			if (Speaker == "emma")
+				FacePanel.GetComponent<Image> ().sprite = emmasFace;
+
+			if(Speaker == "radio")
+				FacePanel.GetComponent<Image> ().sprite = radioSpeakerFace;
+			
 			_uiCanvas.enabled = true;
-			EventManager.TriggerEvent("DisableControls");
-			Time.timeScale = 0f;
 		}
 
 		/// <summary>
