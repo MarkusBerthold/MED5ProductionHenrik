@@ -1,11 +1,9 @@
-,Start of game time,12/09/2016 10:38:21
-,StartCoffeeMachine,17
-,GoToRemoteControl,12
-,StartRemoteControl,4
-,GoToStereo,5
-,StereoTime,-58
-,GoToWallClock,9
-LEFT FOR CLOCK AT: 36610
-,BackFromClock,12/09/2016 10:39:50
-LEFT FOR STEREO
+,Start of game time,12/09/2016 11:20:04
+,StartCoffeeMachine,12
+,GoToRemoteControl,8
+,StartRemoteControl,3
+,GoToStereo,3
+,StartStereo,4
+,GoToWallClock,2
+LEFT FOR CLOCK AT: 40296
 END OF FILE

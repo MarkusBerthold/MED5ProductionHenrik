@@ -1,0 +1,11 @@
+,Start of game time,44002 12/09/2016 12:13:22
+,StartCoffeeMachine,18
+,GoToRemoteControl,9
+,StartRemoteControl,2
+,GoToStereo,6
+,StartStereo,5
+,GoToWallClock,5
+LEFT FOR CLOCK AT: 44047
+,SystemTimer1,44047
+,SystemTimer2,44085
+END OF FILE

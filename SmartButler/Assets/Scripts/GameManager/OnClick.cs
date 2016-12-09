@@ -11,8 +11,15 @@ public class OnClick : MonoBehaviour {
 
 
 	void OnMouseDown () {
+		if(this.name == "wallClock_centerFace")
+			Timerss.GetComponent<Timers> ().ClickedClock ();
 
-		Timerss.GetComponent<Timers> ().ClickedClock ();
+		if(this.name == "speaker")
+			Timerss.GetComponent<Timers> ().ClickedStereo ();
+
+
+		if(this.name == "remote")
+			Timerss.GetComponent<Timers> ().ClickedRemote ();
 	
 	}
 

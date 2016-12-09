@@ -33,7 +33,7 @@ namespace Assets.Scripts.Timer{
 		}
 
 		void Start (){
-
+			starttime = DateTime.Now;
 
 
 			print ("checking if there are any files");
@@ -48,7 +48,8 @@ namespace Assets.Scripts.Timer{
 				print ("checking what the last line of the file is");
 				if (newestfilelines [newestfilelines.Length-1] == "END OF FILE") { //read the last line, is it END OF FILE?
 					print ("it ends in END OF FILE");
-					starttime = System.DateTime.Now;  //time when we start the game
+					//starttime = System.DateTime.Now;  //time when we start the game
+					//print("initial starttime: "+TotalSystemTimeSeconds(starttime));
 					_someListener = Coffee;
 
 					//int lengthofnewestfilepath = newestfilepath.Length;
@@ -59,7 +60,7 @@ namespace Assets.Scripts.Timer{
 					newPathToAppend = newestfilepath.Substring (0, newestfilepath.Length - 5) + (filenr + 1) + ".txt"; //and make a new one with that number+1
 
 					print ("creating a new file at "+newPathToAppend);
-					WriteNewFile (newPathToAppend, "Start of game time," + starttime + Environment.NewLine);
+					WriteNewFile (newPathToAppend, "Start of game time," + TotalSystemTimeSeconds(starttime)+" "+DateTime.Now.ToString() + Environment.NewLine);
 				}else if (newestfilelines [newestfilelines.Length-1].StartsWith("LEFT FOR CLOCK")) { //read the last line, does it start with LEFT FOR CLOCK?
 					print ("it ends in LEFT FOR CLOCK");
 					BackFromClock (); // we had left for clock, and now we are back
@@ -74,10 +75,11 @@ namespace Assets.Scripts.Timer{
 					return;
 				}
 			} else { // if there is no file0, then the directory is empty
-				starttime = System.DateTime.Now;  //time when we start the game
+				//starttime = System.DateTime.Now;  //time when we start the game
+				//print("initial starttime: "+TotalSystemTimeSeconds(starttime));
 				_someListener = Coffee;
 				print ("there were no files, making file0");
-				WriteNewFile (Application.dataPath + "/TimerLogs/testlog0.txt", "Start of game time," + starttime + Environment.NewLine); //create file0
+				WriteNewFile (Application.dataPath + "/TimerLogs/testlog0.txt", "Start of game time," + TotalSystemTimeSeconds( starttime)+" "+DateTime.Now.ToString() + Environment.NewLine); //create file0
 			}
 		}
 
@@ -106,23 +108,23 @@ namespace Assets.Scripts.Timer{
 			string result;
 
 			if (File.Exists (path)) {  //does fileX exist? yes
-					if(path.Length == 88){ //filenumber is 0-9
+					if(path.Length == 88){ //filenumber is 0-9 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 5, 1)); //get the file number
 					result = path.Substring (0, path.Length - 5) + (filenr+1) + ".txt"; //increment the number 
 					
 					FindNewestFile (result); //call function again with new file path
-				}else if(path.Length == 89){ //filenumber sis 10-99
+				}else if(path.Length == 89){ //filenumber sis 10-99 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 6, 2)); //get the file number
 					result = path.Substring (0, path.Length - 6) + (filenr+1) + ".txt"; //increment the number 
 
 					FindNewestFile (result); //call function again with new file path
 				}
 			} else { //does fileX exist? no
-				if(path.Length == 88){ //filenumber is 0-9
+				if(path.Length == 88){ //filenumber is 0-9 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 5, 1)); //get the file number
 					result = path.Substring (0, path.Length - 5) + (filenr-1) + ".txt"; //decrement the number
 					newestfilepath = result; //change this variable
-				}else if(path.Length == 89){ //filenumber is 10-99
+				}else if(path.Length == 89){ //filenumber is 10-99 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 6, 2)); //get the file number
 					result = path.Substring (0, path.Length - 6) + (filenr-1) + ".txt"; //decrement the number
 					newestfilepath = result; //change this variable
@@ -154,9 +156,12 @@ namespace Assets.Scripts.Timer{
 			EventManager.StopListening ("coffeebutton", _someListener);
 
 			CoffeeMachineOn = TotalSystemTimeSeconds (DateTime.Now);
+			print ("CoffeeMachineOn: "+CoffeeMachineOn);
+			print ("StartTime: "+TotalSystemTimeSeconds(starttime));
 
 			StartCoffeeMachine = CoffeeMachineOn - TotalSystemTimeSeconds(starttime);
 
+			print ("CoffeeMachineOn minus StartTime is: "+StartCoffeeMachine);
 			if (newPathToAppend != null) {
 				AppendFile (newPathToAppend, "StartCoffeeMachine," + StartCoffeeMachine+Environment.NewLine);
 			} else {
@@ -170,8 +175,11 @@ namespace Assets.Scripts.Timer{
 				EventManager.StopListening("seesremote", SeesRemote);
 
 				ViewRemoteControl = TotalSystemTimeSeconds (DateTime.Now);
+				print ("ViewRemoteControl: "+ViewRemoteControl);
+				print ("CoffeeMachineOn: "+CoffeeMachineOn);
 
 				GoToRemoteControl = ViewRemoteControl-CoffeeMachineOn;
+				print ("ViewRemoteControl minus CoffeeMachineOn is: "+GoToRemoteControl);
 
 				if (newPathToAppend != null) {
 					AppendFile (newPathToAppend, "GoToRemoteControl," + GoToRemoteControl+Environment.NewLine);
@@ -247,6 +255,7 @@ namespace Assets.Scripts.Timer{
 
 				ClickedClockTime = TotalSystemTimeSeconds (DateTime.Now);
 
+
 				GoToWallClock = ClickedClockTime - StereoOn;
 
 				if (newPathToAppend != null) {
@@ -260,21 +269,48 @@ namespace Assets.Scripts.Timer{
 		public void BackFromClock(){
 			state = 7;
 			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
-			print ("appending "+newestfilepath);
+			//print ("appending "+newestfilepath);
 
 			int lengthoflastlinenumbers = (newestfilelines [newestfilelines.Length - 1].Length)-18;
-			string leftatstring = newestfilelines [newestfilelines.Length - 1].Substring (18,lengthoflastlinenumbers);
+			int leftat = int.Parse(newestfilelines [newestfilelines.Length - 1].Substring (18,lengthoflastlinenumbers));
 
-			print ("I think that you left for the clock level at: "+leftatstring);
-			AppendFile (newestfilepath, "BackFromClock," + DateTime.Now + Environment.NewLine + "LEFT FOR STEREO" + Environment.NewLine);
+			SystemTimer1 = leftat;
+			SystemTimer2 = TotalSystemTimeSeconds (DateTime.Now);
+			AppendFile (newestfilepath, "SystemTimer1," + SystemTimer1 + Environment.NewLine);
+			AppendFile (newestfilepath, "SystemTimer2," + SystemTimer2 + Environment.NewLine);
+		}
+
+		public void ClickedStereo(){
+			if (state == 7) {
+				SystemTimer3 = TotalSystemTimeSeconds (DateTime.Now);
+				AppendFile (newestfilepath, "SystemTimer3," + SystemTimer3 + Environment.NewLine);
+				int FromApartmentToStereo = TotalSystemTimeSeconds (DateTime.Now) - SystemTimer2;
+				AppendFile (newestfilepath, "FromApartmentToStereo," + FromApartmentToStereo + Environment.NewLine+"LEFT FOR STEREO AT: "+TotalSystemTimeSeconds (DateTime.Now)+Environment.NewLine);
+			}
 		}
 
 
 		public void BackFromStereo(){
 			state = 8;
 			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
-			print ("appending "+newestfilepath);
+
+			int lengthoflastlinenumbers = (newestfilelines [newestfilelines.Length - 1].Length)-19;
+			int leftat = int.Parse(newestfilelines [newestfilelines.Length - 1].Substring (19,lengthoflastlinenumbers));
+
+			SystemTimer4 = TotalSystemTimeSeconds (DateTime.Now);
+			AppendFile (newestfilepath, "SystemTimer4," + SystemTimer4 + Environment.NewLine);
+			print ("I think you left for stereo at: "+leftat);
+
 			AppendFile (newestfilepath, "BackFromStereo,"+DateTime.Now+Environment.NewLine+"LEFT FOR LIGHT"+Environment.NewLine);
+		}
+
+		public void ClickedRemote(){
+			if (state == 8) {
+				SystemTimer5 = TotalSystemTimeSeconds (DateTime.Now);
+				AppendFile (newestfilepath, "SystemTimer5," + SystemTimer5 + Environment.NewLine);
+				int FromApartmentToLight = TotalSystemTimeSeconds (DateTime.Now) - SystemTimer4;
+				AppendFile (newestfilepath, "FromApartmentToStereo," + FromApartmentToLight + Environment.NewLine+"LEFT FOR LIGHT AT: "+TotalSystemTimeSeconds (DateTime.Now)+Environment.NewLine);
+			}
 		}
 
 		public void BackFromLight(){
@@ -286,10 +322,10 @@ namespace Assets.Scripts.Timer{
 
 		public int SystemTimeHours(DateTime datetime){
 			string firstcut = datetime.ToString();
-			string secondcut = firstcut.Substring (11,2);
+			string secondcut = firstcut.Substring (11,2); //extract hours, should work every time
 
 
-			return int.Parse(secondcut);
+			return int.Parse(secondcut); //convert string to int, 07 -> 7, 00 ->0 et.c
 		}
 
 		public int SystemTimeMinutes(DateTime datetime){
@@ -308,7 +344,8 @@ namespace Assets.Scripts.Timer{
 		public int TotalSystemTimeSeconds(DateTime datetime){
 
 			int hoursToSeconds = (SystemTimeHours (datetime)*60)*60;
-			int minutesToSeconds = SystemTimeHours (datetime)*60;
+			int minutesToSeconds = SystemTimeMinutes (datetime)*60;
+		
 
 			return hoursToSeconds + minutesToSeconds + SystemTimeSeconds (datetime);
 			
