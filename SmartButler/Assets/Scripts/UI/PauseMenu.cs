@@ -48,7 +48,8 @@ public class PauseMenu : MonoBehaviour {
 
 
     public void OnExit(){
-        TogglePauseMenu();
-        AutoFade.LoadLevel(0, 1, 1, Color.black);
+        //TogglePauseMenu();
+        //AutoFade.LoadLevel(0, 1, 1, Color.black);
+        Application.Quit();
     }
 }
