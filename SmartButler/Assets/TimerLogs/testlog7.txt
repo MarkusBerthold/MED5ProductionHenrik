@@ -1,0 +1,7 @@
+,Start of game time,12/09/2016 10:41:23
+,StartCoffeeMachine,18
+,GoToRemoteControl,7
+,StartRemoteControl,2
+,GoToStereo,6
+,StartStereo,-54
+END OF FILE
