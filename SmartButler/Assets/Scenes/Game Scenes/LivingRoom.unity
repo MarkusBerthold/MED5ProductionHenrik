@@ -333,6 +333,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rotspeed: 0
+--- !u!1 &89901396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 89901397}
+  - 114: {fileID: 89901398}
+  m_Layer: 0
+  m_Name: TimerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &89901397
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89901396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 588814887}
+  m_RootOrder: 12
+--- !u!114 &89901398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 89901396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f09cc806f11e24e7f863505a9f97e013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  ShouldListen: 1
 --- !u!1 &111218203
 GameObject:
   m_ObjectHideFlags: 0
@@ -3655,6 +3697,7 @@ Transform:
   - {fileID: 214553277}
   - {fileID: 1949820791}
   - {fileID: 1441395507}
+  - {fileID: 89901397}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &593730815 stripped
