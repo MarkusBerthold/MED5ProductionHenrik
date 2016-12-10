@@ -9,10 +9,13 @@ using UnityEngine.Events;
 namespace Assets.Scripts.Timer{
 	public class Timers : MonoBehaviour{
 
+		int filePathLength09 = 88;
+		int filePathLength1099 = 89;
+
 
 		int StartTime,StartCoffeeMachine,GoToRemoteControl,StartRemoteControl,GoToStereo,StartStereo,GoToWallClock,
 		FromApartmentToStereoLevel,FromApartmentToLightLevel,SystemTimer1,SystemTimer2,SystemTimer3,SystemTimer4,SystemTimer5,
-		SystemTime6, ClockLevel,StereoLevel,LightLevel; //timed times we can write to file
+		SystemTimer6, ClockLevel,StereoLevel,LightLevel; //timed times we can write to file
 
 		int CoffeeMachineOn,ViewRemoteControl,RemoteControlOn,ViewStereo,StereoOn,ClickedClockTime; //other times
 
@@ -46,7 +49,7 @@ namespace Assets.Scripts.Timer{
 				print ("readin the lines of "+newestfilepath);
 
 				print ("checking what the last line of the file is");
-				if (newestfilelines [newestfilelines.Length-1] == "END OF FILE") { //read the last line, is it END OF FILE?
+				if (newestfilelines [newestfilelines.Length-1] == ",END OF FILE") { //read the last line, is it END OF FILE?
 					print ("it ends in END OF FILE");
 					//starttime = System.DateTime.Now;  //time when we start the game
 					//print("initial starttime: "+TotalSystemTimeSeconds(starttime));
@@ -54,21 +57,33 @@ namespace Assets.Scripts.Timer{
 
 					//int lengthofnewestfilepath = newestfilepath.Length;
 					//print ("LENGTH OF FILE PATH IS "+lengthofnewestfilepath);
+					int filenr;
+					print ("file path length: "+newestfilepath.Length);
 
-					int filenr = int.Parse (newestfilepath.Substring (newestfilepath.Length - 5, 1)); //if yes, check which number the latest file has
+					if (newestfilepath.Length == filePathLength09) {
+						filenr = int.Parse (newestfilepath.Substring (newestfilepath.Length - 5, 1)); //if yes, check which number the latest file has
+					} else if (newestfilepath.Length == filePathLength1099) {
+						filenr = int.Parse (newestfilepath.Substring (newestfilepath.Length - 6, 2)); //if yes, check which number the latest file has
+					} else {
+						filenr = 666;
+					}
 
-					newPathToAppend = newestfilepath.Substring (0, newestfilepath.Length - 5) + (filenr + 1) + ".txt"; //and make a new one with that number+1
+					if (newestfilepath.Length == filePathLength09) {
+						newPathToAppend = newestfilepath.Substring (0, newestfilepath.Length - 5) + (++filenr) + ".txt"; //and make a new one with that number+1
+					} else if (newestfilepath.Length == filePathLength1099) {
+						newPathToAppend = newestfilepath.Substring (0, newestfilepath.Length - 6) + (++filenr) + ".txt"; //and make a new one with that number+1
+					}
 
 					print ("creating a new file at "+newPathToAppend);
 					WriteNewFile (newPathToAppend, "Start of game time," + TotalSystemTimeSeconds(starttime)+" "+DateTime.Now.ToString() + Environment.NewLine);
 				}else if (newestfilelines [newestfilelines.Length-1].StartsWith("LEFT FOR CLOCK")) { //read the last line, does it start with LEFT FOR CLOCK?
 					print ("it ends in LEFT FOR CLOCK");
 					BackFromClock (); // we had left for clock, and now we are back
-				} else if (newestfilelines [newestfilelines.Length-1].StartsWith("LEFT FROM STEREO")) { //read the last line, does it start with LEFT FOR STEREO?
+				} else if (newestfilelines [newestfilelines.Length-1].StartsWith("LEFT FOR STEREO")) { //read the last line, does it start with LEFT FOR STEREO?
 					print ("it ends in LEFT FOR STEREO");
 					print ("calling backfromstereo()");
 					BackFromStereo (); // we had left for stereo, and now we are back
-				} else if (newestfilelines [newestfilelines.Length-1].StartsWith("LEFT FROM LIGHT")) { //read the last line, does it start with END OF LEFT FOR LIGHT???
+				} else if (newestfilelines [newestfilelines.Length-1].StartsWith("LEFT FOR LIGHT")) { //read the last line, does it start with END OF LEFT FOR LIGHT???
 					print ("it ends in LEFT FOR LIGHT");
 					BackFromLight (); // we had left for light, and now we are back
 				} else { 
@@ -108,26 +123,32 @@ namespace Assets.Scripts.Timer{
 			string result;
 
 			if (File.Exists (path)) {  //does fileX exist? yes
-					if(path.Length == 88){ //filenumber is 0-9 this is hardcoded and might lead to issues
+				if(path.Length == filePathLength09){ //filenumber is 0-9 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 5, 1)); //get the file number
-					result = path.Substring (0, path.Length - 5) + (filenr+1) + ".txt"; //increment the number 
+					result = path.Substring (0, path.Length - 5) + (++filenr) + ".txt"; //increment the number 
 					
 					FindNewestFile (result); //call function again with new file path
-				}else if(path.Length == 89){ //filenumber sis 10-99 this is hardcoded and might lead to issues
+				}else if(path.Length == filePathLength1099){ //filenumber is 10-99 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 6, 2)); //get the file number
-					result = path.Substring (0, path.Length - 6) + (filenr+1) + ".txt"; //increment the number 
+					print("file number is "+filenr);
+					result = path.Substring (0, path.Length - 6) + (++filenr) + ".txt"; //increment the number 
 
 					FindNewestFile (result); //call function again with new file path
 				}
 			} else { //does fileX exist? no
-				if(path.Length == 88){ //filenumber is 0-9 this is hardcoded and might lead to issues
+				if(path.Length == filePathLength09){ //filenumber is 0-9 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 5, 1)); //get the file number
-					result = path.Substring (0, path.Length - 5) + (filenr-1) + ".txt"; //decrement the number
+					print("file number "+filenr+" does not exist, going back one step");
+					result = path.Substring (0, path.Length - 5) + (--filenr) + ".txt"; //decrement the number
+
 					newestfilepath = result; //change this variable
-				}else if(path.Length == 89){ //filenumber is 10-99 this is hardcoded and might lead to issues
+					print("newest file path is "+newestfilepath);
+				}else if(path.Length == filePathLength1099){ //filenumber is 10-99 this is hardcoded and might lead to issues
 					int filenr = int.Parse (path.Substring (path.Length - 6, 2)); //get the file number
-					result = path.Substring (0, path.Length - 6) + (filenr-1) + ".txt"; //decrement the number
+					print("file number "+filenr+" does not exist, going back one step");
+					result = path.Substring (0, path.Length - 6) + (--filenr) + ".txt"; //decrement the number
 					newestfilepath = result; //change this variable
+					print("newest file path is "+newestfilepath);
 				}
 			}
 		}
@@ -138,16 +159,23 @@ namespace Assets.Scripts.Timer{
 		public void WriteNewFile(string path,string textToWrite){
 
 			System.IO.File.WriteAllText (path, "," + textToWrite);
-			
+		}
+		public void WriteNewCleanFile(string path,string textToWrite){
 
+			System.IO.File.WriteAllText (path, textToWrite+Environment.NewLine);
+		}
 		/**
 		 * Function appends a file at the path with the string
 		 */
-		}
 
 		public void AppendFile(string path,string textToWrite){
 
 			System.IO.File.AppendAllText (path, "," + textToWrite);
+		}
+
+		public void AppendCleanFile(string path,string textToWrite){
+
+			System.IO.File.AppendAllText (path, textToWrite+Environment.NewLine);
 		}
 
 
@@ -301,23 +329,80 @@ namespace Assets.Scripts.Timer{
 			AppendFile (newestfilepath, "SystemTimer4," + SystemTimer4 + Environment.NewLine);
 			print ("I think you left for stereo at: "+leftat);
 
-			AppendFile (newestfilepath, "BackFromStereo,"+DateTime.Now+Environment.NewLine+"LEFT FOR LIGHT"+Environment.NewLine);
 		}
 
 		public void ClickedRemote(){
 			if (state == 8) {
+				state = 9;
 				SystemTimer5 = TotalSystemTimeSeconds (DateTime.Now);
 				AppendFile (newestfilepath, "SystemTimer5," + SystemTimer5 + Environment.NewLine);
 				int FromApartmentToLight = TotalSystemTimeSeconds (DateTime.Now) - SystemTimer4;
-				AppendFile (newestfilepath, "FromApartmentToStereo," + FromApartmentToLight + Environment.NewLine+"LEFT FOR LIGHT AT: "+TotalSystemTimeSeconds (DateTime.Now)+Environment.NewLine);
+				AppendFile (newestfilepath, "FromApartmentToLight," + FromApartmentToLight + Environment.NewLine+"LEFT FOR LIGHT AT: "+TotalSystemTimeSeconds (DateTime.Now)+Environment.NewLine);
 			}
 		}
 
 		public void BackFromLight(){
-			state = 9;
+			state = 10;
 			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
-			print ("appending "+newestfilepath);
-			AppendFile (newestfilepath, "BackFromLight,"+DateTime.Now+Environment.NewLine+"END OF FILE"+Environment.NewLine);
+
+			int lengthoflastlinenumbers = (newestfilelines [newestfilelines.Length - 1].Length)-18;
+			int leftat = int.Parse(newestfilelines [newestfilelines.Length - 1].Substring (18,lengthoflastlinenumbers));
+
+			SystemTimer6 = TotalSystemTimeSeconds (DateTime.Now);
+			AppendFile (newestfilepath, "SystemTimer6," + SystemTimer6 + Environment.NewLine);
+			print ("I think you left for light at: "+leftat);
+
+			AppendFile (newestfilepath,"END OF FILE"+Environment.NewLine);
+			CleanUpFile (newestfilepath);
+		}
+		void CleanUpFile(string path){
+
+			int TimeInClockLevel, TimeInStereoLevel, TimeInLightLevel, StartedGame, TotalGameTime;
+
+			newestfilelines = System.IO.File.ReadAllLines (newestfilepath); //read all the lines as strings in an array
+
+			string[] cleanfile = new string[newestfilelines.Length-5]; // i think 19 - 5 = 14
+
+
+			SystemTimer1 = int.Parse(newestfilelines [8].Substring (14,5));
+			SystemTimer2 = int.Parse(newestfilelines [9].Substring (14,5));
+			SystemTimer3 = int.Parse(newestfilelines [10].Substring (14,5));
+			SystemTimer4 = int.Parse(newestfilelines [13].Substring (14,5));
+			SystemTimer5 = int.Parse(newestfilelines [14].Substring (14,5));
+			SystemTimer6 = int.Parse(newestfilelines [17].Substring (14,5));
+
+			StartedGame = int.Parse(newestfilelines [0].Substring (20,5));
+			TotalGameTime = TotalSystemTimeSeconds (DateTime.Now) - StartedGame;
+
+			TimeInClockLevel = SystemTimer2 - SystemTimer1;
+			TimeInStereoLevel = SystemTimer4 - SystemTimer3;
+			TimeInLightLevel = SystemTimer6 - SystemTimer5;
+
+			cleanfile [0] = newestfilelines [0]; //writing start of game
+			cleanfile [1] = newestfilelines [1]; //writing StartCoffeeMachine
+			cleanfile [2] = newestfilelines [2]; //writing GoToRemoteControl
+			cleanfile [3] = newestfilelines [3]; //writing StartRemoteControl
+			cleanfile [4] = newestfilelines [4]; //writing GoToStereo
+			cleanfile [5] = newestfilelines [5]; //writing StartStereo
+			cleanfile [6] = newestfilelines [6]; //writing GoToWallClock
+			cleanfile [7] = ",TimeInClockLevel," + TimeInClockLevel; //writing time in clock level
+			cleanfile [8] = newestfilelines [11]; //writing FromApartmentToStereo
+			cleanfile [9] = ",TimeInStereoLevel," + TimeInStereoLevel;
+			cleanfile [10] = newestfilelines [15]; //writing FromApartmentToLight
+			cleanfile [11] = ",TimeInLightLevel," + TimeInLightLevel;
+			cleanfile [12] = ",TotalTimeInGame," + TotalGameTime;
+			cleanfile [13] = newestfilelines [newestfilelines.Length - 1]; //end of file
+
+			System.IO.File.Delete (newestfilepath);
+
+			//write the first line as a new file
+			WriteNewCleanFile (newestfilepath, cleanfile[0]);
+
+			for (int i = 1; i < cleanfile.Length; i++){
+				//append the rest of the lines
+				AppendCleanFile (newestfilepath, cleanfile [i]);
+			}
+
 		}
 
 		public int SystemTimeHours(DateTime datetime){
