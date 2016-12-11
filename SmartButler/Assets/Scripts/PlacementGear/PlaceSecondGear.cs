@@ -2,6 +2,8 @@
 using Assets.Scripts.PickUp;
 using UnityEngine;
 using Assets.Scripts.MessageingSystem;
+using System.Collections;
+using Assets.Scripts.IoTFactsNS;
 
 namespace Assets.Scripts.PlacementGear{
     public class PlaceSecondGear : MonoBehaviour{
@@ -18,12 +20,16 @@ namespace Assets.Scripts.PlacementGear{
         public GameObject Placeable;
         public GameObject TransparentCog;
 
+		public GameObject IoTFact;
+
         // Use this for initialization
         private void Start(){
             _connected = false;
 
             _sceneLoader = FindObjectOfType<SceneLoader>();
         }
+
+
 
         // Update is called once per frame
         private void Update(){
@@ -49,7 +55,8 @@ namespace Assets.Scripts.PlacementGear{
                     Destroy(Placeable.GetComponent<Pickupable>());
                     TransparentCog.GetComponent<Renderer>().enabled = false;
 
-                    _sceneLoader.LoadScene();
+					StartCoroutine (loadscene());
+					IoTFact.GetComponent<IoTFacts> ().PlayOnExit ();
 
                     if (_doOnce){
                         Placeable.transform.Rotate(90, 0, 0);
@@ -59,6 +66,11 @@ namespace Assets.Scripts.PlacementGear{
                 }
         }
 
+		IEnumerator loadscene(){
+			yield return new WaitForSeconds (5);
+			_sceneLoader.LoadScene();
+		}
+
         /// <summary>
         /// Returns _connected variable
         /// </summary>
@@ -66,6 +78,8 @@ namespace Assets.Scripts.PlacementGear{
         public bool GetConnected(){
             return _connected;
         }
+
+
 
         /// <summary>
         /// Sets boolean _shouldRotate to a given value
@@ -83,5 +97,6 @@ namespace Assets.Scripts.PlacementGear{
         public bool GetShouldRotate(){
             return _shouldRotate;
         }
+			
     }
 }

@@ -87,7 +87,7 @@ namespace Assets.Characters.FirstPersonCharacter.Scripts {
             EventManager.StartListening("SceneChange", OnSceneChange);
 
             Debug.Log("FPSCon loaded  ::  " + _loaded);
-            if (_loaded && SceneManager.GetActiveScene().buildIndex == 1){
+            if (_loaded && SceneManager.GetActiveScene().buildIndex == 0){
                 Debug.Log("adjusting fps position");
                 transform.position = _livingRoomSpawnPos;
             }
