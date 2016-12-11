@@ -1,15 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts.MessageingSystem;
+using UnityEngine.Events;
 
 namespace Assets.Scripts.IoTFactsNS{
 	public class IoTFacts : MonoBehaviour{
+
+		private UnityAction _someAction;
 
 		public AudioSource audiosource;
 		public AudioClip[] clips;
 
 		// Use this for initialization
 		void Start (){
+			_someAction = PlayOnExit;
 			StartCoroutine (PlayOnEnter ());
+			EventManager.StartListening("PuzzleIsSolved2", _someAction);
 		}
 	
 		// Update is called once per frame

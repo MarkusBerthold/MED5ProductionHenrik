@@ -25,7 +25,7 @@ namespace Assets.Scripts.GameManager {
 
         private void Start(){
             _loading = false;
-            _someAction = LoadScene;
+            _someAction = LoadSceneDelayed;
             //    if (SceneManager.GetActiveScene().name.Equals("Stereo")) ;
             EventManager.StartListening("PuzzleIsSolved2", _someAction);
         }
@@ -54,7 +54,14 @@ namespace Assets.Scripts.GameManager {
 
             }
         }
+		public void LoadSceneDelayed(){
 
+			StartCoroutine (DelayedLoadNewScene());
+		}
+		private IEnumerator DelayedLoadNewScene(){
+			yield return new WaitForSeconds (5);
+			StartCoroutine(LoadNewScene());
+		}
         private IEnumerator LoadNewScene(){
             //start fading
             AutoFade.LoadLevel(TargetScene.ToString(), 2, 1, Color.black);
