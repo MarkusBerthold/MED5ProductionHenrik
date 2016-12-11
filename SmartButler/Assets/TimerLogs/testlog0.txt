@@ -1,0 +1,4 @@
+,Start of game time,56626 12/11/2016 15:43:46
+,StartCoffeeMachine,11
+,Game ended early
+,END OF FILE

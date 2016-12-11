@@ -1,0 +1,10 @@
+,Start of game time,57990 12/11/2016 16:06:30
+,StartCoffeeMachine,15
+,GoToRemoteControl,5
+,StartRemoteControl,8
+,GoToStereo,6
+,StartStereo,2
+,GoToWallClock,2
+LEFT FOR CLOCK AT: 58028
+,Game ended early in Clock
+,END OF FILE

@@ -437,5 +437,17 @@ namespace Assets.Scripts.Timer{
 			return hoursToSeconds + minutesToSeconds + SystemTimeSeconds (datetime);
 			
 		}
+		void OnApplicationQuit() {
+
+			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");  // if yes, directory is not empty, find the latest file
+
+			newestfilelines = System.IO.File.ReadAllLines (newestfilepath); //read all the lines as strings in an array
+
+			if(newestfilelines[newestfilelines.Length-1] != ",END OF FILE"){
+				AppendFile (newestfilepath,"Game ended early"+Environment.NewLine);
+				AppendFile (newestfilepath,"END OF FILE"+Environment.NewLine);
+			}
+
+		}
 	}
 }
