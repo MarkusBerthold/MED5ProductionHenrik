@@ -2428,8 +2428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audiosource: {fileID: 569843013}
   clips:
-  - {fileID: 8300000, guid: 47adf451ac87d584a98e018c15145679, type: 3}
-  - {fileID: 8300000, guid: 4eb33ba283c1a09449eb2cb155b8e07e, type: 3}
+  - {fileID: 8300000, guid: 10a60ef92588443f2865a65b8d5f57b0, type: 3}
+  - {fileID: 8300000, guid: dde2a39ff44d444e4a9b9b6676986c8f, type: 3}
 --- !u!82 &569843013
 AudioSource:
   m_ObjectHideFlags: 0

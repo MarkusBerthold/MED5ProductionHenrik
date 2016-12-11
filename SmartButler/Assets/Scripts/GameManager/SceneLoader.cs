@@ -23,9 +23,11 @@ namespace Assets.Scripts.GameManager {
 
         public Scene TargetScene;
 
+		private int delaytime = 5;
+
         private void Start(){
             _loading = false;
-            _someAction = LoadSceneDelayed;
+			_someAction = LoadSceneDelayed;
             //    if (SceneManager.GetActiveScene().name.Equals("Stereo")) ;
             EventManager.StartListening("PuzzleIsSolved2", _someAction);
         }
@@ -38,8 +40,9 @@ namespace Assets.Scripts.GameManager {
 
         //If player collides with this object, load a scene
         private void OnTriggerEnter(Collider coll){
+			delaytime = 7;
             if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "ThirdPerson")
-                LoadSceneDelayed();
+				LoadSceneDelayed();
         }
 
         /// <summary>
@@ -59,7 +62,7 @@ namespace Assets.Scripts.GameManager {
 			StartCoroutine (DelayedLoadNewScene());
 		}
 		private IEnumerator DelayedLoadNewScene(){
-			yield return new WaitForSeconds (5);
+			yield return new WaitForSeconds (delaytime);
 			StartCoroutine(LoadNewScene());
 		}
         private IEnumerator LoadNewScene(){

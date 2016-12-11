@@ -95,7 +95,7 @@ namespace Assets.Characters.FirstPersonCharacter.Scripts {
         }
 
         private void OnSceneChange(){
-            if (SceneManager.GetActiveScene().buildIndex == 1){ //if we are in living room scene
+            if (SceneManager.GetActiveScene().buildIndex == 0){ //if we are in living room scene
                 _livingRoomSpawnPos = transform.position;
                 Debug.Log("FPS savedpos at load: " + _livingRoomSpawnPos);
             }

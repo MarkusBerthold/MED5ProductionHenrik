@@ -1,3 +1,0 @@
-,Start of game time,12/09/2016 10:33:01
-,StartCoffeeMachine,12
-END OF FILE

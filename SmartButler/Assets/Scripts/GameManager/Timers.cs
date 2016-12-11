@@ -9,9 +9,8 @@ using UnityEngine.Events;
 namespace Assets.Scripts.Timer{
 	public class Timers : MonoBehaviour{
 
-		int filePathLength09 = 88;
-		int filePathLength1099 = 89;
-
+		int filePathLength09;
+		int filePathLength1099;
 
 		int StartTime,StartCoffeeMachine,GoToRemoteControl,StartRemoteControl,GoToStereo,StartStereo,GoToWallClock,
 		FromApartmentToStereoLevel,FromApartmentToLightLevel,SystemTimer1,SystemTimer2,SystemTimer3,SystemTimer4,SystemTimer5,
@@ -36,8 +35,11 @@ namespace Assets.Scripts.Timer{
 		}
 
 		void Start (){
+
 			starttime = DateTime.Now;
 
+			filePathLength09 = Application.dataPath.Length + 23;
+			filePathLength1099 = Application.dataPath.Length + 24;
 
 			print ("checking if there are any files");
 			if (File.Exists (Application.dataPath + "/TimerLogs/testlog0.txt")) { //does file0 exist?
