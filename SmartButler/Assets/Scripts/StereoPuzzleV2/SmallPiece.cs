@@ -33,7 +33,7 @@ namespace Assets.Scripts.StereoPuzzleV2 {
         /// Lights up material with blue color
         /// </summary>
         public void LightUp(){
-            _renderer.material.color = Color.red;
+            _renderer.material.color = Color.green;
         }
 
         /// <summary>
