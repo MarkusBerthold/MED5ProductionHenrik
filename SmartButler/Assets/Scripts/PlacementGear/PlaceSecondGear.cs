@@ -33,6 +33,14 @@ namespace Assets.Scripts.PlacementGear{
 
         // Update is called once per frame
         private void Update(){
+
+            if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKey(KeyCode.RightAlt) && Input.GetKey(KeyCode.S)) {
+
+                print("Skipped Clock");
+                StartCoroutine(loadscene());
+            }
+
+
             if (_shouldRotate)
                 transform.Rotate(Vector3.forward*Time.deltaTime*40, Space.World);
 
