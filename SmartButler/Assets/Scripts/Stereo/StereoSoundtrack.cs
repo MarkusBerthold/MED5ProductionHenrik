@@ -11,6 +11,7 @@ public class StereoSoundtrack : MonoBehaviour {
 	public AudioSource Kick;
 	public AudioSource Piano;
 	public AudioSource Pad;
+	public AudioSource FallingSource;
 
 	public AudioClip [] pianoclips = new AudioClip[3];
 	public AudioClip [] kickclips = new AudioClip[2];
@@ -40,11 +41,13 @@ public class StereoSoundtrack : MonoBehaviour {
 
 		EventManager.StartListening ("PuzzleIsSolved1", _someListener);
 		EventManager.StartListening ("PuzzleIsSolved2", AddPiano);
+		EventManager.StartListening ("emmafalls", Falling);
 	}
 
 	void OnDisable(){
 		EventManager.StopListening ("PuzzleIsSolved1", _someListener);
 		EventManager.StopListening ("PuzzleIsSolved2", AddPiano);
+		EventManager.StopListening ("emmafalls", Falling);
 	}
 	// Update is called once per frame
 	void Update () {
@@ -85,5 +88,8 @@ public class StereoSoundtrack : MonoBehaviour {
 	public IEnumerator AddPad(){
 		yield return new WaitForSeconds(20);
 		Pad.mute = false;
+	}
+	public void Falling(){
+		FallingSource.Play ();
 	}
 }
