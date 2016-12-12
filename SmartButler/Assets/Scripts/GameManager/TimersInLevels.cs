@@ -27,7 +27,7 @@ public class TimersInLevels : MonoBehaviour {
 		FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
 		AppendFile (newestfilepath,"Game ended early in "+NameOfLevel+Environment.NewLine);
 		AppendFile (newestfilepath,"END OF FILE"+Environment.NewLine);
-		Application.OpenURL("https://pbs.twimg.com/media/CiR4GWnWwAAsYbj.jpg");
+		Application.OpenURL("https://goo.gl/forms/XkUzFTZstiaifsY83");
 		
 	}
 	public void FindNewestFile(string path){ //is only called with file0
