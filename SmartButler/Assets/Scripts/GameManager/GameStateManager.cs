@@ -32,6 +32,8 @@ namespace Assets.Scripts.GameManager {
         private static SceneLoader _stereoLoader;
         private static SceneLoader _lightLoader;
 
+        private GameObject StereoSwitch;
+        private GameObject[] lights;
 
         public static string LightLoaderGameObjectName = "remote";
         public static string StereoLoaderGameObjectName = "speaker";
@@ -133,7 +135,21 @@ namespace Assets.Scripts.GameManager {
                             _soundManager.ShouldListen = false;
                             _LivingRoomsSoundtrack.SetState("Light");
                             StartCoroutine(EndGame());
-                            
+                            StereoSwitch.GetComponent<AudioSource>().volume = 0;
+                            StereoSwitch.GetComponent<AudioSource>().maxDistance = 0;
+
+                            lights = GameObject.FindGameObjectsWithTag("LivingRoomLights");
+                            foreach (GameObject l in lights) {
+                                if (GetComponent<Light>() != null) {
+                                    l.GetComponent<Light>().intensity = 0.6f;
+                                    l.GetComponent<Light>().color = Color.white;
+                                }
+
+                                if (GetComponent<LensFlare>() != null) {
+                                    l.GetComponent<LensFlare>().color = Color.white;
+                                }
+                            }
+
                             goto default;
                         case State.BackFromStereo:
                             _stereoLoader.IsEnterable = false;
@@ -144,6 +160,9 @@ namespace Assets.Scripts.GameManager {
                             _soundManager.StopListening();
                             _soundManager.ShouldListen = false;
                             _LivingRoomsSoundtrack.SetState("Stereo");
+                            StereoSwitch = GameObject.FindGameObjectWithTag("StereoSwitch");
+                            StereoSwitch.GetComponent<AudioSource>().volume = 0;
+                            StereoSwitch.GetComponent<AudioSource>().maxDistance = 0;
                             goto default;
                         default:
                             DayNightController.CurrentTimeOfDay += 0.33333f;

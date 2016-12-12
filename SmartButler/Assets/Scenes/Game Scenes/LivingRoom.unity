@@ -962,7 +962,7 @@ GameObject:
   - 114: {fileID: 168067488}
   m_Layer: 0
   m_Name: 'Point light actual '
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1829,7 +1829,7 @@ GameObject:
   - 114: {fileID: 282406078}
   m_Layer: 0
   m_Name: StereoSwitch
-  m_TagString: Untagged
+  m_TagString: StereoSwitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2406,7 +2406,7 @@ GameObject:
   - 114: {fileID: 350080853}
   m_Layer: 0
   m_Name: Point light
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3063,7 +3063,7 @@ GameObject:
   - 114: {fileID: 462356535}
   m_Layer: 0
   m_Name: Point light (7)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4548,7 +4548,7 @@ GameObject:
   - 114: {fileID: 697609696}
   m_Layer: 0
   m_Name: 'Point light actual '
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5138,7 +5138,7 @@ GameObject:
   - 114: {fileID: 745916305}
   m_Layer: 0
   m_Name: Point light (1)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6114,7 +6114,7 @@ GameObject:
   - 114: {fileID: 935964393}
   m_Layer: 0
   m_Name: Point light (6)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6837,7 +6837,7 @@ GameObject:
   - 114: {fileID: 1089937616}
   m_Layer: 0
   m_Name: Point light (2)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7102,7 +7102,7 @@ GameObject:
   - 108: {fileID: 1165606771}
   m_Layer: 0
   m_Name: Directional Light
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7737,7 +7737,7 @@ GameObject:
   - 114: {fileID: 1262384609}
   m_Layer: 0
   m_Name: Point light (5)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -7794,7 +7794,7 @@ GameObject:
   - 114: {fileID: 1283563231}
   m_Layer: 0
   m_Name: Point light (4)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8032,7 +8032,7 @@ GameObject:
   - 114: {fileID: 1311322673}
   m_Layer: 0
   m_Name: Point light (7)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8088,7 +8088,7 @@ GameObject:
   - 108: {fileID: 1313486056}
   m_Layer: 0
   m_Name: Point light
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -11005,7 +11005,7 @@ GameObject:
   - 114: {fileID: 1553981583}
   m_Layer: 0
   m_Name: Point light (1)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -11778,7 +11778,7 @@ GameObject:
   - 114: {fileID: 1776921150}
   m_Layer: 0
   m_Name: Point light (4)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -12415,7 +12415,7 @@ GameObject:
   - 114: {fileID: 1876980192}
   m_Layer: 0
   m_Name: Point light (6)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -12472,7 +12472,7 @@ GameObject:
   - 114: {fileID: 1891674287}
   m_Layer: 0
   m_Name: Point light (2)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -12967,7 +12967,7 @@ GameObject:
   - 114: {fileID: 1989893391}
   m_Layer: 0
   m_Name: Point light (5)
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13054,7 +13054,7 @@ GameObject:
   - 114: {fileID: 2013469034}
   m_Layer: 0
   m_Name: Point light
-  m_TagString: Untagged
+  m_TagString: LivingRoomLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
