@@ -38,6 +38,12 @@ public class DrumSounds : MonoBehaviour {
 
 		tpc = FindObjectOfType<ThirdPersonCharacter> ();
 
+		DrumsAudioSource.volume = 0.5f;
+		OrganAudioSource.volume = 0.5f;
+		KalimbaAudioSource.volume = 0.5f;
+		LightpadAudioSource.volume = 0.5f;
+
+		StartCoroutine (TurnUp());
 
 	}
 	
@@ -87,6 +93,15 @@ public class DrumSounds : MonoBehaviour {
 		OrganAudioSource.Stop ();
 		LightpadAudioSource.Stop ();
 		}
+
+	IEnumerator TurnUp(){
+		yield return new WaitForSeconds (10);
+		DrumsAudioSource.volume = 1;
+		OrganAudioSource.volume = 1;
+		KalimbaAudioSource.volume = 1;
+		LightpadAudioSource.volume = 1;
+
+	}
 	public void OnEmmaCollision(){
 		emmaCollides.Play ();
 		
@@ -100,4 +115,6 @@ public class DrumSounds : MonoBehaviour {
 		EventManager.StopListening ("respawn",_someListener);
 		EventManager.StopListening ("emmacollides",OnEmmaCollision);
 	}
+
+
 	}
