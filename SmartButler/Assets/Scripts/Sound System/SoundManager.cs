@@ -97,12 +97,14 @@ namespace Assets.Scripts.Sound_System{
 
 
 				//play cues
-				for (var j = 0; j < Arrayofstates [_state].AmountOfCues; j++)
-					if (!AudioSource.isPlaying && !Arrayofstates [_state].StateCuesBeenPlayed [j] && _introsHasBeenPlayed) {
+				for (var i = 0; i < Arrayofstates [_state].AmountOfCues; i++)
+					if (!AudioSource.isPlaying && !Arrayofstates [_state].StateCuesBeenPlayed [i] && _introsHasBeenPlayed) {
 						int rand = (int)(10 * UnityEngine.Random.Range (0.0f, (Arrayofstates [_state].AmountOfCues / 10f)));
 						AudioSource.clip = Arrayofstates [_state].StateCues [rand];
 						AudioSource.Play ();
-						Arrayofstates [_state].StateCuesBeenPlayed [j] = true;
+						for(int j = 0; j < Arrayofstates[_state].AmountOfCues; j++){
+							Arrayofstates [_state].StateCuesBeenPlayed [j] = true;
+						}
 						if (!doOncePerState) {
 							StartCoroutine (coroutines [_state]);
 							doOncePerState = true;

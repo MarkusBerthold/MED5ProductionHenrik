@@ -456,7 +456,7 @@ namespace Assets.Scripts.Timer{
 				AppendFile (newestfilepath,"END OF FILE"+Environment.NewLine);
 			}
 
-			Application.OpenURL("https://pbs.twimg.com/media/CiR4GWnWwAAsYbj.jpg");
+			//Application.OpenURL("https://pbs.twimg.com/media/CiR4GWnWwAAsYbj.jpg");
 
 		}
 	}
