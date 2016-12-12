@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using Assets.Scripts.MessageingSystem;
 using UnityEngine.Events;
+using System.Globalization;
 
 
 namespace Assets.Scripts.Timer{
@@ -81,7 +82,7 @@ namespace Assets.Scripts.Timer{
 					}
 
 					print ("creating a new file at "+newPathToAppend);
-					WriteNewFile (newPathToAppend, "Start of game time," + TotalSystemTimeSeconds(starttime)+" "+DateTime.Now.ToString() + Environment.NewLine);
+					WriteNewFile (newPathToAppend, "Start of game time," + TotalSystemTimeSeconds(starttime)+" "+DateTime.Now.ToString(new CultureInfo("en-GB")) + Environment.NewLine);
 				}else if (newestfilelines [newestfilelines.Length-1].StartsWith("LEFT FOR CLOCK")) { //read the last line, does it start with LEFT FOR CLOCK?
 					print ("it ends in LEFT FOR CLOCK");
 					BackFromClock (); // we had left for clock, and now we are back
@@ -100,7 +101,7 @@ namespace Assets.Scripts.Timer{
 				//print("initial starttime: "+TotalSystemTimeSeconds(starttime));
 				_someListener = Coffee;
 				print ("there were no files, making file0");
-				WriteNewFile (Application.dataPath + "/TimerLogs/testlog0.txt", "Start of game time," + TotalSystemTimeSeconds( starttime)+" "+DateTime.Now.ToString() + Environment.NewLine); //create file0
+				WriteNewFile (Application.dataPath + "/TimerLogs/testlog0.txt", "Start of game time," + TotalSystemTimeSeconds( starttime)+" "+DateTime.Now.ToString(new CultureInfo("en-GB")) + Environment.NewLine); //create file0
 			}
 		}
 
@@ -412,22 +413,25 @@ namespace Assets.Scripts.Timer{
 		}
 
 		public int SystemTimeHours(DateTime datetime){
-			string firstcut = datetime.ToString();
+			string firstcut = datetime.ToString(new CultureInfo("en-GB"));
 			string secondcut = firstcut.Substring (11,2); //extract hours, should work every time
 
+			print ("input "+datetime.ToString(new CultureInfo("en-GB")));
+			print ("cutting at 11, 2 steps");
 
+			print ("trying to parse "+secondcut);
 			return int.Parse(secondcut); //convert string to int, 07 -> 7, 00 ->0 et.c
 		}
 
 		public int SystemTimeMinutes(DateTime datetime){
-			string firstcut = datetime.ToString();
+			string firstcut = datetime.ToString(new CultureInfo("en-GB"));
 			string secondcut = firstcut.Substring (14,2);
 
 
 			return int.Parse(secondcut);
 		}
 		public int SystemTimeSeconds(DateTime datetime){
-			string firstcut = datetime.ToString();
+			string firstcut = datetime.ToString(new CultureInfo("en-GB"));
 			string secondcut = firstcut.Substring (17,2);
 
 			return int.Parse(secondcut);
