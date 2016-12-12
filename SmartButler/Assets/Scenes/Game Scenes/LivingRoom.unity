@@ -569,7 +569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssociatedObject: 0100000003000000
   RotationAxisChoice: 2
-  Sensitivity: 1
+  Sensitivity: 5
 --- !u!64 &158914643
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2536,7 +2536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssociatedObject: 0000000001000000
   RotationAxisChoice: 1
-  Sensitivity: 1
+  Sensitivity: 5
 --- !u!23 &351099566
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13547,7 +13547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AssociatedObject: 0200000000000000
   RotationAxisChoice: 2
-  Sensitivity: 3
+  Sensitivity: 5
 --- !u!23 &2122894688
 MeshRenderer:
   m_ObjectHideFlags: 0
