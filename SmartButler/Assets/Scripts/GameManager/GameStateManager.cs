@@ -9,6 +9,7 @@ using Assets.Scripts.MessageingSystem;
 using Assets.Scripts.Sound_System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.Controllers;
 
 namespace Assets.Scripts.GameManager {
     public class GameStateManager : MonoBehaviour {
@@ -43,6 +44,8 @@ namespace Assets.Scripts.GameManager {
 
         //public static BroadcastSpeaker _BroadcastSpeaker;
         public static LivingRoomSoundtrack _LivingRoomsSoundtrack;
+
+		public static StereoSwitcher _StereoSwitcher;
 
         private static Highlighter _wallClockHighlighter;
         public static string WallClockHighlighterObjectName = "wallClock_centerFace";
@@ -144,6 +147,7 @@ namespace Assets.Scripts.GameManager {
                             _soundManager.StopListening();
                             _soundManager.ShouldListen = false;
                             _LivingRoomsSoundtrack.SetState("Stereo");
+							_StereoSwitcher.setBroken (true);
                             goto default;
                         default:
                             DayNightController.CurrentTimeOfDay += 0.33333f;
@@ -198,18 +202,22 @@ namespace Assets.Scripts.GameManager {
 
             _wallClockHighlighter = GameObject.Find(WallClockHighlighterObjectName).GetComponent<Highlighter>();
 
+			_StereoSwitcher = FindObjectOfType<StereoSwitcher>();
+
+
             Debug.Log("Loaders Loaded: " +
                       (_lightLoader & _stereoLoader & _clockLoader & _soundManager & _LivingRoomsSoundtrack &
-                       _wallClockHighlighter));
+					_wallClockHighlighter & _StereoSwitcher));
 
             return _lightLoader & _stereoLoader & _clockLoader & DayNightController & _soundManager &
-                   _LivingRoomsSoundtrack & _wallClockHighlighter;
+				_LivingRoomsSoundtrack & _wallClockHighlighter & _StereoSwitcher;
         }
 
        IEnumerator EndGame()
        {
            yield return new WaitForSeconds(10);
 			Application.Quit ();
+
        }
     }
 }
