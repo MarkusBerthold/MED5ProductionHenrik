@@ -72,7 +72,11 @@ namespace Assets.Scripts.ThoughtBoxes{
 			_uiCanvas.worldCamera = Camera.main;
 			CloseThoughtBox ();
 
-			StartCoroutine (StartRadioTalker ());
+			if (WaitForBroadcast) {
+				StartCoroutine (StartRadioTalker ());
+			} else {
+				ClickEnterPanel.SetActive (true);
+			}
 
 		}
 		IEnumerator StartRadioTalker(){
