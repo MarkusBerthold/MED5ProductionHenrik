@@ -111,7 +111,7 @@ namespace Assets.Scripts.ThoughtBoxes{
 		// Update is called once per frame
 		private void Update(){
 
-			if( Input.GetKeyDown( KeyCode.Return ) )
+			if( Input.GetKeyDown( KeyCode.Return )&& ClickEnterPanel.activeInHierarchy)
 				CloseThoughtBox();
 
 

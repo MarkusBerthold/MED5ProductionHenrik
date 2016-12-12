@@ -5803,6 +5803,7 @@ MonoBehaviour:
   onEnter2: This whole structure of things connected to the internet.
   onExit1: Well I really hope that not every device in my home is broken now.
   onExit2: It could be anything in my home that has the ability to transfer data.
+  onExit3: 
   isLightLevel: 0
 --- !u!1 &758175986
 GameObject:
@@ -11917,6 +11918,15 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013539084786, guid: c9e021b0e58c541d2be8e1235c82023a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013666199892, guid: c9e021b0e58c541d2be8e1235c82023a,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -707
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9e021b0e58c541d2be8e1235c82023a, type: 2}
