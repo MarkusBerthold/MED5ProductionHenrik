@@ -37,6 +37,8 @@ TagManager:
   - MainDirectionalLight
   - PauseMenu
   - PrologueBox
+  - StereoSwitch
+  - LivingRoomLights
   layers:
   - Default
   - TransparentFX
