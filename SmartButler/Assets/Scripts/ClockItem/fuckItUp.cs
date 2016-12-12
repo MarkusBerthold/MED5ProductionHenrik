@@ -11,11 +11,13 @@ namespace Assets.Scripts.ClockItem
 
         public GameObject wallClock;
 
+        private bool DoOnce;
+
         // Use this for initialization
         void Start()
         {
+            DoOnce = false;
 
-            
 
         }
 
@@ -25,8 +27,9 @@ namespace Assets.Scripts.ClockItem
 
             print("fucked it up1");
 
-            if (this.tag == "Speaker")
+            if (this.tag == "Speaker" && !DoOnce)
             {
+                DoOnce = true;
 
                 wallClockGearsZ = wallClock.GetComponentsInChildren<gearRotationZaxis>();
                 wallClockGearsY = wallClock.GetComponentsInChildren<GearRotationYAxis>();

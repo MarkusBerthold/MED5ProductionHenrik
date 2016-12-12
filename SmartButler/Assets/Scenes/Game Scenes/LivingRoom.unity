@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98034c42cf4494dc49d962fe479adf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotspeed: 0
+  Rotspeed: -8
 --- !u!1 &89901396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,7 +2715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e69308d8c0e1034ba23688a687aa3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotspeed: 3
+  Rotspeed: -12
 --- !u!1 &364575631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,6 +3283,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24987935, y: 0.5285784, z: 0.22273865}
   m_Center: {x: 0.000000022351742, y: 0.2642892, z: 0}
+--- !u!1 &583674048 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100018, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
+  m_PrefabInternal: {fileID: 1255892002}
 --- !u!1 &587315248
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,7 +5400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e69308d8c0e1034ba23688a687aa3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotspeed: -3
+  Rotspeed: -7
 --- !u!1 &801247802
 GameObject:
   m_ObjectHideFlags: 0
@@ -7095,7 +7099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e69308d8c0e1034ba23688a687aa3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotspeed: 3
+  Rotspeed: 5
 --- !u!1 &1204158836
 GameObject:
   m_ObjectHideFlags: 0
@@ -7594,19 +7598,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1
+      value: 0.99770045
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.067777604
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
+      value: 187.56299
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7618,7 +7622,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 553700709e4d5ad4f949876e34895fa6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -10254,7 +10258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98034c42cf4494dc49d962fe479adf01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rotspeed: 0
+  Rotspeed: 18
 --- !u!1 &1496475903
 GameObject:
   m_ObjectHideFlags: 0
@@ -12153,6 +12157,7 @@ GameObject:
   - 114: {fileID: 1855487049}
   - 64: {fileID: 1855487051}
   - 114: {fileID: 1855487053}
+  - 114: {fileID: 1855487054}
   m_Layer: 0
   m_Name: speaker_onoffButton
   m_TagString: Speaker
@@ -12248,6 +12253,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _coffeAudioSource: {fileID: 0}
+--- !u!114 &1855487054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1855487047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113fee32d06c38c4b9ad2056b71710e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallClock: {fileID: 583674048}
 --- !u!1 &1873773800
 GameObject:
   m_ObjectHideFlags: 0
@@ -13426,6 +13443,7 @@ GameObject:
   - 114: {fileID: 2122894687}
   - 114: {fileID: 2122894689}
   - 64: {fileID: 2122894691}
+  - 114: {fileID: 2122894692}
   m_Layer: 0
   m_Name: speaker_volumeKnob
   m_TagString: Speaker
@@ -13523,6 +13541,18 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 4300000, guid: 8c0d37483d318ec42ab6004dbb5813d0, type: 3}
+--- !u!114 &2122894692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2122894685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 113fee32d06c38c4b9ad2056b71710e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallClock: {fileID: 583674048}
 --- !u!1 &2145881644 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100016, guid: 820b2c6e573e54842ad2f3773fe5c215, type: 3}
