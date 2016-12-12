@@ -30,10 +30,6 @@ namespace Assets.Scripts.Controllers {
         public bool Broken{
             get { return _broken; }
         }
-		public void setBroken(bool x){
-			_broken = x;
-		}
-
 
         private void Awake(){
             if (Instance != null && Instance != this)
@@ -83,11 +79,9 @@ namespace Assets.Scripts.Controllers {
                 if (Broken){
                   //  Debug.Log("stereo rotaters angle: " + objectRotaters[_currentlyActiveRotater].CurrentAngle);
                     Controller.ChangePitch(objectRotaters[_currentlyActiveRotater].CurrentAngle);
-					print ("stereo is broken");
                 }
                 else{
                     Controller.ChangeVolume(objectRotaters[_currentlyActiveRotater].CurrentAngle/ 360);
-					print ("stereo is not broken");
                 }
             }
         }
