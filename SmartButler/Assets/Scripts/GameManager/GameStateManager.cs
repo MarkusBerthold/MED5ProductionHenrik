@@ -139,14 +139,16 @@ namespace Assets.Scripts.GameManager {
                             StereoSwitch.GetComponent<AudioSource>().maxDistance = 0;
 
                             lights = GameObject.FindGameObjectsWithTag("LivingRoomLights");
-                            foreach (GameObject l in lights) {
+                            for (int i = 0; i < lights.Length; i++) {
+                                print("Found " + lights[i]);
+                                
                                 if (GetComponent<Light>() != null) {
-                                    l.GetComponent<Light>().intensity = 0.6f;
-                                    l.GetComponent<Light>().color = Color.white;
+                                    lights[i].GetComponent<Light>().intensity = 0.6f;
+                                    lights[i].GetComponent<Light>().color = Color.white;
                                 }
 
                                 if (GetComponent<LensFlare>() != null) {
-                                    l.GetComponent<LensFlare>().color = Color.white;
+                                    lights[i].GetComponent<LensFlare>().color = Color.white;
                                 }
                             }
 
