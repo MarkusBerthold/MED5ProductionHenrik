@@ -32,9 +32,13 @@ namespace Assets.Scripts.Timer{
 
 		private void Awake(){
 			//_someListener = Coffee;
+			if (!System.IO.Directory.Exists (Application.dataPath + "/TimerLogs/")) {
+				System.IO.Directory.CreateDirectory (Application.dataPath + "/TimerLogs/");
+			}
 		}
 
 		void Start (){
+
 
 			starttime = DateTime.Now;
 

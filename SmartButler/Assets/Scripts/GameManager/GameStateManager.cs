@@ -206,10 +206,10 @@ namespace Assets.Scripts.GameManager {
                    _LivingRoomsSoundtrack & _wallClockHighlighter;
         }
 
-        IEnumerator EndGame()
-        {
-            yield return new WaitForSeconds(10);
-            AutoFade.LoadLevel(0, 1, 1, Color.black);
-        }
+       IEnumerator EndGame()
+       {
+           yield return new WaitForSeconds(10);
+			Application.Quit ();
+       }
     }
 }
