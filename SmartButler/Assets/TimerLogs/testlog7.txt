@@ -2,3 +2,9 @@
 ,StartCoffeeMachine,103
 ,Game ended early
 ,END OF FILE
+,Game ended early in Clock
+,END OF FILE
+,Game ended early in Clock
+,END OF FILE
+,Game ended early in Clock
+,END OF FILE

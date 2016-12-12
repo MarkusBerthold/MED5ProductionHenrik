@@ -22,6 +22,8 @@ namespace Assets.Scripts.PlacementGear{
 
 		public GameObject IoTFact;
 
+
+
         // Use this for initialization
         private void Start(){
             _connected = false;
@@ -38,6 +40,7 @@ namespace Assets.Scripts.PlacementGear{
 
                 print("Skipped Clock");
                 StartCoroutine(loadscene());
+				IoTFact.GetComponent<IoTFacts> ().PlayOnExit1 ();
             }
 
 
@@ -64,7 +67,7 @@ namespace Assets.Scripts.PlacementGear{
                     TransparentCog.GetComponent<Renderer>().enabled = false;
 
 					StartCoroutine (loadscene());
-					IoTFact.GetComponent<IoTFacts> ().PlayOnExit ();
+					IoTFact.GetComponent<IoTFacts> ().PlayOnExit1 ();
 
                     if (_doOnce){
                         Placeable.transform.Rotate(90, 0, 0);
@@ -75,7 +78,7 @@ namespace Assets.Scripts.PlacementGear{
         }
 
 		IEnumerator loadscene(){
-			yield return new WaitForSeconds (5);
+			yield return new WaitForSeconds (10);
 			_sceneLoader.LoadScene();
 		}
 

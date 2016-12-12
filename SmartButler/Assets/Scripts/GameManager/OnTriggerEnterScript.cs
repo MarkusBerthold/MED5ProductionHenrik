@@ -18,6 +18,6 @@ public class OnTriggerEnterScript : MonoBehaviour {
 
 
 	void OnTriggerEnter(){
-		IoTFact.GetComponent<IoTFacts> ().PlayOnExit ();
+		IoTFact.GetComponent<IoTFacts> ().PlayOnExit1 ();
 	}
 }

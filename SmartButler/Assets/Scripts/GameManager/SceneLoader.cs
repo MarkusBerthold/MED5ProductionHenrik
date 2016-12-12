@@ -23,7 +23,9 @@ namespace Assets.Scripts.GameManager {
 
         public Scene TargetScene;
 
-		private int delaytime = 5;
+		private int delaytime = 10;
+		private int delaytimeLight = 15;
+
 
         private void Start(){
             _loading = false;
@@ -42,7 +44,7 @@ namespace Assets.Scripts.GameManager {
         private void OnTriggerEnter(Collider coll){
 			delaytime = 7;
             if (coll.gameObject.tag == "Player" || coll.gameObject.tag == "ThirdPerson")
-				LoadSceneDelayed();
+				LoadSceneDelayedLightLevel();
         }
 
         /// <summary>
@@ -61,8 +63,16 @@ namespace Assets.Scripts.GameManager {
 
 			StartCoroutine (DelayedLoadNewScene());
 		}
+		public void LoadSceneDelayedLightLevel (){
+			StartCoroutine (DelayedLoadNewSceneLight());
+		}
 		private IEnumerator DelayedLoadNewScene(){
 			yield return new WaitForSeconds (delaytime);
+			StartCoroutine(LoadNewScene());
+		}
+
+		private IEnumerator DelayedLoadNewSceneLight(){
+			yield return new WaitForSeconds (delaytimeLight);
 			StartCoroutine(LoadNewScene());
 		}
         private IEnumerator LoadNewScene(){

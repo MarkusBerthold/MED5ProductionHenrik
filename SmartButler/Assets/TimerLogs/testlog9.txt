@@ -1,0 +1,9 @@
+,Start of game time,59101 12/12/2016 16:25:01
+,Game ended early
+,END OF FILE
+,Game ended early in Light
+,END OF FILE
+,Game ended early in Light
+,END OF FILE
+,Game ended early in Stereo
+,END OF FILE
