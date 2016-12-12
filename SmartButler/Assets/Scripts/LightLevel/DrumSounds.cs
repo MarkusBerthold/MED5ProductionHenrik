@@ -38,10 +38,10 @@ public class DrumSounds : MonoBehaviour {
 
 		tpc = FindObjectOfType<ThirdPersonCharacter> ();
 
-		DrumsAudioSource.volume = 0.5f;
-		OrganAudioSource.volume = 0.5f;
-		KalimbaAudioSource.volume = 0.5f;
-		LightpadAudioSource.volume = 0.5f;
+		DrumsAudioSource.volume = 0.4f;
+		OrganAudioSource.volume = 0.4f;
+		KalimbaAudioSource.volume = 0.4f;
+		LightpadAudioSource.volume = 0.4f;
 
 		StartCoroutine (TurnUp());
 
