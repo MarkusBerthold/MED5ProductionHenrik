@@ -1,11 +1,11 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartButler.Plugins", "SmartButler.Plugins.csproj", "{AAAA4AD9-293B-5F6C-2E64-870167ED3EED}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{EB4CC1B6-6A0C-88A7-24EC-8CD92A45BD70}") = "SmartButler", "Assembly-CSharp-firstpass.csproj", "{895981F6-92C3-8411-485D-161CCDDDBFE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartButler", "SmartButler.csproj", "{01A208C2-97AB-D2F8-CEBC-17B4EF78B0F8}"
+Project("{EB4CC1B6-6A0C-88A7-24EC-8CD92A45BD70}") = "SmartButler", "Assembly-CSharp.csproj", "{4D3FBC1B-B88B-BBAA-CAF5-D3D07669370A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartButler.Editor", "SmartButler.Editor.csproj", "{ABD8B6A6-30EB-6605-5AC1-C08FED1D7385}"
+Project("{EB4CC1B6-6A0C-88A7-24EC-8CD92A45BD70}") = "SmartButler", "Assembly-CSharp-Editor.csproj", "{A2057B45-C59C-1532-1FA5-74BDF2AA7892}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,20 +13,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AAAA4AD9-293B-5F6C-2E64-870167ED3EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AAAA4AD9-293B-5F6C-2E64-870167ED3EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AAAA4AD9-293B-5F6C-2E64-870167ED3EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AAAA4AD9-293B-5F6C-2E64-870167ED3EED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01A208C2-97AB-D2F8-CEBC-17B4EF78B0F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01A208C2-97AB-D2F8-CEBC-17B4EF78B0F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01A208C2-97AB-D2F8-CEBC-17B4EF78B0F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01A208C2-97AB-D2F8-CEBC-17B4EF78B0F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABD8B6A6-30EB-6605-5AC1-C08FED1D7385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABD8B6A6-30EB-6605-5AC1-C08FED1D7385}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABD8B6A6-30EB-6605-5AC1-C08FED1D7385}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABD8B6A6-30EB-6605-5AC1-C08FED1D7385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{895981F6-92C3-8411-485D-161CCDDDBFE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{895981F6-92C3-8411-485D-161CCDDDBFE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{895981F6-92C3-8411-485D-161CCDDDBFE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{895981F6-92C3-8411-485D-161CCDDDBFE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D3FBC1B-B88B-BBAA-CAF5-D3D07669370A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D3FBC1B-B88B-BBAA-CAF5-D3D07669370A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D3FBC1B-B88B-BBAA-CAF5-D3D07669370A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D3FBC1B-B88B-BBAA-CAF5-D3D07669370A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2057B45-C59C-1532-1FA5-74BDF2AA7892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2057B45-C59C-1532-1FA5-74BDF2AA7892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2057B45-C59C-1532-1FA5-74BDF2AA7892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2057B45-C59C-1532-1FA5-74BDF2AA7892}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
