@@ -1,0 +1,13 @@
+investigate these time logs to see if they used a lot of time completing the game. 
+Maybe that is the explanation why they gave poor qualitative answers: 05, 16, 18, 22, 30.
+
+Extracting issues: 3, 8, 37
+
+missing log files from test participant:
+26, 28, 32
+
+broken log files from test participant:
+4, 9, 11, 24, 25, 29, 30, 35
+
+multiple log files/might be broken from test participant:
+15, 20, 27, 31
