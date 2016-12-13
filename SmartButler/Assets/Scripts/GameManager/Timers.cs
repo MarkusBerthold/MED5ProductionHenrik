@@ -317,6 +317,7 @@ namespace Assets.Scripts.Timer{
 
 		public void ClickedStereo(){
 			if (state == 7) {
+				state = 8;
 				SystemTimer3 = TotalSystemTimeSeconds (DateTime.Now);
 				AppendFile (newestfilepath, "SystemTimer3," + SystemTimer3 + Environment.NewLine);
 				int FromApartmentToStereo = TotalSystemTimeSeconds (DateTime.Now) - SystemTimer2;
@@ -326,7 +327,7 @@ namespace Assets.Scripts.Timer{
 
 
 		public void BackFromStereo(){
-			state = 8;
+			state = 9;
 			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
 
 			int lengthoflastlinenumbers = (newestfilelines [newestfilelines.Length - 1].Length)-19;
@@ -339,8 +340,8 @@ namespace Assets.Scripts.Timer{
 		}
 
 		public void ClickedRemote(){
-			if (state == 8) {
-				state = 9;
+			if (state == 9) {
+				state = 10;
 				SystemTimer5 = TotalSystemTimeSeconds (DateTime.Now);
 				AppendFile (newestfilepath, "SystemTimer5," + SystemTimer5 + Environment.NewLine);
 				int FromApartmentToLight = TotalSystemTimeSeconds (DateTime.Now) - SystemTimer4;
@@ -349,7 +350,7 @@ namespace Assets.Scripts.Timer{
 		}
 
 		public void BackFromLight(){
-			state = 10;
+			state = 11;
 			FindNewestFile (Application.dataPath + "/TimerLogs/testlog0.txt");
 
 			int lengthoflastlinenumbers = (newestfilelines [newestfilelines.Length - 1].Length)-18;
