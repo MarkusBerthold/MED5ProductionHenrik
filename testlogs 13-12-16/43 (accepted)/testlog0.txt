@@ -1,0 +1,14 @@
+,Start of game time,44470 14/12/2016 12:21:10
+,StartCoffeeMachine,36
+,GoToRemoteControl,71
+,StartRemoteControl,8
+,GoToStereo,45
+,StartStereo,20
+,GoToWallClock,7
+,TimeInClockLevel,374
+,FromApartmentToStereo,22
+,TimeInStereoLevel,407
+,FromApartmentToLight,30
+,TimeInLightLevel,45
+,TotalTimeInGame,1065
+,END OF FILE
